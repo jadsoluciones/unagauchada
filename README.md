@@ -1,16 +1,16 @@
 # Git
-#### Primero
+### Primero
 Hay que clonar el repositorio y agregar el repo como remote.
 ``` sh
 $ git clone https://github.com/jadsoluciones/unagauchada.git
 $ git remote add origin https://github.com/jadsoluciones/unagauchada.git
 $ git remote -v # para ver si lo agrego bien
 origin	https://github.com/jadsoluciones/unagauchada.git (fetch)
-origin	https://github.com/jadsoluciones/unagauchada.git (push) #si falta esta es porque no tenes permiso para pushear
+origin	https://github.com/jadsoluciones/unagauchada.git (push) #si falta esta es porque no tenés permiso para pushear
 ``` 
-Va a crear una carpeta unagauchada en la carpeta donde este parada la consola.
-#### Antes de trabajar
-Hay que actulalizar el codigo local con el del repo. La primera vez no tiene sentido porque el clone ya esta actualizado
+Va a crear una carpeta unagauchada en la carpeta dónde esté parada la consola.
+### Antes de trabajar
+Hay que actualizar el código local con el del repo. La primera vez no tiene sentido porque el clone ya está actualizado
 ``` sh
 $ git pull origin master
 ``` 
@@ -21,14 +21,14 @@ $ git branch #para ver las ramas actuales
 $ git branch augusto #para crear la rama augusto
 $ git checkout augusto #para pararse en la rama augusto
 ``` 
-Los ultimos dos comandos se pueden cambiar por uno solo  que es
+Los últimos dos comandos se pueden cambiar por uno solo  que es
 ``` sh
 $ git checkout -b augusto #crea y se para
 ``` 
 ###### Igual lo de crear la rama se hace una vez, fue un dato nomas.
 
-Cuando visualizas las ramas con `git branch` el asterisco indica en cual estas parado.
-#### Manqueando
+Cuando visualizas las ramas con `git branch` el asterisco indica en cuál estás parado.
+### Manqueando
 Ahora ya se puede empezar a editar, **es importante no tocar archivos que no sean nuestros**, si hay que cambiar algo ajeno se guarda lo que hicimos y se espera a que el encargado de esa parte lo cambie.
 
 Si ya terminamos con la partecita de código cambiada (creo que máximo una historia de usuario) hay que guardar los cambios. Para tener un mapeo de qué cambiamos hacemos
@@ -47,7 +47,7 @@ Cambios no preparados para el commit:
 
 no hay cambios agregados al commit (use «git add» o «git commit -a»)
 ```
-El `git status` imprime algo así (si hacen `git diff` ). Detecta los cambios pero dice que no esta preparado para el commit porque lo edité pero todavía no lo agregué. Para agregarlo se puede hacer:
+El `git status` imprime algo así (si hacen `git diff` se ven las lineas de código también). Detecta los cambios pero dice que no esta preparado para el commit porque lo edité pero todavía no lo agregué. Para agregarlo se puede hacer:
 ```sh
 $ git add README.md # agrega el archivo sólo
 ```
@@ -68,19 +68,19 @@ Entonces cada vez que creamos algo tenemos que hacer `git add .`y `git commit -m
 ```sh
 $ git commit -a -m 'Actualizado el README'
 ```
-#### Para subirlo
+### Para subirlo
 Ahora queda la parte que puede fallar, la de meterlo en el repo. Para esto hay que hacer un `merge` con la rama master. Entonces nos paramos en la rama master, solicitamos un `merge` con nuestra rama y si todo da ok la subimos. Si nada falla
 sería:
 ``` sh
 $ git checkout master # entramos a master
-$ git merge augusto # master <-- augusto
+$ git merge augusto # master + augusto
 $ git push origin master #lo sube
 ```
 Lo que puede pasar es que alguien haya mergeado mientras nosotros editabamos entonces nuestra master estaría desactualizada. Ni bien hacemos el `checkout master` la consola te dice si está actualizada o no. Esto se soluciona muy facil con `git pull origin master`. El tema es que si lo editado por otro pisa con lo que editamos nosotros, habrá que hablar con Lucas. 
 
 **Ahora están parados en la rama master, si van a seguir editando no hay que olvidarse de pasar a la de cada uno porque sino es un quilombo**.
 
-#### Resumen
+### Resumen
 
 Una vez que ya está todo configurado los pasos para editar son
 ```sh
@@ -92,4 +92,5 @@ $ git commit -a -m 'Mensaje de commit'
 $ git checkout master # si dice que esta desactualizada-> git pull origin master
 $ git merge augusto
 $ git push origin master
+$ git checkout augusto # para que quede ahí y no olvidarse
 ```
