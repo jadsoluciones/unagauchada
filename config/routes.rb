@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :gauchadas
   resources :logros
   resources :logros
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,33 @@
+<%= form_for(@gauchada) do |f| %>
+  <% if @gauchada.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@gauchada.errors.count, "error") %> prohibited this gauchada from being saved:</h2>
+
+      <ul>
+      <% @gauchada.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br>
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :imagen %><br>
+    <%= f.text_field :imagen %>
+  </div>
+  <div class="field">
+    <%= f.label :ciudad %><br>
+    <%= f.text_field :ciudad %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

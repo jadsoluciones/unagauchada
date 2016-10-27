@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @gauchada.titulo %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @gauchada.descripcion %>
+</p>
+
+<p>
+  <strong>Imagen:</strong>
+  <%= @gauchada.imagen %>
+</p>
+
+<p>
+  <strong>Ciudad:</strong>
+  <%= @gauchada.ciudad %>
+</p>
+
+<%= link_to 'Edit', edit_gauchada_path(@gauchada) %> |
+<%= link_to 'Back', gauchadas_path %>
