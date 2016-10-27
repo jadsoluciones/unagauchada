@@ -1,29 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Logros</h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-lg-6 col-sm-offset-2 col-lg-offset-3">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading"><h1>Logros</h1></div>
+      <!-- <div class="panel-body">
+        <p>...</p>
+      </div> -->
 
-<table>
-  <thead>
-    <tr>
-      <th>Titulo</th>
-      <th>Puntaje</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <!-- Table -->
+      
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Titulo</th>
+            <th>Puntaje</th>
+            <th colspan="3" class="boton"><%= link_to 'Agregar', new_logro_path, class: 'btn btn-success' %></th>
+          </tr>
+        </thead>
+        
+        <tbody>          
+          <% @logros.each do |logro| %>
+            <tr>
+              <td><%= logro.titulo %></td>
+              <td><%= logro.puntaje %></td>
+              <td class="boton"><%= link_to 'Ver', logro, class: 'btn btn-primary' %></td>
+              <td class="boton"><%= link_to 'Editar', edit_logro_path(logro), class:'btn btn-info' %></td>
+              <td class="boton"><%= link_to 'Destroy', logro, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+  </div>
+</div>
 
-  <tbody>
-    <% @logros.each do |logro| %>
-      <tr>
-        <td><%= logro.titulo %></td>
-        <td><%= logro.puntaje %></td>
-        <td><%= link_to 'Show', logro %></td>
-        <td><%= link_to 'Edit', edit_logro_path(logro) %></td>
-        <td><%= link_to 'Destroy', logro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Logro', new_logro_path %>
