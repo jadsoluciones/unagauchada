@@ -18,7 +18,11 @@ class LogrosControllerTest < ActionController::TestCase
 
   test "should create logro" do
     assert_difference('Logro.count') do
+<<<<<<< HEAD
       post :create, logro: { rango: @logro.rango, titulo: @logro.titulo }
+=======
+      post :create, logro: { puntaje: @logro.puntaje, titulo: @logro.titulo }
+>>>>>>> augusto
     end
 
     assert_redirected_to logro_path(assigns(:logro))
@@ -35,7 +39,11 @@ class LogrosControllerTest < ActionController::TestCase
   end
 
   test "should update logro" do
+<<<<<<< HEAD
     patch :update, id: @logro, logro: { rango: @logro.rango, titulo: @logro.titulo }
+=======
+    patch :update, id: @logro, logro: { puntaje: @logro.puntaje, titulo: @logro.titulo }
+>>>>>>> augusto
     assert_redirected_to logro_path(assigns(:logro))
   end
 

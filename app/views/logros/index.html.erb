@@ -6,7 +6,11 @@
   <thead>
     <tr>
       <th>Titulo</th>
+<<<<<<< HEAD
       <th>Rango</th>
+=======
+      <th>Puntaje</th>
+>>>>>>> augusto
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +19,11 @@
     <% @logros.each do |logro| %>
       <tr>
         <td><%= logro.titulo %></td>
+<<<<<<< HEAD
         <td><%= logro.rango %></td>
+=======
+        <td><%= logro.puntaje %></td>
+>>>>>>> augusto
         <td><%= link_to 'Show', logro %></td>
         <td><%= link_to 'Edit', edit_logro_path(logro) %></td>
         <td><%= link_to 'Destroy', logro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
