@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @logro.titulo %>
+</p>
+
+<p>
+  <strong>Rango:</strong>
+  <%= @logro.rango %>
+</p>
+
+<%= link_to 'Edit', edit_logro_path(@logro) %> |
+<%= link_to 'Back', logros_path %>
