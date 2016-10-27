@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :respuesta
+  resources :pregunta
   resources :gauchadas
   resources :logros
   resources :logros
