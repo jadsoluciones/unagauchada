@@ -1,9 +1,8 @@
 # Git
 ### Primero
-Hay que clonar el repositorio y agregar el repo como remote.
+Hay que clonar el repositorio.
 ``` sh
 $ git clone https://github.com/jadsoluciones/unagauchada.git
-$ git remote add origin https://github.com/jadsoluciones/unagauchada.git
 $ git remote -v # para ver si lo agrego bien
 origin	https://github.com/jadsoluciones/unagauchada.git (fetch)
 origin	https://github.com/jadsoluciones/unagauchada.git (push) #si falta esta es porque no tenés permiso para pushear
