@@ -1,5 +1,7 @@
 class GauchadasController < ApplicationController
   before_action :set_gauchada, only: [:show, :edit, :update, :destroy]
+  #default_scope -> {order :fecha}
+  #belongs_to :usuario
 
   # GET /gauchadas
   # GET /gauchadas.json
