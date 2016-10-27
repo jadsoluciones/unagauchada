@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+body{
+	text-align: center;
+}
+
+
+
+header{
+	height: 350px;
+	background-image: url(../images/fondo-gauchada.png);
+	background-size: cover;
+}
