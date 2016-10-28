@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :pregunta
+  resources :pregunta
   resources :respuesta
   resources :pregunta
   resources :gauchadas

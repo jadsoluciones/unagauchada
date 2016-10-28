@@ -17,7 +17,7 @@ class PreguntaControllerTest < ActionController::TestCase
   end
 
   test "should create preguntum" do
-    assert_difference('Preguntum.count') do
+    assert_difference('Pregunta.count') do
       post :create, preguntum: { contenido: @preguntum.contenido }
     end
 
@@ -40,10 +40,10 @@ class PreguntaControllerTest < ActionController::TestCase
   end
 
   test "should destroy preguntum" do
-    assert_difference('Preguntum.count', -1) do
+    assert_difference('Pregunta.count', -1) do
       delete :destroy, id: @preguntum
     end
 
-    assert_redirected_to pregunta_path
+    assert_redirected_to pregunta_index_path
   end
 end
