@@ -35,7 +35,41 @@ a, a:visited, a:hover, a:active {
 
 
 header{
-	height: 350px;
+	height: 300px;
+	position: relative;
 	background-image: url(http://static.tumblr.com/9817bfb93e61ddc7d59e3edfa53f38d7/vhrhomj/Gqbocuj67/tumblr_static_cxyqhzp2ceg44css0kswkckgw_2048_v2.png);
 	background-size: cover;
+	background-position: bottom center; 
+	text-align: center;
 }
+header .row{
+	padding-top: 150px;
+	position: relative;
+	background: rgba(0,0,0,0.6);
+	height: 100%;
+}
+header .buscador{
+	border-bottom: 1px solid #E0E4CC;
+}
+header .buscador input{
+	border:none;
+	font-size: 50px;
+	font-weight: 600;
+	color: #fff;
+	background: none;
+	width: 100%;
+	font-style: italic;
+}
+
+.navbar-collapse .nav li a{
+	transition: color 0.2s;
+	font-size: 20px;
+}
+.navbar-collapse .nav li a:hover{
+	color: #FA6900;
+}
+
+.navbar-header .navbar-brand img{
+	height: 100%;
+}
+

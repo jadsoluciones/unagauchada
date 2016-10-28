@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to root_path, class:'navbar-brand' do %>
+        <img alt="Una Gauchada Logo" src="http://67.media.tumblr.com/avatar_28012e5b8492_128.png">
+      <% end %>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to root_path do %>
+            Inicio
+          <% end %>
+        </li>
+        <li>
+          <%= link_to logros_path do %>
+            Logros
+          <% end %>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
