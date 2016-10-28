@@ -1,17 +1,17 @@
 <% gauchadas = Gauchada.all%>
 <% gauchadas.each do |gauchada| %>
+<div class "row">
 	<tr>
-			<div><h3><td> <%= link_to gauchada.titulo, gauchada %> </td></h3>
-			<p><td> <%= gauchada.descripcion %> </td></p>
+			<div class= "col-xs-10 col-xs-offset-1" >
+				<h3 align=center> <%= link_to gauchada.titulo, gauchada %> </h3>
+			<p> <%= gauchada.descripcion %> </p>
 			<p> <%= gauchada.ciudad%> </p>
-			<td>
-				<%= link_to "Editar", edit_gauchada_path(gauchada), class: 'btn btn-info btn-sm' %>
-				<%= link_to "Eliminar", gauchada, method: :delete, class: 'btn btn-danger btn-sm' %>
-			</td>
-			</div>
-		</tr>
+				
+			<hr />
+			</div class="col-xs-10 col-xs-10-offset.1">
+			
 	<% end %>
-
+</div>
 	<% if gauchadas.size == 0 %>
-		<tr> <td colspan="3"> No hay gauchadas </td> </tr>
+		 No hay gauchadas 
 	<% end %>

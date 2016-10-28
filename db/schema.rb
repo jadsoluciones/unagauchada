@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161028184234) do
+ActiveRecord::Schema.define(version: 20161028192621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.string   "contenido"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "id_question"
   end
 
   create_table "gauchadas", force: :cascade do |t|
@@ -27,9 +28,10 @@ ActiveRecord::Schema.define(version: 20161028184234) do
     t.string   "descripcion"
     t.string   "imagen"
     t.string   "ciudad"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "idPostulacion"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "id_postulacion"
+    t.integer  "id_question"
   end
 
   create_table "logros", force: :cascade do |t|
@@ -41,8 +43,9 @@ ActiveRecord::Schema.define(version: 20161028184234) do
 
   create_table "questions", force: :cascade do |t|
     t.string   "contenido"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "id_gauchada"
   end
 
 end

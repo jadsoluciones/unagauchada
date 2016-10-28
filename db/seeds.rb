@@ -8,7 +8,7 @@
 puts "Creo gauchadas"
 Gauchada.find_or_create_by(titulo: "Busco acompañante de viaje", descripcion: "Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño. 
 Saldríamos el primer fin de semana de octubre y retornaríamos el fin de semana siguiente. 
-* Condición fundamental: debe cebar buenos mates")
+* Condición fundamental: debe cebar buenos mates", ciudad: "La Plata")
 Gauchada.find_or_create_by(titulo: "Reencontrarme con Ramirez", descripcion: "Ramirez es un burrito que tenía de mascota en un campo en Tucumán. Quisiera reencontrarme con él pero no puedo moverme por un problema físico. 
 Me gustaría que alguien lo traiga desde mi pueblo para poder saludarlo y luego volver a llevarlo.
 *la foto es del 2004, Ramirez puede haber cambiado un poco", imagen: "Fotoburrito", ciudad: "San Miguel de Tucumán")
