@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'usuarios/show'
+
+  get 'usuario/show'
+
   devise_for :usuarios
   resources :answers
   resources :questions
