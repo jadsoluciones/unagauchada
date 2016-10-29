@@ -62,7 +62,7 @@ header .buscador input{
 	width: 100%;
 	font-style: italic;
 }
-
+// ########## MENU ##################
 .navbar-collapse .nav li a{
 	transition: color 0.2s;
 	font-size: 20px;
@@ -74,4 +74,30 @@ header .buscador input{
 .navbar-header .navbar-brand img{
 	height: 100%;
 }
+// ########## MENU ##################
+
+// ######### FORM ###################
+.form-group input{
+	font-weight: 400;
+}
+
+// ######### ERRORES ###################
+.form-horizontal .bg-danger{
+	padding:5px 15px;
+	margin-bottom:10px;
+	border-radius:7px;
+}
+
+.form-horizontal .bg-danger h3{
+	font-family: 'Lato', sans-serif;
+}
+
+.form-horizontal .bg-danger p{
+	font-size: 15px;
+}
+
+.form-group .field_with_errors label{
+	color: #ff4444;
+}
+// ######### FORM ###################
 

@@ -17,3 +17,4 @@ Necesito de un/a abuelito/a que testifique a mi favor diciendo que choqué el fr
 Gauchada.find_or_create_by(titulo:"Karl", descripcion: "Karl es mi perrito y necesita de alguien que lo cuide durante la primera quincena de enero que me voy de vacaciones.
 Es muy juguetón y muy buena compañía.", imagen: "fotoperro")
 Gauchada.find_or_create_by(titulo: "Restaurar obra de arte", descripcion: "La imagen de la izquierda es la original y la de la derecha mi intento por restaurarla. ¿Alguien me haría la gauchada de acomodarla para que se parezca más a la original?", imagen: "obra")
+

@@ -28,8 +28,8 @@ class LogrosController < ApplicationController
 
     respond_to do |format|
       if @logro.save
-        format.html { redirect_to @logro, notice: 'Logro was successfully created.' }
-        format.json { render :show, status: :created, location: @logro }
+        format.html { redirect_to logros_path, notice: 'El logro se creó con éxito.' }
+        format.json { render :show, status: :created, location: logros_path }
       else
         format.html { render :new }
         format.json { render json: @logro.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class LogrosController < ApplicationController
   def update
     respond_to do |format|
       if @logro.update(logro_params)
-        format.html { redirect_to @logro, notice: 'Logro was successfully updated.' }
-        format.json { render :show, status: :ok, location: @logro }
+        format.html { redirect_to logros_path, notice: 'El logro se editó con éxito.' }
+        format.json { render :show, status: :ok, location: logros_path }
       else
         format.html { render :edit }
         format.json { render json: @logro.errors, status: :unprocessable_entity }
@@ -54,10 +54,14 @@ class LogrosController < ApplicationController
   # DELETE /logros/1
   # DELETE /logros/1.json
   def destroy
-    @logro.destroy
     respond_to do |format|
-      format.html { redirect_to logros_url, notice: 'Logro was successfully destroyed.' }
-      format.json { head :no_content }
+      if @logro.destroy
+        format.html { redirect_to logros_url, notice: 'El logro se borró con éxito.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to logros_url, notice: 'Debe haber al menos un logro.' }
+        format.json { head :no_content }
+      end
     end
   end
 

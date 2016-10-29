@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 20161029145927) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "logros", ["titulo", "puntaje"], name: "index_logros_on_titulo_and_puntaje", unique: true, using: :btree
+
   create_table "questions", force: :cascade do |t|
     t.string   "contenido"
     t.datetime "created_at",  null: false
