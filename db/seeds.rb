@@ -29,3 +29,12 @@ Question.find_or_create_by(contenido: "¿A qué hora sale?", gauchada_id: 1, usu
 Answer.find_or_create_by(contenido: "A las 8", question_id:1)
 
 
+puts "Logros por defecto"
+
+Gauchada.find_or_create_by(titulo:"Politico",puntaje:-10000)
+Gauchada.find_or_create_by(titulo:"Observador",puntaje:0)
+Gauchada.find_or_create_by(titulo:"Buen Tipo",puntaje:1)
+Gauchada.find_or_create_by(titulo:"Tipazo",puntaje:5)
+Gauchada.find_or_create_by(titulo:"Héroe",puntaje:10)
+Gauchada.find_or_create_by(titulo:"Nobleza Gaucha",puntaje:20)
+Gauchada.find_or_create_by(titulo:"Dios",puntaje:50)
