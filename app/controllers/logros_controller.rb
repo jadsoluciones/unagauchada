@@ -59,7 +59,7 @@ class LogrosController < ApplicationController
         format.html { redirect_to logros_url, notice: 'El logro se borró con éxito.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to logros_url, notice: 'El logro con puntaje minimo debe estar presente.' }
+        format.html { redirect_to logros_url, alert: 'El logro con puntaje minimo debe estar presente.' }
         format.json { head :no_content }
       end
     end
