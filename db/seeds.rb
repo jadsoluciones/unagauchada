@@ -31,7 +31,7 @@ Answer.find_or_create_by(contenido: "A las 8", question_id:1)
 
 puts "Logros por defecto"
 
-Logro.find_or_create_by(titulo:"Politico",puntaje:-10000)
+Logro.find_or_create_by(titulo:"Politico",puntaje:-2147483648)
 Logro.find_or_create_by(titulo:"Observador",puntaje:0)
 Logro.find_or_create_by(titulo:"Buen Tipo",puntaje:1)
 Logro.find_or_create_by(titulo:"Tipazo",puntaje:5)
