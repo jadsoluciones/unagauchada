@@ -1,27 +1,29 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+	<div class= "gauchada col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" >
+		<h2> <%= @gauchada.titulo %> </h2>
+		<p> <%= @gauchada.descripcion %> </p>
+		<p class="ciudad"> <%= @gauchada.ciudad%> </p>
+		<p class="usuario"> <%= @gauchada.usuario.nombre %>
+		<%= @gauchada.usuario.apellido%> </p>
+		<h4> Preguntas:  </h4>
+		<% questions = @gauchada.questions.all%>
+		<% questions.each do |question| %>
+		<div class="row">
+			<h5> <b><%= question.usuario.nombre %> <%=question.usuario.apellido %></b>: <%=question.contenido%>
+			</div>
+			<% if question.answer != nil %>
+				<h5> <b><%= @gauchada.usuario.nombre %> <%=@gauchada.usuario.apellido %></b>: <%=question.answer.contenido%>
+			<% end %>
+		</div>
+		<% end %>
 
-<h2>
-  <%= @gauchada.titulo %>
-</h2>
-
-<p>
-  <strong>Descripcion:</strong>
-  <%= @gauchada.descripcion %>
-</p>
-
-<p>
-  <strong>Imagen:</strong>
-  <%= @gauchada.imagen %>
-</p>
-
-<p>
-  <strong>Ciudad:</strong>
-  <%= @gauchada.ciudad %>
-</p>
-<p>
+	</div>
+</div>
 
 
 
 
-<%= link_to "Editar", edit_gauchada_path(@gauchada), class: 'btn btn-info btn-sm' %>
+
+<%= link_to "Editar", edit_gauchada_path(@gauchada), class: 'btn btn-warning btn-sm' %>
 				<%= link_to "Eliminar", @gauchada, method: :delete, class: 'btn btn-danger btn-sm' %>
