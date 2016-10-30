@@ -7,7 +7,7 @@ class Logro < ActiveRecord::Base
 	private
 
 	def check_for_unico   
-	  unless Logro.all.count > 1     
+	  unless puntaje != -2147483648     
 	    self.errors[:base] << "Debe haber al menos un logro"
 	    return false   
 	  end 
