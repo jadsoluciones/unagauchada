@@ -47,3 +47,6 @@ end
 gem 'hirb'
 
 gem 'devise'
+
+gem 'cloudinary'
+

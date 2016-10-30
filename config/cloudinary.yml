@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: arambarrid
+  api_key: '775411836982316'
+  api_secret: hA-FpYokuxVj0D19qTu995czlMQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: arambarrid
+  api_key: '775411836982316'
+  api_secret: hA-FpYokuxVj0D19qTu995czlMQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: arambarrid
+  api_key: '775411836982316'
+  api_secret: hA-FpYokuxVj0D19qTu995czlMQ
+  enhance_image_tag: true
+  static_image_support: false
