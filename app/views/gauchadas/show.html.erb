@@ -12,17 +12,22 @@
 				</p>
 		<p> <%= @gauchada.descripcion %> </p>
 		<p class="ciudad"> <%= @gauchada.ciudad%> </p>
-		<h5 class="text-center">Preguntas:</h5>
 		<% questions = @gauchada.questions.all%>
-		<% questions.each do |question| %>
-		<div class="row">
+		<% if questions.size != 0 %>
+			<h5 class="text-center">Preguntas:</h5>
+			<% questions.each do |question| %>
+			<div class="row">
 
-			<p class="pregrta"><b> <%= question.usuario.nombre %> <%=question.usuario.apellido %></b> <%=question.contenido%> <br>
-			<% if question.answer != nil %>
+				<p class="pregrta"><b> <%= question.usuario.nombre %> <%=question.usuario.apellido %></b> <%=question.contenido%> <br>
+				<% if question.answer != nil %>
 				 <b><%= @gauchada.usuario.nombre %> <%=@gauchada.usuario.apellido %></b> <%=question.answer.contenido%></p>
+				<% end %>
+			</div>
 			<% end %>
-		</div>
+		<% else %>
+		<h5 class="text-center"> No hay preguntas</h5>
 		<% end %>
+
 
 	</div>
 </div>

@@ -32,7 +32,12 @@ Question.find_or_create_by(contenido: "¿A qué hora sale?", gauchada_id: 1, usu
 Answer.find_or_create_by(contenido: "A las 8", question_id:1)
 Question.find_or_create_by(contenido: "¿Tereré te va? En La Plata no tomamos mate", gauchada_id: 1, usuario_id: 4)
 Answer.find_or_create_by(contenido: "Mientras no digas 'el diagonal' no hay problema", question_id:2)
-
+Question.find_or_create_by(contenido: "¿Muerde?", gauchada_id: 4, usuario_id: 1)
+Answer.find_or_create_by(contenido: "No, es re manso", question_id:3)
+Question.find_or_create_by(contenido: "Tengo un gato, ¿crees que se pueden llevar bien?", gauchada_id: 4, usuario_id: 5)
+Answer.find_or_create_by(contenido: "Siempre vivió solo y con perros se lleva mal. Pero con gatos no creo que haya problema...", question_id:4)
+Question.find_or_create_by(contenido: "Creo que lo vi hace poco, ¿puede ser que tenga 4 patas?", gauchada_id: 2, usuario_id: 3)
+Answer.find_or_create_by(contenido: "¡Siiiiiiii! ¡¡¡Debe ser él!!!", question_id:5)
 
 puts "Logros por defecto"
 
