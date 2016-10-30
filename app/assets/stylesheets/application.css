@@ -27,7 +27,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 body div{
-	text-align: left;
+	text-align: center;
 }
 
 a, a:visited, a:hover, a:active {
@@ -40,7 +40,7 @@ header{
 	position: relative;
 	background-image: url(http://static.tumblr.com/9817bfb93e61ddc7d59e3edfa53f38d7/vhrhomj/Gqbocuj67/tumblr_static_cxyqhzp2ceg44css0kswkckgw_2048_v2.png);
 	background-size: cover;
-	background-position: bottom center; 
+	background-position: bottom center;
 	text-align: center;
 	margin-bottom: 30px;
 }
@@ -100,4 +100,3 @@ header .buscador input{
 	color: #ff4444;
 }
 // ######### FORM ###################
-
