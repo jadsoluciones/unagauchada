@@ -15,7 +15,7 @@ Usuario.create(nombre:"Lucas", apellido:"Hourquebie", domicilio:"5 y 18", fecNac
 puts "Creo gauchadas"
 Gauchada.find_or_create_by(titulo: "Busco acompañante de viaje", descripcion: "Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño.
 Saldríamos el primer fin de semana de octubre y retornaríamos el fin de semana siguiente.
-* Condición fundamental: debe cebar buenos mates", ciudad: "La Plata", usuario_id: 1)
+* Condición fundamental: debe cebar buenos mates", ciudad: "Pehuajó", usuario_id: 1)
 Gauchada.find_or_create_by(titulo: "Reencontrarme con Ramirez", descripcion: "Ramirez es un burrito que tenía de mascota en un campo en Tucumán. Quisiera reencontrarme con él pero no puedo moverme por un problema físico.
 Me gustaría que alguien lo traiga desde mi pueblo para poder saludarlo y luego volver a llevarlo.
 *la foto es del 2004, Ramirez puede haber cambiado un poco", imagen: "Fotoburrito", ciudad: "San Miguel de Tucumán", usuario_id: 2)
@@ -25,8 +25,11 @@ Necesito de un/a abuelito/a que testifique a mi favor diciendo que choqué el fr
 Gauchada.find_or_create_by(titulo:"Karl", descripcion: "Karl es mi perrito y necesita de alguien que lo cuide durante la primera quincena de enero que me voy de vacaciones. Es muy juguetón y muy buena compañía.", imagen: "fotoperro", ciudad: "Carlos Casares", usuario_id: 4)
 Gauchada.find_or_create_by(titulo: "Restaurar obra de arte", descripcion: "La imagen de la izquierda es la original y la de la derecha mi intento por restaurarla. ¿Alguien me haría la gauchada de acomodarla para que se parezca más a la original?", imagen: "obra", ciudad: "La Plata", usuario_id: 5)
 
+puts "Crea preguntas y respuestas"
 Question.find_or_create_by(contenido: "¿A qué hora sale?", gauchada_id: 1, usuario_id: 2)
 Answer.find_or_create_by(contenido: "A las 8", question_id:1)
+Question.find_or_create_by(contenido: "¿Tereré te va? En La Plata no tomamos mate", gauchada_id: 1, usuario_id: 4)
+Answer.find_or_create_by(contenido: "Mientras no digas 'el diagonal' no hay problema", question_id:2)
 
 
 puts "Logros por defecto"
