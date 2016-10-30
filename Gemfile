@@ -50,3 +50,4 @@ gem 'devise'
 
 gem 'cloudinary'
 
+gem 'cancancan', '~> 1.10'

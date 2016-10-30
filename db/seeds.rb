@@ -43,3 +43,8 @@ Logro.find_or_create_by(titulo:"Tipazo",puntaje:5)
 Logro.find_or_create_by(titulo:"Héroe",puntaje:10)
 Logro.find_or_create_by(titulo:"Nobleza Gaucha",puntaje:20)
 Logro.find_or_create_by(titulo:"Dios",puntaje:50)
+
+puts "Creo un administrador"
+admin=Usuario.new(nombre:"Nancy", apellido:"Netramonti", domicilio:"15 y 47", fecNac: DateTime.new(1973,2,1), DNI:"30000000", email:"nn@unagaucha.com", password:'30000000', password_confirmation:'30000000')
+admin.admin = "Admin"
+admin.save

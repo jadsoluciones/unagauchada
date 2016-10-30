@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  load_and_authorize_resource param_method: :question_params
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions

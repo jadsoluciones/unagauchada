@@ -12,12 +12,14 @@
             Inicio
           <% end %>
         </li>
-        <li>
-          <%= link_to logros_path do %>
-            Logros
-          <% end %>
-        </li>
         <% if current_usuario %>
+            <li>
+              <% if current_usuario.rol == "Admin" %>
+              <%= link_to logros_path do %>
+                Logros
+              <% end %>
+              <%end%>
+            </li>
             <li><%= link_to 'Editar perfil',edit_usuario_registration_path %></li>
             <li><%= link_to 'Salir', destroy_usuario_session_path, method: :delete %></li>
         <% else %>

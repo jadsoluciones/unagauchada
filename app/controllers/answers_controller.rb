@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+
+  load_and_authorize_resource param_method: :answer_params
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
 
   # GET /answers

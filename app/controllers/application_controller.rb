@@ -5,6 +5,16 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+alias_method :current_user, :current_usuario
+
+  def current_ability
+    @current_ability ||= Ability.new(current_usuario)
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
+
     protected
 
         def configure_permitted_parameters
