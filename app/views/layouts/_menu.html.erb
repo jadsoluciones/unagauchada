@@ -14,7 +14,7 @@
         </li>
         <% if current_usuario %>
             <li>
-              <% if current_usuario.rol == "Admin" %>
+              <% if can? :update, Logro %>
               <%= link_to logros_path do %>
                 Logros
               <% end %>

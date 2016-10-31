@@ -6,53 +6,27 @@ class Ability
     #
     user ||= Usuario.new # guest user (not logged in)
     if user.rol == "Admin"
-      can :manage, :all
-    else if user.rol == "UsReg"
-      can :destroy, Answer do |answer|
-        answer.usuario == user
-      end
-
-      can :edit, Answer do |answer|
-        answer.usuario == user
-      end
-
-      can :update, Answer do |answer|
-        answer.usuario == user
-      end
-
-      can :create, Answer do |answer|
-        answer.usuario == user
-      end
-
-      can :destroy, Question do |question|
-        question.usuario == user
-      end
-
-      can :edit, Question do |question|
-        question.usuario == user
-      end
-
-      can :update, Question do |question|
-        question.usuario == user
-      end
-
-      can :create, Question do |question|
-        question.usuario == user
-      end
-
-      can :destroy, Gauchada do |gauchada|
-        gauchada.usuario == user
-      end
-
-      can :edit, Gauchada do |gauchada|
-        gauchada.usuario == user
-      end
-
+      alias_action :create, :read, :update, :destroy, :to => :admPuede1
+      alias_action :create, :read, :destroy, :to => :admPuede2
+      can :admPuede1, Answer
+      can :admPuede1,  Question
+      can :admPuede1, Logro
+      can :admPuede2, Gauchada
       can :update, Gauchada do |gauchada|
         gauchada.usuario == user
       end
+      can :read, :all
+    else if user.rol == "UsReg"
+      alias_action :create, :read, :update, :destroy, :to => :urPuede
+      can :urPuede, Answer do |answer|
+        answer.usuario == user
+      end
 
-      can :create, Gauchada do |gauchada|
+      can :urPuede, Question do |question|
+        question.usuario == user
+      end
+
+      can :urPuede, Gauchada do |gauchada|
         gauchada.usuario == user
       end
 
