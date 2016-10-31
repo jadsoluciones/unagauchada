@@ -16,7 +16,8 @@
           placeholder:'Ingrese domicilio' %></div>
 
   <div><%= f.label :fecNac %><br />
-       <%= f.date_select :fecNac, :start_year => 1930, required: true %></div>
+       <%= f.date_select :fecNac, :start_year => 1920,:end_year =>
+       (Time.now.year - 18), required: true %> </div>
 
   <div><%= f.label :DNI %><br />
        <%= f.text_field :DNI, required: true,
@@ -45,7 +46,7 @@
     	#	   f.fecNac = nil %>
     	# else %>
     		  <%= f.submit "Registrarse" %>
-    	# end %>
+
   </div>
 <% end %>
 
