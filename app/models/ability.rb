@@ -6,16 +6,27 @@ class Ability
     #
     user ||= Usuario.new # guest user (not logged in)
     if user.rol == "Admin"
-      alias_action :create, :read, :update, :destroy, :to => :admPuede1
-      alias_action :create, :read, :destroy, :to => :admPuede2
-      can :admPuede1, Answer
-      can :admPuede1,  Question
+      alias_action :create, :read, :update, :destroy, :to => :admPuede
+      alias_action :create, :read, :destroy, :to => :admPuede
       can :admPuede1, Logro
+      can :admPuede2, Answer
+      can :admPuede2,  Question
       can :admPuede2, Gauchada
+
       can :update, Gauchada do |gauchada|
         gauchada.usuario == user
       end
+
+      can :update, Answer do |gauchada|
+        gauchada.usuario == user
+      end
+
+      can :update, Question do |gauchada|
+        gauchada.usuario == user
+      end
+
       can :read, :all
+      
     else if user.rol == "UsReg"
       alias_action :create, :read, :update, :destroy, :to => :urPuede
       can :urPuede, Answer do |answer|
