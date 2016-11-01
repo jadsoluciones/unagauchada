@@ -1,5 +1,5 @@
 class Logro < ActiveRecord::Base
-	validates :titulo, :puntaje, presence:true, uniqueness:true
+	validates :titulo, :puntaje, presence:true, uniqueness: {case_sensitive: false}
 	validates :puntaje, numericality: true
 
 	before_destroy :check_for_unico
