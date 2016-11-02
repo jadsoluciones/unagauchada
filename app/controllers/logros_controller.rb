@@ -4,7 +4,7 @@ class LogrosController < ApplicationController
   # GET /logros
   # GET /logros.json
   def index
-    @logros = Logro.all
+    @logros = Logro.order('puntaje DESC').all
   end
 
   # GET /logros/1
