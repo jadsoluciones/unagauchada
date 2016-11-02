@@ -5,7 +5,7 @@ class Logro < ActiveRecord::Base
 	before_destroy :check_for_unico
 
 	def next
-	  self.class.where("puntaje > ?", puntaje).first || Logro.new(titulo:'Inifinito',puntaje:'2147483648')
+	  self.class.where("puntaje > ?", puntaje).order("puntaje ASC").first || Logro.new(titulo:'Inifinito',puntaje:'2147483648')
 	end
 
 	private
