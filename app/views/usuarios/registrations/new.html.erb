@@ -15,9 +15,10 @@
        <%= f.text_field :domicilio, required: true,
           placeholder:'Ingrese domicilio' %></div>
 
-  <div><%= f.label :fecNac %><br />
+  <div><%= f.label :fecha_de_nacimiento %><br />
        <%= f.date_select :fecNac, :start_year => 1920,:end_year =>
        (Time.now.year - 18), required: true %> </div>
+       Debe ser mayor de 18 años para poder registrarse en el sistema
 
   <div><%= f.label :DNI %><br />
        <%= f.text_field :DNI, required: true,
@@ -42,11 +43,7 @@
   </div>
 
   <div class="actions">
-    	#	 if f.fecNac.year < Time.now.year %>
-    	#	   f.fecNac = nil %>
-    	# else %>
-    		  <%= f.submit "Registrarse" %>
-
+    	<%= f.submit "Registrarse" %>
   </div>
 <% end %>
 

@@ -30,6 +30,10 @@ body div{
 	text-align: center;
 }
 
+body th{
+	text-align: center;
+}
+
 a, a:visited, a:hover, a:active {
   color: inherit;
 }
