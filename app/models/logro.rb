@@ -13,6 +13,6 @@ class Logro < ActiveRecord::Base
 	  end 
 	end
 	def next
-	  self.class.where("puntaje > ?", :puntaje).first || Logro.new(name:'Inifinito',puntaje:'2147483648')
+	  self.class.where("puntaje > ?", puntaje).first || Logro.new(name:'Inifinito',puntaje:'2147483648')
 	end
 end
