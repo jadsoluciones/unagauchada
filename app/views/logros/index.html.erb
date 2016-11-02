@@ -23,7 +23,7 @@
           <% @logros.each do |logro,index| %>
             <tr>
               <td><%= logro.titulo %></td>
-              <td><%= logro.puntaje %> - <%= (index<@logros.size) ? @logros[index+1].puntaje : 2147483647 %></td>
+              <td><%= logro.puntaje %> - <%= logro.next.puntaje - 1 %></td>
               <td class="boton"><%= link_to 'Ver', logro, class: 'btn btn-primary' %></td>
               <td class="boton"><%= link_to 'Editar', edit_logro_path(logro), class:'btn btn-info' %></td>
               <td class="boton"><%= link_to 'Borrar', logro, class: 'btn btn-danger', method: :delete, data: { confirm: '¿Está seguro de borrar?' } %></td>
