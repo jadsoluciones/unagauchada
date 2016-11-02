@@ -11,5 +11,8 @@ class Logro < ActiveRecord::Base
 	    self.errors[:base] << "Debe haber al menos un logro"
 	    return false   
 	  end 
-	end 
+	end
+	def next
+	  self.class.where("puntaje > ?", :puntaje).first || Logro.new(name:'Inifinito',puntaje:'2147483648')
+	end
 end
