@@ -4,7 +4,7 @@
 		  <!-- Default panel contents -->
 			<div class="panel-heading"><h1>Logro</h1></div>
 			<div class="panel-body">
-				<h3><%= @logro.titulo %>: requiere al menos <%= pluralize(@logro.puntaje, "punto") %></h3>
+				<h3><%= @logro.titulo %>: requiere entre <%= @logro.puntaje %> y <%= @logro.next.puntaje -1 %> puntos</h3>
 				<div class="row">
 					<div class="col-xs-12 text-center">
 						<div class="btn-group" role="group" aria-label="...">
