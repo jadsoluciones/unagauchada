@@ -13,18 +13,22 @@
       <table class="table">
         <thead>
           <tr>
-            <th>Titulo</th>
-            <th>Rango</th>
-            <th colspan="3" class="boton"><%= link_to 'Agregar', new_logro_path, class: 'btn btn-success' %></th>
+            <th rowspan="2">Titulo</th>
+            <th colspan="2">Puntos</th>
+            <th rowspan="2" colspan="3" class="boton"><%= link_to 'Agregar', new_logro_path, class: 'btn btn-success' %></th>
+          </tr>
+          <tr>
+            <th>Min</th>
+            <th>Max</th>
           </tr>
         </thead>
         
         <tbody>          
           <% @logros.each do |logro,index| %>
             <tr>
-              <% aux = logro.next.puntaje-1 %>
               <td><%= logro.titulo %></td>
-              <td><%= logro.puntaje %> - <%= (aux>-1) ? aux : "(#{aux})" %></td>
+              <td><%= logro.min %></td>
+              <td><%= logro.max %></td>
               <td class="boton"><%= link_to 'Ver', logro, class: 'btn btn-primary' %></td>
               <td class="boton"><%= link_to 'Editar', edit_logro_path(logro), class:'btn btn-info' %></td>
               <td class="boton"><%= link_to 'Borrar', logro, class: 'btn btn-danger', method: :delete, data: { confirm: '¿Está seguro de borrar?' } %></td>
