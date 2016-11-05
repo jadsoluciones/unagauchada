@@ -4,7 +4,7 @@ class LogrosController < ApplicationController
   # GET /logros
   # GET /logros.json
   def index
-    @logros = Logro.order('puntaje ASC').all
+    @logros = Logro.order('min ASC').all
   end
 
   # GET /logros/1
@@ -59,7 +59,7 @@ class LogrosController < ApplicationController
         format.html { redirect_to logros_url, notice: 'El logro se borró con éxito.' }
         format.json { head :no_content }
       else
-        format.html { redirect_to logros_url, alert: 'El logro con puntaje minimo debe estar presente.' }
+        format.html { redirect_to logros_url, alert: 'Debe haber al menos un logro.' }
         format.json { head :no_content }
       end
     end
@@ -73,6 +73,6 @@ class LogrosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def logro_params
-      params.require(:logro).permit(:titulo, :puntaje)
+      params.require(:logro).permit(:titulo, :min,:max)
     end
 end

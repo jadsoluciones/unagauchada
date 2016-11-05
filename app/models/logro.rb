@@ -6,10 +6,6 @@ class Logro < ActiveRecord::Base
 	
 	before_save :check_for_solapa
 
-	def next
-	  self.class.where("puntaje > ?", puntaje).order("puntaje ASC").first || Logro.new(titulo:'Inifinito',puntaje:'2147483648')
-	end
-
 	private
 
 	def check_for_unico
@@ -21,7 +17,14 @@ class Logro < ActiveRecord::Base
 	end
 	
 	def check_for_solapa
-	  res = Logro.where(" (min <= ? AND max >= ?) OR (min <= ? AND max >= ?) OR (min >= ? AND max <= ?)",min,min,max,max,min,max)
+	  if min>max
+        self.errors[:base] << "El máximo no puede ser mayor que el mínimo"
+        return false
+	  end
+	  res = Logro.where("(titulo<>?)				AND
+	   			((min <= ? AND max >= ?) OR 
+	   			 (min <= ? AND max >= ?) OR 
+	   			 (min >= ? AND max <= ?))",titulo,min,min,max,max,min,max)
 	  if res.size>0
 	    self.errors[:base] << "Este puntaje solapa con: "+res.pluck(:titulo).join(", ")
 	    return false
