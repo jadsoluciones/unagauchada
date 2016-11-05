@@ -35,12 +35,11 @@ ActiveRecord::Schema.define(version: 20161030142327) do
 
   create_table "logros", force: :cascade do |t|
     t.string   "titulo"
-    t.integer  "puntaje"
+    t.integer  "min"
+    t.integer  "max"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "logros", ["titulo", "puntaje"], name: "index_logros_on_titulo_and_puntaje", unique: true, using: :btree
 
   create_table "questions", force: :cascade do |t|
     t.string   "contenido"
