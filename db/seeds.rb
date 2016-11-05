@@ -41,13 +41,16 @@ Answer.find_or_create_by(contenido: "¡Siiiiiiii! ¡¡¡Debe ser él!!!", questi
 
 puts "Logros por defecto"
 
-Logro.find_or_create_by(titulo:"Politico",puntaje:-2147483648)
-Logro.find_or_create_by(titulo:"Observador",puntaje:0)
-Logro.find_or_create_by(titulo:"Buen Tipo",puntaje:1)
-Logro.find_or_create_by(titulo:"Tipazo",puntaje:5)
-Logro.find_or_create_by(titulo:"Héroe",puntaje:10)
-Logro.find_or_create_by(titulo:"Nobleza Gaucha",puntaje:20)
-Logro.find_or_create_by(titulo:"Dios",puntaje:50)
+# Logro.find_or_create_by(titulo:"Politico",puntaje:-2147483648)
+# Logro.find_or_create_by(titulo:"Observador",puntaje:0)
+# Logro.find_or_create_by(titulo:"Buen Tipo",puntaje:1)
+# Logro.find_or_create_by(titulo:"Tipazo",puntaje:5)
+# Logro.find_or_create_by(titulo:"Héroe",puntaje:10)
+# Logro.find_or_create_by(titulo:"Nobleza Gaucha",puntaje:20)
+# Logro.find_or_create_by(titulo:"Dios",puntaje:50)
+
+Logro.find_or_create_by(titulo:"Politico",min:10,max:20)
+Logro.find_or_create_by(titulo:"Observador",min:30,max:40)
 
 puts "Creo un administrador"
 admin=Usuario.new(nombre:"Nancy", apellido:"Netramonti", domicilio:"15 y 47", fecNac: DateTime.new(1973,2,1), DNI:"30000000", email:"nn@unagaucha.com", password:'30000000', password_confirmation:'30000000')
