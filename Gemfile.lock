@@ -44,6 +44,7 @@ GEM
     builder (3.2.2)
     byebug (9.0.6)
     cancancan (1.15.0)
+    choice (0.2.0)
     cloudinary (1.2.3)
       aws_cf_signer
       rest-client
@@ -115,6 +116,11 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
+    rails-erd (1.5.0)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
     railties (4.2.6)
@@ -131,6 +137,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    ruby-graphviz (1.2.2)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -185,6 +192,7 @@ DEPENDENCIES
   jquery-rails
   pg (~> 0.15)
   rails (= 4.2.6)
+  rails-erd
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
