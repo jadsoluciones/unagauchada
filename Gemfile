@@ -53,3 +53,5 @@ gem 'cloudinary'
 gem 'cancancan', '~> 1.10'
 
 gem 'rails-erd'
+
+gem 'rails_12factor', group: :production
