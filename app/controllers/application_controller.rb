@@ -20,7 +20,7 @@ alias_method :current_user, :current_usuario
         def configure_permitted_parameters
             devise_parameter_sanitizer.permit(:sign_up) do |usuario_params|
               usuario_params.permit(:nombre, :apellido, :domicilio, :fecNac,
-              :DNI, :email, :password, :current_password)
+              :DNI, :email, :password, :password_confirmation)
         end
       end
     end
