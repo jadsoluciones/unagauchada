@@ -1,8 +1,8 @@
-<%= form_for(@gauchada) do |f| %>
+<%= form_for(@gauchada,:html => {:class => 'form-horizontal'}) do |f| %>
   <% if @gauchada.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@gauchada.errors.count, "error") %> prohibited this gauchada from being saved:</h2>
-
+    <div class="bg-danger">
+      <h3> Hay <%= pluralize(@gauchada.errors.count, "error","errores") %></h3>
+      <p>La gauchada no puede ser guardada:</p>
       <ul>
       <% @gauchada.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,14 +10,13 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :titulo %><br>
-    <%= f.text_field :titulo %>
+    <%= f.text_field :titulo, required: true %>
   </div>
   <div class="field">
     <%= f.label :descripcion %><br>
-    <%= f.text_field :descripcion %>
+    <%= f.text_field :descripcion, required: true%>
   </div>
   <div class="field">
     <%= f.label :imagen %><br>
@@ -25,9 +24,9 @@
   </div>
   <div class="field">
     <%= f.label :ciudad %><br>
-    <%= f.text_field :ciudad %>
+    <%= f.text_field :ciudad, required: true %>
   </div>
   <div class="actions">
     <%= f.submit %>
-  </div>
+  </div>         
 <% end %>

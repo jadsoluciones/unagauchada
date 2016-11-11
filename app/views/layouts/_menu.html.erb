@@ -22,11 +22,20 @@
             </li>
             <li><%= link_to 'Editar perfil',edit_usuario_registration_path %></li>
             <li><%= link_to 'Salir', destroy_usuario_session_path, data: { confirm: "¿Cerrar sesión?" },method: :delete %></li>
+             <% if current_usuario.puntos >= 1 %>
+              <li><%= link_to 'Crear Gauchada', new_gauchada_path %></li>
+             <% else %>
+              <li><%= link_to 'Crear Gauchada', new_compra_path,  data: { confirm: "No tiene puntos suficientes para crear una gauchada. Usted tiene #{current_usuario.puntos} y el mínimo es de 1 punto. ¿Desea realizar una compra?" } %></li> 
+            <% end %>             
         <% else %>
             <li><%= link_to 'Entrar', new_usuario_session_path %></li>
             <li><%= link_to 'Registrarse', new_usuario_registration_path %></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to 'Crear Gauchada', new_usuario_registration_path%></li>
+            </ul>
+                       
         <% end %>
-      </ul>
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>

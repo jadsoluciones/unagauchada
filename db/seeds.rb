@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 puts"Creo usuarios"
-Usuario.create(nombre:"Raúl", apellido:"Quintero", domicilio:"63 y 18", fecNac: DateTime.new(1993,2,1), DNI:"35126321", email:"rq@unagaucha.com", password:'35126321', password_confirmation:'35126321')
-Usuario.create(nombre:"Juan", apellido:"Espinoza", domicilio:"61 y 18", fecNac: DateTime.new(1993,7,3), DNI:"37603841", email:"je@unagaucha.com", password:'37603841', password_confirmation:'37603841')
-Usuario.create(nombre:"Delfina", apellido:"Arambarri", domicilio:"45 y 10", fecNac: DateTime.new(1995,2,1), DNI:"38000000", email:"da@unagaucha.com", password:'38000000', password_confirmation:'38000000')
-Usuario.create(nombre:"Augusto", apellido:"Bonifacio", domicilio:"190 y 25", fecNac: DateTime.new(1994,2,1), DNI:"39000000", email:"ab@unagaucha.com", password:'39000000', password_confirmation:'39000000')
-Usuario.create(nombre:"Lucas", apellido:"Hourquebie", domicilio:"5 y 18", fecNac: DateTime.new(1990,2,1), DNI:"35000000", email:"lh@unagaucha.com", password:'35000000', password_confirmation:'35000000')
+Usuario.create(nombre:"Raúl", apellido:"Quintero", domicilio:"63 y 18", fecNac: DateTime.new(1993,2,1), DNI:"35126321", email:"rq@unagaucha.com", password:'35126321', password_confirmation:'35126321', puntos:"0")
+Usuario.create(nombre:"Juan", apellido:"Espinoza", domicilio:"61 y 18", fecNac: DateTime.new(1993,7,3), DNI:"37603841", email:"je@unagaucha.com", password:'37603841', password_confirmation:'37603841', puntos: "2")
+Usuario.create(nombre:"Delfina", apellido:"Arambarri", domicilio:"45 y 10", fecNac: DateTime.new(1995,2,1), DNI:"38000000", email:"da@unagaucha.com", password:'38000000', password_confirmation:'38000000', puntos: "5")
+Usuario.create(nombre:"Augusto", apellido:"Bonifacio", domicilio:"190 y 25", fecNac: DateTime.new(1994,2,1), DNI:"39000000", email:"ab@unagaucha.com", password:'39000000', password_confirmation:'39000000', puntos: "10")
+Usuario.create(nombre:"Lucas", apellido:"Hourquebie", domicilio:"5 y 18", fecNac: DateTime.new(1990,2,1), DNI:"35000000", email:"lh@unagaucha.com", password:'35000000', password_confirmation:'35000000', puntos: "-1")
 
 puts "Creo gauchadas"
 Gauchada.find_or_create_by(titulo: "Busco acompañante de viaje", descripcion: "Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño.

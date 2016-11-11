@@ -28,6 +28,7 @@ class GauchadasController < ApplicationController
   # POST /gauchadas.json
   def create
     @gauchada = Gauchada.new(gauchada_params)
+    @gauchada.usuario = current_usuario
 
     respond_to do |format|
       if @gauchada.save

@@ -28,12 +28,13 @@ class Ability
       can :read, :all
 
     else if user.rol == "UsReg"
-      alias_action :create, :read, :update, :destroy, :to => :urPuede
+      alias_action :read, :update, :destroy, :to => :urPuede
       can :urPuede, Answer do |answer|
         answer.usuario == user
       end
 
       can :urPuede, Question
+      can :create, Gauchada
 
       can :urPuede, Gauchada do |gauchada|
         gauchada.usuario == user

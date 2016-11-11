@@ -104,3 +104,6 @@ header .buscador input{
 	color: #ff4444;
 }
 // ######### FORM ###################
+.gauchada-link{
+	text-align:right;
+}

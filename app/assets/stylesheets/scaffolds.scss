@@ -37,23 +37,15 @@ div {
   }
 }
 
-// ######### FLASH ###################
-#notice{
-  background: #FA6900;
-  padding: 15px;
-  border-radius: 6px;
+#notice {
+  color: green;
 }
 
-
-// #notice {
-//   color: green;
-// }
-
-// .field_with_errors {
-//   padding: 2px;
-//   background-color: red;
-//   display: table;
-// }
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
 
 #error_explanation {
   width: 450px;
