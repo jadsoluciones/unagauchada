@@ -1,15 +1,4 @@
-<%= form_for(@logro,:html => {:class => 'form-horizontal'}) do |f| %>
-  <% if @logro.errors.any? %>
-    <div class="bg-danger">
-      <h3> Hay <%= pluralize(@logro.errors.count, "error","errores") %></h3>
-      <p>El logro no puede ser guardado:</p>
-      <ul>
-      <% @logro.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for @logro do |f| %>
   <div class="row">
     <div class="col-xs-12">
       <div class="md-form">  

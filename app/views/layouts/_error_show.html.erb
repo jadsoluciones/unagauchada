@@ -1,0 +1,13 @@
+<% if modelo.errors.any? %>
+<blockquote class="blockquote bq-danger">
+    <p class="bq-title">Hay <%= pluralize(modelo.errors.count, "error","errores") %></p>
+    <p>
+    	El <%= modelo.class.to_s.humanize %> no puede ser guardado:
+    	<ul>
+			<% modelo.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+    </p>
+</blockquote>
+<% end %>

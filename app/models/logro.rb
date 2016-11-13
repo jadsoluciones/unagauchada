@@ -20,7 +20,7 @@ class Logro < ActiveRecord::Base
 	
 	def check_for_rango_valido
 	  if min > max
-	    self.errors[:base] << "El máximo no puede ser mayor que el mínimo"
+	    self.errors[:base] << "El máximo no puede ser menor que el mínimo"
 	    return false
 	  end
 	end
