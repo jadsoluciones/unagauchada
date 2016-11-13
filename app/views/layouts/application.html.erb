@@ -13,13 +13,23 @@
 
 
 <%= render 'layouts/header' %>
+
 <div class="container py-1">
-		<% if notice %>
-		  <p class="alert alert-success"><%= notice %></p>
-		<% end %>
-		<% if alert %>
-		  <p class="alert alert-danger"><%= alert %></p>
-		<% end %>
+	<div class="row">
+		<div class="col-xs-10 offset-xs-1 col-sm-6 offset-sm-3">
+			<% if notice %>
+			  <blockquote class="blockquote bq-success">
+			      <p class="bq-title">Bien!</p>
+			      <p><%= notice %></p>
+			  </blockquote>
+			<% end %>
+			<% if alert %>
+				<blockquote class="blockquote bq-danger">
+				    <p class="bq-title">Ups!</p>
+				    <p><%= alert %></p>
+				</blockquote>
+			<% end %>
+		</div>
 	</div>
 </div>
 <section>
