@@ -10,7 +10,17 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+// require jquery
+//= require js/1-jquery-2.2.3.min.js
 //= require jquery_ujs
 //= require turbolinks
+//= require js/2-bootstrap.min.js
+//= require js/3-tether.min.js
+//= require js/4-mdb.pro.min.js
+
 //= require_tree .
+
+$(document).ready(function() {
+	$('.mdb-select').material_select('destroy');
+	$('.mdb-select').material_select();
+});

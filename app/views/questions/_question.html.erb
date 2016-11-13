@@ -1,0 +1,32 @@
+<!--First row-->
+<div class="row">
+    <!--Image column-->
+    <div class="col-sm-2 col-xs-12">
+        <img src="http://mdbootstrap.com/images/avatars/avatar-1.jpg">
+    </div>
+    <!--/.Image column-->
+
+    <!--Content column-->
+    <div class="col-sm-10 col-xs-12">
+        <a>
+            <h5 class="user-name">
+                <%= question.usuario.nombre %> 
+                <%= question.usuario.apellido %>
+            </h5>
+        </a>
+        <div class="card-data text-xs-left">
+            <ul>
+                <li class="comment-date">
+                    <i class="fa fa-clock-o"></i> 05/10/2015
+                </li>
+            </ul>
+        </div>
+
+        <p class="comment-text">
+            <%= question.contenido %>
+        </p>
+    </div>
+    <!--/.Content column-->
+
+</div>
+<!--/.First row-->

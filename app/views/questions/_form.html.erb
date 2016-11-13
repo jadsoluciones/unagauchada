@@ -1,4 +1,6 @@
+<% if @question != nil %>
 <%= form_for(@question) do |f| %>
+
   <% if @question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -11,11 +13,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :contenido %><br>
-    <%= f.text_field :contenido %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ <div class="reply-form">
+    <h1 class="section-heading">Hace una pregunta </h1>
+    <p class="text-xs-center">
+      <%= @question.usuario.nombre %> <%= @question.usuario.apellido %>
+    </p>
+
+    <!--Third row-->
+    <div class="row">
+        <!--Image column-->
+        <div class="col-sm-2 col-xs-12">
+            <img src="http://mdbootstrap.com/images/avatars/img%20(3).jpg">
+        </div>
+        <!--/.Image column-->
+
+        <!--Content column-->
+        <div class="col-sm-10 col-xs-12">
+            <div class="md-form">
+                <%= f.text_area :contenido , class: 'md-textarea' %>
+                <%= f.label :contenido, 'Tu pregunta' %>
+            </div>
+
+        </div>
+
+        <div class="text-xs-center">
+            <%= f.submit value: 'Preguntar' , class: 'btn btn-primary' %>
+        </div>
+        <!--/.Content column-->
+
+    </div>
+    <!--/.Third row-->
+</div>
 <% end %>
+<% end %>
+
+

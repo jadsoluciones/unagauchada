@@ -1,41 +1,54 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <%= link_to root_path, class:'navbar-brand' do %>
-        <img alt="Una Gauchada Logo" src="http://67.media.tumblr.com/avatar_28012e5b8492_128.png">
-      <% end %>
+
+<nav class="navbar navbar-dark orange navbar-fixed-top scrolling-navbar">
+    <!-- Collapse button-->
+    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx2">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="container">
+        <div class="collapse navbar-toggleable-xs" id="collapseEx2">
+             <a class="navbar-brand" href="/">UG</a>
+            <ul class="nav navbar-nav" style="display:inline-block;">
+                <li class="nav-item active">
+                  <%= link_to root_path,class:'nav-link' do %>
+                  Inicio<span class="sr-only">(current)</span>
+                  <% end %>
+                </li>
+                <% if current_usuario %>
+                    <li class="nav-item">
+                        <% if can? :update, Logro %>
+                        <%= link_to logros_path,class:'nav-link' do %>
+                        Logros
+                        <% end %>
+                        <%end%>
+                    </li>
+                    <li class="nav-item">
+                          <%= link_to 'Editar perfil',edit_usuario_registration_path,class:'nav-link' %>
+                    </li>
+                    <li class="nav-item">
+                          <%= link_to 'Salir', destroy_usuario_session_path, data: { confirm: "¿Cerrar sesión?" },class:'nav-link',method: :delete %>
+                    </li>
+                    <% if current_usuario.puntos >= 1 %>
+                        <li class="nav-item">
+                            <%= link_to 'Crear Gauchada', new_gauchada_path,class:'nav-link' %>
+                        </li>
+                    <% else %>
+                        <li class="nav-item">
+                            <%= link_to 'Crear Gauchada', new_compra_path,  data: { confirm: "No tiene puntos suficientes para crear una gauchada. Usted tiene #{current_usuario.puntos} y el mínimo es de 1 punto. ¿Desea realizar una compra?" },class:'nav-link' %>
+                        </li> 
+                    <li class="nav-item">
+                        <%= link_to 'Crear Gauchada', new_usuario_registration_path,class:'nav-link'%>
+                    </li>
+                    <% end %>             
+                <% else %>
+                    <li class="nav-item">
+                        <%= link_to 'Entrar', new_usuario_session_path,class:'nav-link' %></li>
+                    <li class="nav-item">
+                        <%= link_to 'Registrarse', new_usuario_registration_path,class:'nav-link' %>
+                    </li>
+                <% end %>
+            </ul>
+
+        </div><!-- /.navbar-collapse -->
     </div>
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li>
-          <%= link_to root_path do %>
-            Inicio
-          <% end %>
-        </li>
-        <% if current_usuario %>
-            <li>
-              <% if can? :update, Logro %>
-              <%= link_to logros_path do %>
-                Logros
-              <% end %>
-              <%end%>
-            </li>
-            <li><%= link_to 'Editar perfil',edit_usuario_registration_path %></li>
-            <li><%= link_to 'Salir', destroy_usuario_session_path, data: { confirm: "¿Cerrar sesión?" },method: :delete %></li>
-             <% if current_usuario.puntos >= 1 %>
-              <li><%= link_to 'Crear Gauchada', new_gauchada_path %></li>
-             <% else %>
-              <li><%= link_to 'Crear Gauchada', new_compra_path,  data: { confirm: "No tiene puntos suficientes para crear una gauchada. Usted tiene #{current_usuario.puntos} y el mínimo es de 1 punto. ¿Desea realizar una compra?" } %></li> 
-            <% end %>             
-        <% else %>
-            <li><%= link_to 'Entrar', new_usuario_session_path %></li>
-            <li><%= link_to 'Registrarse', new_usuario_registration_path %></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><%= link_to 'Crear Gauchada', new_usuario_registration_path%></li>
-            </ul>
-                       
-        <% end %>
-    </div><!-- /.navbar-collapse -->
-  </div>
 </nav>

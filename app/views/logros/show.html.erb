@@ -1,19 +1,19 @@
-<div class="row">
-	<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<div class="panel panel-default">
-		  <!-- Default panel contents -->
-			<div class="panel-heading"><h1>Logro</h1></div>
-			<div class="panel-body">
-				<h3><%= @logro.titulo %>: requiere entre <%= @logro.min %> y <%= @logro.max %> puntos</h3>
-				<div class="row">
-					<div class="col-xs-12 text-center">
-						<div class="btn-group" role="group" aria-label="...">
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10 offset-xs-1 col-sm-8 col-md-6 offset-sm-2 offset-md-3">
+			<div class="card">
+			  <!-- Default panel contents -->
+				<h3 class="card-header primary-color white-text">Logro</h3>
+				<div class="card-block">
+					<h3><%= @logro.titulo %>: requiere entre <%= @logro.min %> y <%= @logro.max %> puntos</h3>
+					<div class="row">
+						<div class="col-xs-12 text-center">
 							<%= link_to 'Editar', edit_logro_path(@logro), class:'btn btn-primary' %>
 							<%= link_to 'Atrás', logros_path, class:'btn btn-default' %>
 						</div>
 					</div>
-				</div>
-		  </div>
+			  </div>
+			</div>
 		</div>
 	</div>
 </div>

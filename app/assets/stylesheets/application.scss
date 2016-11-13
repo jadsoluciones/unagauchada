@@ -10,75 +10,80 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+
+ *= require_tree ../../../vendor/assets
  *= require_self
+ *= require_tree .
+
  */
 
-body{
-	text-align: center;
-	font-family: 'Lato', sans-serif;
-	font-weight: 300;
-	background: #FAFAFA;
-}
 
-h1,h2,h3,h4,h5,h6{
-	font-family: 'Enriqueta', sans-serif;
-	font-weight: 400;
-}
+// body{
+// 	text-align: center;
+// 	font-family: 'Lato', sans-serif;
+// 	font-weight: 300;
+// 	background: #FAFAFA;
+// }
+
+// h1,h2,h3,h4,h5,h6{
+// 	font-family: 'Enriqueta', sans-serif;
+// 	font-weight: 400;
+// }
 
 // body div{
 // 	text-align: center;
 // }
 
-body th{
-	text-align: center;
+// body th{
+// 	text-align: center;
+// }
+
+.text-large{
+	font-size: 2rem !important;		
 }
 
-a, a:visited, a:hover, a:active {
-  color: inherit;
-}
+// a, a:visited, a:hover, a:active {
+//   color: inherit;
+// }
 
 
 header{
 	height: 300px;
 	position: relative;
-	background-image: url(http://static.tumblr.com/9817bfb93e61ddc7d59e3edfa53f38d7/vhrhomj/Gqbocuj67/tumblr_static_cxyqhzp2ceg44css0kswkckgw_2048_v2.png);
+	background-image: image-url('fondo-gauchada.png');
 	background-size: cover;
 	background-position: bottom center;
-	text-align: center;
 	margin-bottom: 30px;
-}
-header .row{
-	padding-top: 150px;
-	position: relative;
-	background: rgba(0,0,0,0.6);
-	height: 100%;
-}
-header .buscador{
-	border-bottom: 1px solid #E0E4CC;
-}
-header .buscador input{
-	border:none;
-	font-size: 50px;
-	font-weight: 300;
-	color: #fff;
-	background: none;
-	width: 100%;
-	font-style: italic;
-}
-// ########## MENU ##################
-.navbar-collapse .nav li a{
-	transition: color 0.2s;
-	font-size: 20px;
-}
-.navbar-collapse .nav li a:hover{
-	color: #FA6900;
-}
 
-.navbar-header .navbar-brand img{
-	height: 100%;
+	.row{
+		padding-top: 120px;
+		position: relative;
+		background: rgba(0,0,0,0.6);
+		height: 100%;
+	}
+
 }
-// ########## MENU ##################
+// header .buscador{
+// 	border-bottom: 1px solid #E0E4CC;
+// }
+// header .buscador input{
+// 	border:none;
+// 	font-size: 50px;
+// 	font-weight: 300;
+// 	color: #fff;
+// 	background: none;
+// 	width: 100%;
+// 	font-style: italic;
+// }
+// // ########## MENU ##################
+// .navbar-collapse .nav li a{
+// 	transition: color 0.2s;
+// 	font-size: 20px;
+// }
+// .navbar-collapse .nav li a:hover{
+// 	color: #FA6900;
+// }
+// // ########## MENU ##################
 
 // ######### FORM ###################
 .form-group input{
@@ -105,5 +110,5 @@ header .buscador input{
 }
 // ######### FORM ###################
 .gauchada-link{
-	text-align:right;
+	text-align: right;
 }

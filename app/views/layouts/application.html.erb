@@ -3,19 +3,17 @@
 <head>
   <title>gauchada.com</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link href="https://fonts.googleapis.com/css?family=Enriqueta:400,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i" rel="stylesheet">
+<!--   <link href="https://fonts.googleapis.com/css?family=Enriqueta:400,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i" rel="stylesheet"> -->
 </head>
 
 
 <body>
 
-<%= render 'layouts/menu' %>
+
 <%= render 'layouts/header' %>
-<div class="row">
-	<div class="text-center col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+<div class="container py-1">
 		<% if notice %>
 		  <p class="alert alert-success"><%= notice %></p>
 		<% end %>
@@ -24,7 +22,10 @@
 		<% end %>
 	</div>
 </div>
+<section>
 <%= yield %>
+</section>
 
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>	
 </body>
 </html>

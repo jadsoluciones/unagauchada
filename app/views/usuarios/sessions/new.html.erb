@@ -1,26 +1,56 @@
-<h2>Entrar</h2>
+<!--Form with header-->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 offset-xs-1 col-sm-6 offset-sm-3">
+      <div class="card">
+          <div class="card-block">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+              <!--Header-->
+              <div class="form-header unique-color ">
+                  <h3><i class="fa fa-lock"></i> Entrar:</h3>
+              </div>
 
-  <div class="field">
-    <%= f.label :Contraseña %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <!--Body-->
+              <div class="md-form">
+                  <i class="fa fa-envelope prefix"></i>
+                  <%= f.email_field :email, autofocus: true, class:'form-control' %>
+                  <%= f.label :email, 'Tu email' %>
+              </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :Recordarme %>
+              <div class="md-form">
+                  <i class="fa fa-lock prefix"></i>
+                  <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+                  <%= f.label :password, 'Tu contraseña' %>
+              </div>
+
+              <% if devise_mapping.rememberable? %>
+                <div class="md-form">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me, 'Recordarme' %>
+                </div>
+              <% end %>
+              <div class="text-xs-center">
+                  <%= f.submit "Entrar", class:'btn btn-primary' %>
+              </div>
+
+          </div>
+          <% end %>
+
+          <!--Footer-->
+          <div class="modal-footer">
+              <div class="options">
+                  <%= render "usuarios/shared/links" %>
+              </div>
+          </div>
+
+      </div>
+      <!--/Form with header-->
+
+
+
+
+      
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Entrar" %>
   </div>
-<% end %>
-
-<%= render "usuarios/shared/links" %>
+</div>

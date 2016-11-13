@@ -1,20 +1,56 @@
-<% gauchadas = Gauchada.all%>
-<% gauchadas.each do |gauchada| %>
-<div class="row">
-	<div class= "gauchada col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4" >
-		<div class="imagen"><% if gauchada.imagen != nil %>
-			<%= cl_image_tag(gauchada.imagen, :radius=>10, :width=>343, :crop=>"scale", :align=> "center")%>
-		<% end %>
-		</div>
-		<h2> <%= link_to gauchada.titulo, gauchada %> </h2>
-		<b><p class="usuario"> <%= gauchada.usuario.nombre %>
-		<%= gauchada.usuario.apellido%> </p></b>
-		<p> <%= gauchada.descripcion %> </p>
 
-		<p class="ciudad"> <%= gauchada.ciudad%> </p>
+<%= render 'layouts/buscador' %>
+
+<% gauchadas = Gauchada.all%>
+<div class="row">
+	<% gauchadas.each_with_index do |gauchada,index| %>
+	<div class="col-xs-12 col-sm-4">
+		<div class="row">
+			<div class="col-xs-10 offset-xs-1">
+				<div class="card">
+				    <!--Card image-->
+				    <% if gauchada.imagen != nil %>
+					    <div class="view overlay hm-white-slight">
+					        <%= cl_image_tag(gauchada.imagen, :width=>400,  :crop=>"scale", :align=> "center")%>
+					        <a href="#">
+					            <div class="mask"></div>
+					        </a>
+					    </div>
+				    <% end %>
+				    <!--/.Card image-->
+
+				    <!--Card content-->
+				    <div class="card-block">
+				        <!--Title-->
+				        <h4 class="card-title">
+				        	<%= link_to gauchada.titulo, gauchada %>
+				        		
+				        </h4>
+				        <!--Text-->
+				        <p class="card-text">
+				        	<%= gauchada.descripcion %>
+				        </p>
+						<div class="chip">
+						    <img src="http://mdbootstrap.com/images/avatars/img%20(3).jpg" alt="Contact Person">
+				       		<%= gauchada.usuario.nombre %>
+							<%= gauchada.usuario.apellido%>
+						</div>
+				        <p class="card-text text-xs-right font-italic text-muted">
+				       		<%= gauchada.ciudad%>
+				       	</p>
+
+						<%= link_to 'Detalles', gauchada,class:'btn btn-orange' %>
+				    </div>
+			    	<!--/.Card content-->
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
+	<% if (index+1) % 3 == 0 %>
+		<div class="clearfix visible-sm-block visible-md-block visible-lg-block"></div>
 	<% end %>
+	<% end %>
+</div>
 	<% if gauchadas.size == 0 %>
 		 No hay gauchadas 
 	<% end %>

@@ -1,4 +1,4 @@
-<%= form_for(@gauchada,:html => {:class => 'form-horizontal'}) do |f| %>
+<%= form_for @gauchada do |f| %>
   <% if @gauchada.errors.any? %>
     <div class="bg-danger">
       <h3> Hay <%= pluralize(@gauchada.errors.count, "error","errores") %></h3>
@@ -10,23 +10,23 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+  <div class="md-form">
     <%= f.label :titulo %><br>
-    <%= f.text_field :titulo, required: true %>
+    <%= f.text_field :titulo, required: true,class:'form-control' %>
   </div>
-  <div class="field">
+  <div class="md-form">
     <%= f.label :descripcion %><br>
-    <%= f.text_field :descripcion, required: true%>
+    <%= f.text_area :descripcion, required: true,class:'md-textarea'%>
   </div>
-  <div class="field">
+  <div class="md-form">
     <%= f.label :imagen %><br>
-    <%= f.text_field :imagen %>
+    <%= f.text_field :imagen,class:'form-control' %>
   </div>
-  <div class="field">
+  <div class="md-form">
     <%= f.label :ciudad %><br>
-    <%= f.text_field :ciudad, required: true %>
+    <%= f.text_field :ciudad, required: true,class:'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="md-form">
+    <%= f.submit "Guradar", class:'btn btn-primary' %>
   </div>         
 <% end %>

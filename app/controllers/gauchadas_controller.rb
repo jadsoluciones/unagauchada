@@ -13,6 +13,9 @@ class GauchadasController < ApplicationController
   # GET /gauchadas/1
   # GET /gauchadas/1.json
   def show
+    if current_usuario
+      @new_quest = Question.new usuario_id:current_usuario.id
+    end
   end
 
   # GET /gauchadas/new
