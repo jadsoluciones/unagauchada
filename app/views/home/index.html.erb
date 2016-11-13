@@ -1,9 +1,8 @@
 
 <%= render 'layouts/buscador' %>
 
-<% gauchadas = Gauchada.all%>
 <div class="row">
-	<% gauchadas.each_with_index do |gauchada,index| %>
+	<% @gauchadas.each_with_index do |gauchada,index| %>
 	<div class="col-xs-12 col-sm-4">
 		<div class="row">
 			<div class="col-xs-10 offset-xs-1">
@@ -51,6 +50,6 @@
 	<% end %>
 	<% end %>
 </div>
-	<% if gauchadas.size == 0 %>
+	<% if @gauchadas.size == 0 %>
 		 No hay gauchadas 
 	<% end %>
