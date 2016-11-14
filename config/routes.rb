@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'usuarios/show'
-
-  get 'usuario/show'
 
   devise_for :usuarios
   resources :answers
@@ -10,6 +7,7 @@ Rails.application.routes.draw do
   resources :logros
   resources :logros
   resources :compras
+  resources :usuarios, only: [:show]
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
