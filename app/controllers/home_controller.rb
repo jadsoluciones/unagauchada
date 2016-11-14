@@ -1,11 +1,13 @@
 class HomeController < ApplicationController
 	def index
 		@gauchadas = Gauchada.all
+
+		render :template =>'gauchadas/index'
 	end
 
 	def search 
 		if params[:ciudad] then
-			if params[:frase] = '*' then
+			if params[:frase] == '*' then
 				@gauchadas = Gauchada.where("ciudad = ?",params[:ciudad])
 			else
 				@gauchadas = Gauchada.where("
@@ -18,7 +20,7 @@ class HomeController < ApplicationController
 							(titulo LIKE ? OR 
 							descripcion LIKE ?)",'%'+params[:frase]+'%','%'+params[:frase]+'%')
 		end
-		render :template => 'home/index'
+		render :template => 'gauchadas/index'
 	end
 
 
