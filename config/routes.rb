@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 
   get 'usuario/show'
 
+  get 'search/:frase' => 'home#search'
+  get 'search/:frase/:ciudad' => 'home#search'
+
   devise_for :usuarios
   resources :answers
   resources :questions
   resources :gauchadas
-  resources :logros
   resources :logros
   resources :compras
   root 'home#index'
