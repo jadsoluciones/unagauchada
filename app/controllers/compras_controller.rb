@@ -1,8 +1,11 @@
 class ComprasController < ApplicationController
-  before_action :set_compra, only: [:show, :edit, :update, :destroy]
+  before_action :set_compra, only: [:show, :destroy]
 
   # GET /compras
-  # GET /compras.json
+  # GET /compras.json 
+  require 'credit_card_validations/string'
+
+
   def index
     @compras = Compra.all
   end
@@ -10,12 +13,17 @@ class ComprasController < ApplicationController
   # GET /compras/1
   # GET /compras/1.json
   def show
+
   end
 
   # GET /compras/new
   def new
+    # remplazar 12 por configuracion
+
+    @precio = 12
     @compra = Compra.new
   end
+
 
   # GET /compras/1/edit
   def edit
@@ -24,11 +32,18 @@ class ComprasController < ApplicationController
   # POST /compras
   # POST /compras.json
   def create
-    @compra = Compra.new(compra_params)
+    # remplazar 12 por configuracion
+
+    precio = 12
+
+    puntos = compra_params[:puntos_comprados]
+
+    monto = precio * puntos.to_i
+    @compra = Compra.new monto: monto, puntos_comprados:puntos
 
     respond_to do |format|
-      if @compra.save
-        format.html { redirect_to @compra, notice: 'Compra was successfully created.' }
+      if valid_card? && @compra.save
+        format.html { redirect_to @compra, notice: "Usted compró #{@compra.puntos_comprados} puntos por un total de $ARS #{@compra.monto}." }
         format.json { render :show, status: :created, location: @compra }
       else
         format.html { render :new }
@@ -40,15 +55,7 @@ class ComprasController < ApplicationController
   # PATCH/PUT /compras/1
   # PATCH/PUT /compras/1.json
   def update
-    respond_to do |format|
-      if @compra.update(compra_params)
-        format.html { redirect_to @compra, notice: 'Compra was successfully updated.' }
-        format.json { render :show, status: :ok, location: @compra }
-      else
-        format.html { render :edit }
-        format.json { render json: @compra.errors, status: :unprocessable_entity }
-      end
-    end
+
   end
 
   # DELETE /compras/1
@@ -69,6 +76,15 @@ class ComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def compra_params
-      params.require(:compra).permit(:monto, :puntos_comprados)
+      params.require(:compra).permit(:puntos_comprados,:tarjeta)
+    end
+
+    def valid_card?
+      num = compra_params[:tarjeta] || ''
+      unless num.valid_credit_card_brand?
+        @compra.errors[:base] << "La tarjeta no es valida"
+        return false
+      end
+      return true
     end
 end
