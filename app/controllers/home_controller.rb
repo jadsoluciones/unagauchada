@@ -5,20 +5,22 @@ class HomeController < ApplicationController
 		render :template =>'gauchadas/index'
 	end
 
-	def search 
-		if params[:ciudad] then
-			if params[:frase] == '*' then
-				@gauchadas = Gauchada.where("ciudad = ?",params[:ciudad])
-			else
-				@gauchadas = Gauchada.where("
-					(titulo LIKE ? OR 
-					descripcion LIKE ?) AND
-					ciudad = ?",'%'+params[:frase]+'%','%'+params[:frase]+'%',params[:ciudad])
-			end
-		else
+	def search
+		f_a = params[:frase] == '*'
+		c_a = params[:ciudad] == '*'
+		if f_a && c_a then ## no hay frase ni cuidad
+			@gauchadas = Gauchada.all	
+		elsif f_a && !c_a # no hay frase pero hay ciudad
+			@gauchadas = Gauchada.where("ciudad = ?",params[:ciudad])
+		elsif !f_a && c_a # hay frase pero no hay ciudad
 			@gauchadas = Gauchada.where("
-							(titulo LIKE ? OR 
-							descripcion LIKE ?)",'%'+params[:frase]+'%','%'+params[:frase]+'%')
+								(titulo  ILIKE ? OR 
+								descripcion ILIKE  ? )",'%'+params[:frase].downcase+'%','%'+params[:frase].downcase+'%')
+		else # hay frase y hay ciudad
+			@gauchadas = Gauchada.where("
+					(titulo ILIKE ? OR 
+					descripcion ILIKE ? ) AND
+					ciudad = ?",'%'+params[:frase].downcase+'%','%'+params[:frase].downcase+'%',params[:ciudad])
 		end
 		render :template => 'gauchadas/index'
 	end
