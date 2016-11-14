@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'usuarios/show'
-
-  get 'usuario/show'
 
   get 'search/:frase' => 'home#search'
   get 'search/:frase/:ciudad' => 'home#search'
@@ -12,6 +9,7 @@ Rails.application.routes.draw do
   resources :gauchadas
   resources :logros
   resources :compras
+  resources :usuarios, only: [:show]
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

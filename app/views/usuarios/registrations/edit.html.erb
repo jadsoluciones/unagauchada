@@ -1,5 +1,5 @@
 <div class="container">
-        
+
     <div class="jumbotron">
         <h1 class="h1-responsive">Editar <%= resource_name.to_s.humanize %></h1>
         <hr class="my-2">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
             </div>
-                
+
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             Currently waiting confirmation for: <%= resource.unconfirmed_email %>
             <% end %>
@@ -71,7 +71,7 @@
                     <div class="md-form">
                         <i class="fa fa-lock prefix"></i>
                         <%= f.password_field :current_password, autocomplete: "off",required:true,class:'form-control' %>
-                        <%= f.label :current_password, 'Contraseña actual' %> 
+                        <%= f.label :current_password, 'Contraseña actual' %>
                     </div>
                 </div>
                 <div class="col-xs-4">
@@ -91,12 +91,12 @@
                 <div class="col-xs-4">
                     <p class="font-italic text-muted">
                         Necesitamos su contraseña para permitir los cambios
-                    </p>                    
+                    </p>
                 </div>
                 <div class="col-xs-4">
                     <p class="font-italic text-muted">
                         Dejar en blanco si no desea cambiarlo
-                    </p>                    
+                    </p>
                     <% if @minimum_password_length %>
                     <p class="font-warning"><%= @minimum_password_length %> caracteres mínmos</p>
                     <% end %>
@@ -108,12 +108,12 @@
             <p class="lead">
                 <%= f.submit "Actualizar", class: 'btn btn-primary' %>
             </p>
-                
+
             <% end %>
 
         </p>
         <div class="pull-right">
-            <h3>Cerrar mi cuenta 
+            <h3>Cerrar mi cuenta
             </h3>
             <p class="lead my-1">
                 ¿Estás insatisfecho?
