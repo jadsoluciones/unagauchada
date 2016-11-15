@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'search/:frase' => 'home#search'
+  get 'search/:frase/:ciudad' => 'home#search'
+
   devise_for :usuarios
   resources :answers
   resources :questions
   resources :gauchadas
-  resources :logros
   resources :logros
   resources :compras
   resources :usuarios, only: [:show]

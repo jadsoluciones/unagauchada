@@ -42,6 +42,29 @@
 	font-size: 2rem !important;		
 }
 
+select.custom-select{
+	
+	border: 0;
+	border-radius: 0;
+	border-bottom: 1px solid #CCC;
+	height: auto !important;
+	font-size: 1.5rem !important;
+	width: 100% !important;
+	
+    // Focused input style
+    &:focus {
+        border-bottom: 1px solid rgb(66,133,244);
+        box-shadow: 0 1px 0 0 rgb(66,133,244);
+    }
+
+}
+
+.md-form .select_wrapper{
+	width: 32% !important;
+	display: inline-block !important;
+	margin: 0 !important;
+}
+
 // a, a:visited, a:hover, a:active {
 //   color: inherit;
 // }

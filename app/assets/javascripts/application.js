@@ -21,6 +21,12 @@
 //= require_tree .
 
 $(document).ready(function() {
-	$('.mdb-select').material_select('destroy');
-	$('.mdb-select').material_select();
+	$('.wrap-select').wrap('<div class="select_wrapper">');
+
+	$('#boton-buscar').click(function(){
+		var frase = $('#frase-buscar').val() || '*';
+		var ciudad = $('#ciudad-buscar').val() || '*';
+
+		window.location.href = '/search/'+frase+'/'+ciudad;
+	});
 });
