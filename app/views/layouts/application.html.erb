@@ -15,8 +15,12 @@
 <%= render 'layouts/header' %>
 
 <div class="container py-1">
-	<div class="row">
+	<% if notice || alert %>
+	<div class="row" id="notice">
 		<div class="col-xs-10 offset-xs-1 col-sm-6 offset-sm-3">
+			<button type="button" id="close-notice" class="close" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
 			<% if notice %>
 			  <blockquote class="blockquote bq-success">
 			      <p class="bq-title">Bien!</p>
@@ -31,6 +35,7 @@
 			<% end %>
 		</div>
 	</div>
+	<% end %>
 </div>
 <section>
 <%= yield %>
