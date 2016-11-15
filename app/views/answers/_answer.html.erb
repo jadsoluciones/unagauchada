@@ -1,0 +1,24 @@
+<!--First row-->
+<div class="row">
+    <!--Content column-->
+    <div class="col-xs-10 offset-xs-1">
+        <a>
+            <h5 class="user-name mb-0">
+                Respuesta 
+                <small class="text-muted">
+                    <i class="fa fa-clock-o"></i> 
+                    Hace <%= time_ago_in_words answer.updated_at %>
+                </small>
+            </h5>
+        </a>
+        <div class="card-data text-xs-left">
+            <p class="comment-text">
+                <%= answer.contenido %>
+            </p>
+        </div>
+
+    </div>
+    <!--/.Content column-->
+
+</div>
+<!--/.First row-->

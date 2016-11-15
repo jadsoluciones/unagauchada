@@ -14,16 +14,17 @@
                 <%= question.usuario.apellido %>
             </h5>
         </a>
-        <div class="card-data text-xs-left">
+        <div class="card-data text-xs-left text-xs-small">
             <ul>
                 <li class="comment-date">
-                    <i class="fa fa-clock-o"></i> 05/10/2015
+                    <i class="fa fa-clock-o"></i> Hace <%= time_ago_in_words question.updated_at %>
                 </li>
             </ul>
         </div>
 
         <p class="comment-text">
             <%= question.contenido %>
+            <%= render question.answer %>
         </p>
     </div>
     <!--/.Content column-->

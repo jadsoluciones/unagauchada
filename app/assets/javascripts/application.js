@@ -29,4 +29,13 @@ $(document).ready(function() {
 
 		window.location.href = '/search/'+frase+'/'+ciudad;
 	});
+
+	$('#close-notice').click(function(){
+		$('#notice').animate({
+			height: 0,
+			opacity:0
+		},300,function(){
+			$('#notice').hide();
+		});
+	});
 });

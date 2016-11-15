@@ -6,7 +6,7 @@
 		    <div class="container">
 		    	
 				<!--Card image-->
-				<% if @gauchada.imagen != nil %>
+				<% if @gauchada.imagen && @gauchada.imagen!='' %>
 			    <div class="col-xs-12 col-sm-4">
 				    <div class="view overlay hm-white-slight">
 				        <%= cl_image_tag(@gauchada.imagen, :width=>450,  :crop=>"scale", :align=> "center")%>
