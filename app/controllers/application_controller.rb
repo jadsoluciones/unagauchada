@@ -21,6 +21,10 @@ alias_method :current_user, :current_usuario
             devise_parameter_sanitizer.permit(:sign_up) do |usuario_params|
               usuario_params.permit(:nombre, :apellido, :domicilio, :fecNac,
               :DNI, :email, :password, :password_confirmation)
-        end
-      end
-    end
+            end
+            devise_parameter_sanitizer.permit(:account_update) do |usuario_params|
+              usuario_params.permit(:nombre, :apellido, :domicilio, :fecNac,
+              :DNI, :email, :password, :password_confirmation, :current_password)
+            end
+          end
+   end

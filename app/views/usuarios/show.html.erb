@@ -8,8 +8,8 @@
           <%= form_for(@usuario) do |f| %>
 
           <hr class="my-2">
-          <p class="lead">
-              <%= link_to "Editar mi perfil", edit_usuario_registration_path,class:'btn btn-primary' %>
+          <p class="lead" >
+              <%= link_to "Editar mi perfil", edit_usuario_registration_path, class:'btn btn-primary fa fa-magic' %>
           </p>
 
           <div class="row">
@@ -38,7 +38,7 @@
               </div>
               <div class="col-xs-6">
                   <div class="md-form">
-                      <i class="fa fa-home prefix"></i>
+                      <i class="fa fa-google prefix"></i>
                       <%= f.text_field :puntos,class:'form-control', disabled:true %>
                       <%= f.label :puntos %>
                   </div>
@@ -56,7 +56,7 @@
               <%= form_for(@puntaje) do |j| %>
               <div class="col-xs-6">
                   <div class="md-form">
-                      <i class="fa fa-home prefix"></i>
+                      <i class="fa fa-certificate prefix"></i>
                       <%= j.text_field :titulo, class:'form-control datepicker',disabled:true  %>
                       <%= j.label :titulo, 'Título' %>
                   </div>
