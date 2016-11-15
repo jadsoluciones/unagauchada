@@ -45,7 +45,7 @@
                           <%= f.date_select :fecNac, {:start_year => 1920,:end_year =>
                           (Time.now.year - 18)},{ :required => true, :class => "browser-default"}  %>
                           <%= f.label :fecNac, 'Fecha de nacimiento' %>
-                         
+
                       </div>
                   </div>
               </div>
@@ -89,7 +89,7 @@
                   </div>
               </div>
               <div class="row">
-                  <div class="col-xs-6">                
+                  <div class="col-xs-6">
                       <% if @minimum_password_length %>
                       <p class="text-warning pl-3"><%= @minimum_password_length %> caracteres mínmos</p>
                       <% end %>
@@ -112,7 +112,7 @@
 
       </div>
       <!--/Form with header-->
-      
+
     </div>
   </div>
 </div>
