@@ -1,4 +1,5 @@
 class GauchadasController < ApplicationController
+  before_action :authenticate_usuario!, only: [:new]
   load_and_authorize_resource param_method: :gauchada_params
   before_action :set_gauchada, only: [:show, :edit, :update, :destroy]
   #default_scope -> {order :fecha}

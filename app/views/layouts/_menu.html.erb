@@ -31,18 +31,6 @@
                     <li class="nav-item">
                           <%= link_to 'Comprar puntos',new_compra_path,class:'nav-link' %>
                     </li>
-                    <% if current_usuario.puntos >= 1 %>
-                        <li class="nav-item">
-                            <%= link_to 'Crear Gauchada', new_gauchada_path,class:'nav-link' %>
-                        </li>
-                    <% else %>
-                        <li class="nav-item">
-                            <%= link_to 'Crear Gauchada', new_compra_path,  data: { confirm: "No tiene puntos suficientes para crear una gauchada. Usted tiene #{current_usuario.puntos} y el mínimo es de 1 punto. ¿Desea realizar una compra?" },class:'nav-link' %>
-                        </li>
-                    <li class="nav-item">
-                        <%= link_to 'Crear Gauchada', new_usuario_registration_path,class:'nav-link'%>
-                    </li>
-                    <% end %>
                 <% else %>
                     <li class="nav-item">
                         <%= link_to 'Entrar', new_usuario_session_path,class:'nav-link' %></li>
@@ -50,8 +38,10 @@
                         <%= link_to 'Registrarse', new_usuario_registration_path,class:'nav-link' %>
                     </li>
                 <% end %>
+                <li class="nav-item">
+                            <%= link_to 'Crear Gauchada', new_gauchada_path,class:'nav-link' %>
+                </li>
             </ul>
-
         </div><!-- /.navbar-collapse -->
     </div>
 </nav>
