@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'search/:frase' => 'home#search'
-  get 'search/:frase/:ciudad' => 'home#search'
 
   devise_for :usuarios
   resources :answers
@@ -10,6 +8,10 @@ Rails.application.routes.draw do
   resources :logros
   resources :compras
   resources :usuarios, only: [:show]
+
+  get 'search/:frase' => 'gauchadas#index'
+  get 'search/:frase/:ciudad(/:pagina)' => 'gauchadas#index'
+  
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

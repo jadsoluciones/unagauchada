@@ -8,7 +8,14 @@ class GauchadasController < ApplicationController
   # GET /gauchadas
   # GET /gauchadas.json
   def index
-    @gauchadas = Gauchada.all
+    defaults = Hash.new
+    defaults[:frase] =  (params[:frase]=='*') ? nil : params[:frase]  
+    defaults[:ciudad] = (params[:ciudad]=='*') ? nil : params[:ciudad]
+    
+    params.merge! defaults
+    
+    @gauchadas = Gauchada.resultados params
+    #@gauchadas = Gauchada.all
   end
 
   # GET /gauchadas/1
@@ -44,7 +51,7 @@ class GauchadasController < ApplicationController
       end
     end
   end
-
+  
   # PATCH/PUT /gauchadas/1
   # PATCH/PUT /gauchadas/1.json
   def update
