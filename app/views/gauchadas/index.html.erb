@@ -2,6 +2,12 @@
 <%= render 'layouts/buscador' %>
 
 <div class="row">
+	<div class="container text-xs-center">
+		<%=  render :partial=>'layouts/paginacion', :locals => {:p => @paginacion} %>
+	</div>
+</div>
+
+<div class="row">
 	<% @gauchadas.each_with_index do |gauchada,index| %>
 	<div class="col-xs-12 col-sm-4">
 		<div class="row">
