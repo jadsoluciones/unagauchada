@@ -4,10 +4,15 @@ class Gauchada < ActiveRecord::Base
 	validates :titulo, :descripcion, :ciudad, presence: true
 	default_scope -> {order ("created_at DESC")}
 
+	RXP = 10;
 
-
-	def self.cantidad_resultados(options = {})
-		return self.filter(options).size()
+	def self.cantidad_paginas(options = {})
+		aux = self.filter(options).size()
+		if aux % RXP == 0
+			return aux / RXP
+		else
+			return aux / RXP + 1
+		end
 	end
 
 	def self.resultados(options = {})
@@ -15,7 +20,7 @@ class Gauchada < ActiveRecord::Base
 		options.reverse_merge!(
 				:pagina => 1
 		)
-		return self.filter(options).limit(20).offset((options[:pagina].to_i-1)*20)
+		return self.filter(options).limit(RXP).offset((options[:pagina].to_i-1)*RXP)
 	end
 
 	private
