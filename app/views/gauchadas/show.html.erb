@@ -4,7 +4,7 @@
 		<div class="card">
 			<!--Container-->
 		    <div class="container">
-		    	
+
 				<!--Card image-->
 
 
@@ -57,6 +57,18 @@
 				        <p class="card-text text-xs-right font-italic text-muted">
 				       		<%= @gauchada.ciudad%>
 				       	</p>
+								<% if current_usuario %>
+									<% if can? :create, Postulacion %>
+										<p class="col-xs-0 align-bottom">
+												<%= link_to "Postularse", :back ,class:'btn btn-blue-grey waves-effect waves-light' %>
+										</p>
+									<%else%>
+										<p class="col-xs-0 align-bottom">
+												<%= link_to "Lista de postulados", :back ,class:'btn btn-blue-grey waves-effect waves-light' %>
+										</p>
+									<%end%>
+								<%end%>
+								<p> </p>
 				       	<% questions = @gauchada.questions.all%>
 				       	<!--Main wrapper-->
 						<div class="comments-list">
@@ -82,8 +94,3 @@
 	    <!--Card -->
 	</div>
 </div>
-
-
-
-
-

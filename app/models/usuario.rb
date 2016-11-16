@@ -5,5 +5,10 @@ class Usuario < ActiveRecord::Base
   validates :puntos, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  def logro
+  	return Logro.where("min <=?",self.puntos).order(:min => :desc).first
+  end
          
 end
