@@ -2,7 +2,7 @@ class GauchadasController < ApplicationController
   before_action :authenticate_usuario!, only: [:new]
   load_and_authorize_resource param_method: :gauchada_params
   before_action :set_gauchada, only: [:show, :edit, :update, :destroy]
-  #default_scope -> {order :fecha}
+
 
 
   # GET /gauchadas
@@ -33,6 +33,7 @@ class GauchadasController < ApplicationController
   def create
     @gauchada = Gauchada.new(gauchada_params)
     @gauchada.usuario = current_usuario
+    upload_image_to_cloudinary(params[:gauchada][:image])
 
     respond_to do |format|
       if @gauchada.save
@@ -79,4 +80,12 @@ class GauchadasController < ApplicationController
     def gauchada_params
       params.require(:gauchada).permit(:titulo, :descripcion, :imagen, :ciudad)
     end
+
+    def upload_image_to_cloudinary(image)
+      return if image.nil?
+      hash = Cloudinary::Uploader.upload(image)
+      @gauchada.cloudinary_id = hash["public_id"]
+      @gauchada.image_url     = hash["secure_url"]
+    end
+    
 end
