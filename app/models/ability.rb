@@ -25,6 +25,10 @@ class Ability
         gauchada.usuario == user
       end
 
+      can :create, Postulacion do |postulacion|
+        postulacion.usuario != user
+      end
+
       can :read, :all
 
     else if user.rol == "UsReg"
@@ -38,6 +42,10 @@ class Ability
 
       can :urPuede, Gauchada do |gauchada|
         gauchada.usuario == user
+      end
+
+      can :create, Postulacion do |postulacion|
+        postulacion.usuario != user
       end
 
       can :read, :all
