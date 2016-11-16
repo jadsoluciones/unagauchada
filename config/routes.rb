@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-
   devise_for :usuarios
+  resources :usuarios, only: [:show]
   resources :answers
   resources :questions
   resources :gauchadas
@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'search/:frase' => 'gauchadas#index'
   get 'search/:frase/:ciudad(/:pagina)' => 'gauchadas#index'
+  
+  resources :postulacions
   
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
