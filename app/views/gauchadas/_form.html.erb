@@ -1,7 +1,7 @@
 <%= form_for @gauchada do |f| %>
   <% if @gauchada.errors.any? %>
     <div class="bg-danger">
-      <h3> Hay <%= pluralize(@gauchada.errors.count, "error","errores") %></h3>
+      <h3> Hay <%= pluralipze(@gauchada.errors.count, "error","errores") %></h3>
       <p>La gauchada no puede ser guardada:</p>
       <ul>
       <% @gauchada.errors.full_messages.each do |message| %>
@@ -20,13 +20,13 @@
   </div>
   <div class="md-form">
     <%= f.label :imagen %><br>
-    <%= f.text_field :imagen,class:'form-control' %>
+    <%=  f.file_field :image %>
   </div>
   <div class="md-form">
     <%= f.label :ciudad %><br>
     <%= f.text_field :ciudad, required: true,class:'form-control' %>
   </div>
   <div class="md-form">
-    <%= f.button "Guardar", class:'btn btn-succes',disabled: current_usuario.puntos<1 %>
+    <%= f.button "Guardar", class:'btn btn-warning',disabled: current_usuario.puntos<1 %>
   </div>         
 <% end %>

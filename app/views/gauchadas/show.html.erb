@@ -6,10 +6,13 @@
 		    <div class="container">
 		    	
 				<!--Card image-->
-				<% if @gauchada.imagen && @gauchada.imagen!='' %>
+
+
+				<% if @gauchada.image_url != nil %>
+
 			    <div class="col-xs-12 col-sm-4">
 				    <div class="view overlay hm-white-slight">
-				        <%= cl_image_tag(@gauchada.imagen, :width=>450,  :crop=>"scale", :align=> "center")%>
+				        <%= image_tag(@gauchada.image_url, :width=>450,  :crop=>"scale", :align=> "center", :radius=>10)%>
 				        <a href="#">
 				            <div class="mask"></div>
 				        </a>
@@ -19,7 +22,7 @@
 				<!--/.Card image-->
 
 			    <!--Card col-->
-			    <% if @gauchada.imagen != nil %>
+			    <% if @gauchada.image_url != nil %>
 			    <div class="col-xs-12 col-sm-8">
 			    <% else %>
 			    <div class="col-xs-12"></div>

@@ -8,9 +8,9 @@
 			<div class="col-xs-10 offset-xs-1">
 				<div class="card">
 				    <!--Card image-->
-				    <% if gauchada.imagen != nil %>
+				    <% if gauchada.image_url != nil %>
 					    <div class="view overlay hm-white-slight">
-					        <%= cl_image_tag(gauchada.imagen, :width=>400,  :crop=>"scale", :align=> "center")%>
+					        <%= image_tag(gauchada.image_url, :width=>450,  :crop=>"scale", :align=> "center", :radius=>10)%>
 					        <a href="#">
 					            <div class="mask"></div>
 					        </a>
