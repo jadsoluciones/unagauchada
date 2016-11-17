@@ -8,9 +8,20 @@
           <%= form_for(@usuario) do |f| %>
 
           <hr class="my-2">
-          <p class="lead" >
-              <%= link_to "Editar mi perfil", edit_usuario_registration_path, class:'btn btn-primary fa fa-magic' %>
-          </p>
+
+          <p class="lead">
+              <%= link_to "Editar mi perfil", edit_usuario_registration_path,class:'btn btn-primary' %>
+          </p>          
+          <% if @usuario.image_url && @usuario.image_url!='' %>
+            <div class="col-xs-12">
+              <div class="view overlay hm-white-slight">
+                <%= image_tag(@usuario.image_url, :width=>450,  :crop=>"scale", :align=> "center", :radius=>10)%>
+                <a href="#">
+                    <div class="mask"></div>
+                </a>
+            </div>
+          </div>
+        <% end %>
 
           <div class="row">
               <div class="col-xs-6">

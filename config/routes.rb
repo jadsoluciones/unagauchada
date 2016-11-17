@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :usuarios
-  resources :usuarios, only: [:show]
+
+  get 'search/:frase' => 'home#search'
+  get 'search/:frase/:ciudad' => 'home#search'
+
+  devise_for :usuarios, controllers: {
+    registrations: 'registrations'
+  }
   resources :answers
   resources :questions
   resources :gauchadas

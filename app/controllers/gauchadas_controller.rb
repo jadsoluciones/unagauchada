@@ -56,6 +56,7 @@ class GauchadasController < ApplicationController
   # PATCH/PUT /gauchadas/1
   # PATCH/PUT /gauchadas/1.json
   def update
+    upload_image_to_cloudinary(params[:gauchada][:image])
     respond_to do |format|
       if @gauchada.update(gauchada_params)
         format.html { redirect_to @gauchada, notice: 'Gauchada actualizada.' }
@@ -85,7 +86,7 @@ class GauchadasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gauchada_params
-      params.require(:gauchada).permit(:titulo, :descripcion, :imagen, :ciudad)
+      params.require(:gauchada).permit(:titulo, :descripcion, :image_url, :ciudad)
     end
 
     def upload_image_to_cloudinary(image)
