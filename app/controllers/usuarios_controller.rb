@@ -4,4 +4,6 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.find(params[:id])
   end
 
+  
+
 end

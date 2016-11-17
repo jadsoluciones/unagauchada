@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'search/:frase' => 'home#search'
   get 'search/:frase/:ciudad' => 'home#search'
 
-  devise_for :usuarios
+  devise_for :usuarios, controllers: {
+    registrations: 'registrations'
+  }
   resources :answers
   resources :questions
   resources :gauchadas
