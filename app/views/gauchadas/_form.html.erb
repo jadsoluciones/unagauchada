@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
   <div class="md-form">
     <%= f.label :titulo %>
     <%= f.text_field :titulo, required: true,class:'form-control' %>
@@ -22,15 +23,18 @@
     <%= f.label :ciudad %>
     <%= f.text_field :ciudad, required: true,class:'form-control' %>
   </div>
-  <div class="md-form">
-    <div class="file-field">
-        <div class="btn btn-primary btn-sm">
+    <div class="col-xs-12">
+      <div class="md-form">
+        <div class="file-field">
+          <div class="btn btn-primary btn-sm">
             <span>Elegir imagen</span>
-            <%=  f.file_field :imagen %>
+            <%=  f.file_field :image %>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Subir tu imagen">
+          </div>
         </div>
-        <div class="file-path-wrapper">
-           <input class="file-path validate" type="text" placeholder="Subir tu imagen">
-        </div>
+      </div>
     </div>
   </div>
   <div class="clearfix"></div>

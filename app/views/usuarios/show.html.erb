@@ -11,12 +11,14 @@
          
           <% if @usuario.image_url && @usuario.image_url!='' %>
             <div class="col-xs-12">
+            <center>
               <div class="view overlay hm-white-slight">
                 <%= image_tag(@usuario.image_url, :width=>450,  :crop=>"scale", :align=> "center", :radius=>10)%>
                 <a href="#">
                     <div class="mask"></div>
                 </a>
             </div>
+            </center>
           </div>
         <% end %>
 
@@ -54,7 +56,7 @@
               </div>
               <div class="col-xs-6">
                   <div class="md-form">
-                      <i class="fa fa-google prefix"></i>
+                      <i class="fa fa-heart prefix"></i>
                       <%= f.text_field :puntos,class:'form-control', disabled:true %>
                       <%= f.label :puntos %>
                   </div>
