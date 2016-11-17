@@ -23,20 +23,6 @@
 $(document).ready(function() {
 	$('.wrap-select').wrap('<div class="select_wrapper">');
 
-	$('#boton-buscar').click(function(){
-		var frase = $('#frase-buscar').val();
-		var ciudad = $('#ciudad-buscar').val();
-		var url ='/';
-		var delimiters = ['?','&','&'];
-		if(frase){
-			url = url + delimiters.shift() + 'frase=' + frase; 
-		}
-		if(ciudad != '*'){
-			url = url + delimiters.shift() + 'ciudad=' + ciudad;
-		}
-		window.location.href = url;
-	});
-
 	$('#close-notice').click(function(){
 		$('#notice').animate({
 			height: 0,
