@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-10 offset-xs-1 col-sm-8 col-md-6 offset-sm-2 offset-md-3">
-      <div class="card">
+      <div class="jumbotron">
         <!-- Default panel contents -->
-        <h3 class="card-header primary-color white-text">Logros</h3>
+        <h1 class="h1-responsive">Logros</h1>
+        <hr class="my-2">
         <!-- <div class="panel-body">
           <p>...</p>
         </div> -->
@@ -48,6 +49,10 @@
               <% end %>
             </tbody>
           </table>
+        </div>
+        <hr>
+        <div class="card-data text-xs-left pl-1 pb-1">    
+            <%= link_to "Volver", :back %>
         </div>
       </div>
       

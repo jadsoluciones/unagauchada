@@ -11,22 +11,34 @@
     </div>
   <% end %>
   <div class="md-form">
-    <%= f.label :titulo %><br>
+    <%= f.label :titulo %>
     <%= f.text_field :titulo, required: true,class:'form-control' %>
   </div>
   <div class="md-form">
-    <%= f.label :descripcion %><br>
+    <%= f.label :descripcion %>
     <%= f.text_area :descripcion, required: true,class:'md-textarea'%>
   </div>
   <div class="md-form">
-    <%= f.label :imagen %><br>
-    <%=  f.file_field :image %>
-  </div>
-  <div class="md-form">
-    <%= f.label :ciudad %><br>
+    <%= f.label :ciudad %>
     <%= f.text_field :ciudad, required: true,class:'form-control' %>
   </div>
   <div class="md-form">
-    <%= f.button "Guardar", class:'btn btn-warning',disabled: current_usuario.puntos<1 %>
+    <div class="file-field">
+        <div class="btn btn-primary btn-sm">
+            <span>Elegir imagen</span>
+            <%=  f.file_field :imagen %>
+        </div>
+        <div class="file-path-wrapper">
+           <input class="file-path validate" type="text" placeholder="Subir tu imagen">
+        </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="text-xs-center">
+    <% if current_usuario.puntos < 1 %>
+      <button type="submit" class="btn btn-warning" disabled="true">Guardar</button>
+    <% else %>
+      <button type="submit" class="btn btn-warning">Guardar</button>
+    <% end %>
   </div>         
 <% end %>

@@ -2,9 +2,8 @@
 
     <div class="jumbotron">
         <h1 class="h1-responsive">Editar <%= resource_name.to_s.humanize %></h1>
-        <hr class="my-2">
-        <p class="lead">
-
+        <hr>
+        <div class="card-block">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= devise_error_messages! %>
             <div class="md-form">
@@ -39,11 +38,14 @@
 
             <div class="row">
                 <div class="col-xs-12">
-                    <div class="md-form">
-                        <i class="fa fa-calendar prefix"></i>
-                        <%= f.text_field :fecNac, required: true,class:'form-control datepicker',disabled:true %>
-                        <%= f.label :fecNac, 'Fecha de nacimiento' %>
-                    </div>
+                    <div class="md-form select-fecha">
+                          <i class="fa fa-calendar prefix active"></i>
+                          <div class="select-wrapper">
+                            <%= f.label :fecNac, 'Fecha de nacimiento' %>
+                            <%= f.date_select :fecNac, {:start_year => 1920,:end_year =>
+                            (Time.now.year - 18)},{ :required => true, :class => "browser-default"}  %>
+                          </div>
+                      </div>
                 </div>
             </div>
 
@@ -113,8 +115,8 @@
             </p>
 
             <% end %>
+        </div>
 
-        </p>
         <div class="pull-right">
             <h3>Cerrar mi cuenta
             </h3>
@@ -125,7 +127,9 @@
         </div>
         <div class="clearfix"></div>
 
-
-        <%= link_to "Volver", :back %>
+        <hr>
+        <div class="card-data text-xs-left pl-1 pb-1">    
+            <%= link_to "Volver", :back %>
+        </div>
     </div>
 </div>

@@ -23,13 +23,6 @@
 $(document).ready(function() {
 	$('.wrap-select').wrap('<div class="select_wrapper">');
 
-	$('#boton-buscar').click(function(){
-		var frase = $('#frase-buscar').val() || '*';
-		var ciudad = $('#ciudad-buscar').val() || '*';
-
-		window.location.href = '/search/'+frase+'/'+ciudad;
-	});
-
 	$('#close-notice').click(function(){
 		$('#notice').animate({
 			height: 0,
@@ -38,4 +31,21 @@ $(document).ready(function() {
 			$('#notice').hide();
 		});
 	});
+
+
+	// $('.datepicker').pickadate({
+	// 	monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+	// 	monthsShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+	//   	weekdaysShort: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+	//   	weekdaysFull: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+	//   	format: 'd mmmm, yyyy',
+	// 	formatSubmit: 'yyyy-mm-dd',
+	// 	hiddenPrefix: undefined,
+	// 	min: new Date(1920,1,1),
+ //  		max: -18*365,
+ //  		today: '',
+	// 	clear: 'Limpiar selección',
+	// 	close: 'Cancelar'
+
+	// });
 });

@@ -1,17 +1,14 @@
 <div class="container">
 
     <div class="jumbotron">
+        
         <h1 class="h1-responsive">Mi Perfil</h1>
-        <hr class="my-2">
-        <p class="lead">
+        <hr>
+        <div class="card-block">
 
           <%= form_for(@usuario) do |f| %>
 
-          <hr class="my-2">
-
-          <p class="lead">
-              <%= link_to "Editar mi perfil", edit_usuario_registration_path,class:'btn btn-primary' %>
-          </p>          
+         
           <% if @usuario.image_url && @usuario.image_url!='' %>
             <div class="col-xs-12">
               <div class="view overlay hm-white-slight">
@@ -22,6 +19,14 @@
             </div>
           </div>
         <% end %>
+
+          <p class="lead" >
+            <%= link_to  edit_usuario_registration_path,class:'btn btn-primary' do %>
+              Editar mi perfil 
+              <i class="fa fa-pencil pull-right"></i>
+            <% end %>
+          </p>
+
 
           <div class="row">
               <div class="col-xs-6">
@@ -58,10 +63,13 @@
 
           <div class="row">
               <div class="col-xs-6">
-                  <div class="md-form">
-                      <i class="fa fa-calendar prefix"></i>
-                      <%= f.text_field :fecNac, class:'form-control datepicker',disabled:true %>
-                      <%= f.label :fecNac, 'Fecha de nacimiento' %>
+                  <div class="md-form select-fecha">
+                      <i class="fa fa-calendar prefix active"></i>
+                      <div class="select-wrapper">
+                        <%= f.label :fecNac, 'Fecha de nacimiento' %>
+                        <%= f.date_select :fecNac, {:start_year => 1920,:end_year =>
+                        (Time.now.year - 18)},{ :required => true, :class => "browser-default"}  %>
+                      </div>
                   </div>
               </div>
               <%= form_for(@usuario.logro) do |j| %>
@@ -96,8 +104,11 @@
           </div>
 
           <%end%>
+          </div>
 
-
-        <%= link_to "Volver", :back %>
+          <hr>
+          <div class="card-data text-xs-left pl-1 pb-1">    
+              <%= link_to "Volver", :back %>
+          </div>
     </div>
 </div>

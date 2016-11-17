@@ -8,13 +8,10 @@ class GauchadasController < ApplicationController
   # GET /gauchadas
   # GET /gauchadas.json
   def index
-    defaults = Hash.new
-    defaults[:frase] =  (params[:frase]=='*') ? nil : params[:frase]  
-    defaults[:ciudad] = (params[:ciudad]=='*') ? nil : params[:ciudad]
-    
-    params.merge! defaults
-    
+
     @gauchadas = Gauchada.resultados params
+
+    @paginacion = {:total => Gauchada.cantidad_paginas(params),:current => params[:pagina].to_i || 1}
     #@gauchadas = Gauchada.all
   end
 

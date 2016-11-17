@@ -1,18 +1,28 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-10 offset-xs-1 col-sm-8 col-md-6 offset-sm-2 offset-md-3">
-			<div class="card">
+			<div class="jumbotron">
 			  <!-- Default panel contents -->
-				<h3 class="card-header primary-color white-text">Logro</h3>
+				<h1 class="h1-responsive">Logro</h3>
+				<hr>
 				<div class="card-block">
-					<h3><%= @logro.titulo %>: requiere entre <%= @logro.min %> y <%= @logro.max %> puntos</h3>
+					<h3><%= @logro.titulo %>:
+						<% if @logro.min==@logro.max %>
+						requiere <%= pluralize @logro.min, 'punto' %></h3>
+						<% else %>
+						requiere entre <%= @logro.min %> y <%= @logro.max %> puntos</h3>
+						<% end %>
+
 					<div class="row">
 						<div class="col-xs-12 text-center">
-							<%= link_to 'Editar', edit_logro_path(@logro), class:'btn btn-primary' %>
-							<%= link_to 'Atrás', logros_path, class:'btn btn-default' %>
+							<%= link_to 'Editar', edit_logro_path(@logro), class:'btn btn-warning' %>
 						</div>
 					</div>
-			  </div>
+			  	</div>
+			  	<hr>
+			  	<div class="card-data pb-1 p-l1 text-xs-left">
+					<%= link_to "Volver", :back %>
+			  	</div>
 			</div>
 		</div>
 	</div>

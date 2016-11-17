@@ -1,6 +1,7 @@
 <div class="container">
 	<!--Search form-->
-    <form class="form-inline">
+	<%= form_tag({controller: "gauchadas", action: "index"}, method: "get")	 do %>
+    <!-- <form class="form-inline"> -->
     	<div class="row">
     		<div class="col-xs-6 align-bottom">
 				<div class="md-form">
@@ -24,9 +25,11 @@
             	</div>
     		</div>
     		<div class="col-xs-2 align-bottom">
-				<a id="boton-buscar" class="btn btn-orange">Filtrar</a>
+    			<button type="submit" class="btn btn-orange">Filtrar</button>
+				<!-- <a id="boton-buscar" class="btn btn-orange">Filtrar</a> -->
     		</div>
     	</div>
 
-    </form>
+    	<% end %>
+    <!-- </form> -->
 </div>

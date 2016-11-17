@@ -59,11 +59,6 @@ select.custom-select{
 
 }
 
-.md-form .select_wrapper{
-	width: 32% !important;
-	display: inline-block !important;
-	margin: 0 !important;
-}
 
 // a, a:visited, a:hover, a:active {
 //   color: inherit;
@@ -134,4 +129,20 @@ header{
 // ######### FORM ###################
 .gauchada-link{
 	text-align: right;
+}
+.select-fecha{
+	.fa{
+		position:relative;
+	}
+	.select-wrapper{
+		display: inline-block;
+		.browser-default{
+			display: inline-block;
+			position: relative;
+		}
+		label{
+			display: block;
+			position:relative;
+		}
+	}
 }

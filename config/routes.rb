@@ -13,13 +13,10 @@ Rails.application.routes.draw do
   resources :logros
   resources :compras
   resources :usuarios, only: [:show]
-
-  get 'search/:frase' => 'gauchadas#index'
-  get 'search/:frase/:ciudad(/:pagina)' => 'gauchadas#index'
   
   resources :postulacions
   
-  root 'home#index'
+  root 'gauchadas#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
