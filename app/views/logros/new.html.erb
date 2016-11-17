@@ -3,11 +3,12 @@
 		<div class="col-xs-10 offset-xs-1 col-sm-8 col-md-6 offset-sm-2 offset-md-3">
 			<%= render :partial => '/layouts/error_show', :locals => {:modelo => @logro } %>
 
-			<div class="card">
+			<div class="jumbotron">
 			  <!-- Default panel contents -->
-				<h3 class="card-header primary-color white-text">
+				<h1 class="h1-responsive">
 					Crear Logro
-				</h3>
+				</h1>
+				<hr>
 				<div class="card-block">
 					<%= render 'form' %>
 			  	</div>
