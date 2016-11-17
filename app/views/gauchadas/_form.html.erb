@@ -27,6 +27,11 @@
     <%= f.text_field :ciudad, required: true,class:'form-control' %>
   </div>
   <div class="md-form">
-    <%= f.button "Guardar", class:'btn btn-success',disabled: current_usuario.puntos<1 %>
+    <% if current_usuario.puntos < 1 %>
+      <button type="submit" class="btn btn-success" disabled="true">Guardar</button>
+    <% else %>
+      <button type="submit" class="btn btn-success">Guardar</button>
+    <% end %>
+
   </div>         
 <% end %>
