@@ -6,12 +6,23 @@
         <div class="card-block">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= devise_error_messages! %>
-            <div class="md-form">
-                  <%= f.label :imagen %><br>
-                  <%=  f.file_field :image %>
-            </div>
+
             <div class="row">
+            <div class="col-xs-12">
+                    <div class="md-form">
+                        <div class="file-field">
+                            <div class="btn btn-primary btn-sm">
+                                <span>Elegir imagen</span>
+                                <%=  f.file_field :image %>
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text" placeholder="Subir tu imagen">
+                            </div>
+                        </div>
+                    </div>
+            </div>
                 <div class="col-xs-6">
+                   
                     <div class="md-form">
                         <i class="fa fa-user prefix"></i>
                         <%= f.text_field :nombre, autofocus: true, required: true,class:'form-control' %>
