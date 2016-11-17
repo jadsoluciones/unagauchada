@@ -2,27 +2,20 @@
         
     <div class="jumbotron">
         <h1 class="h1-responsive">Crear Gauchada</h1>
-        <hr class="my-2">
         <p class="lead">
-        <% if current_usuario.puntos <1 %>
-        <div class="row">
-        	<div class=col-xs-5 col-md-0">
-        		<div class="animated infinite text-danger">
-        			<h6> No tienes puntos suficientes para crear una gauchada! </h6>
-        		</div>
-        	</div>
-        	<div class=col-xs-2 col-md-1">            
-
-                <%= link_to "Comprar", new_compra_path, class: 'btn btn-warning btn-sm' %>
-
-      		</div>
-      	</div>
-                 
-        <% end%>	
-        	<%= render 'form' %>
+        <% if current_usuario.puntos < 1 %>          
+            <h6> 
+                <span class="animated flash infinite text-danger">No tienes puntos suficientes para crear una gauchada! 
+                </span>
+                <%= link_to "Comprar", new_compra_path, class: 'btn btn-warning btn-sm' %>                 
+            </h6>
+        <% end%>    
+        <hr class="my-2">
         </p>
-
-
-        <%= link_to "Volver", :back %>
+        <%= render 'form' %>
+        <hr>
+        <div class="card-data text-xs-left pl-1 pb-1">    
+            <%= link_to "Volver", :back %>
+        </div>
     </div>
 </div>
