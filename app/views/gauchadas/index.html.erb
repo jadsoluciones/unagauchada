@@ -36,7 +36,7 @@
 				        	<%= gauchada.descripcion %>
 				        </p>
 						<div class="chip">
-						    <img src=<%=gauchada.usuario.image_url%> alt="Contact Person">
+						    <img src="<%= gauchada.usuario.image_url || '/img/def-profile.png'%>"	 alt="Contact Person">
 				       		<%= gauchada.usuario.nombre %>
 							<%= gauchada.usuario.apellido%>
 						</div>

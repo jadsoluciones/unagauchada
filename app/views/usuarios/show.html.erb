@@ -2,25 +2,14 @@
 
     <div class="jumbotron">
         
-        <h1 class="h1-responsive">Mi Perfil</h1>
+        <h1 class="h1-responsive">
+          <img class="rounded-circle" src="<%= @usuario.image_url || '/img/def-profile.png'%>">
+          Mi Perfil
+        </h1>
         <hr>
         <div class="card-block">
 
           <%= form_for(@usuario) do |f| %>
-
-         
-          <% if @usuario.image_url && @usuario.image_url!='' %>
-            <div class="col-xs-12">
-            <center>
-              <div class="view overlay hm-white-slight">
-                <%= image_tag(@usuario.image_url, :width=>450,  :crop=>"scale", :align=> "center", :radius=>10)%>
-                <a href="#">
-                    <div class="mask"></div>
-                </a>
-            </div>
-            </center>
-          </div>
-        <% end %>
 
           <p class="lead" >
             <%= link_to  edit_usuario_registration_path,class:'btn btn-primary' do %>
