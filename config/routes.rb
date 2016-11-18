@@ -3,10 +3,12 @@ Rails.application.routes.draw do
 
   get 'search/:frase' => 'home#search'
   get 'search/:frase/:ciudad' => 'home#search'
+  get 'postulacions/cambiar_estado' => 'postulacions#cambiar_estado'
 
   devise_for :usuarios, controllers: {
     registrations: 'registrations'
   }
+  resources :usuarios, only: [:show]
   resources :answers
   resources :questions
   resources :gauchadas do
@@ -16,21 +18,10 @@ Rails.application.routes.draw do
     end
   resources :logros
   resources :compras
-<<<<<<< HEAD
-  resources :postulacions do
-      member do
-        get :cambiar_estado
-      end
-    end
-
-  root 'home#index'
-=======
-  resources :usuarios, only: [:show]
-  
   resources :postulacions
-  
+
   root 'gauchadas#index'
->>>>>>> 3e8faba9a3a8262cfe9e9b9b16206a6167643ea1
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,7 +1,7 @@
 class PostulacionsController < ApplicationController
   before_action :authenticate_usuario!, only: [:new]
   load_and_authorize_resource param_method: :postulacion_params
-  before_action :set_postulacion, only: [:show, :edit, :update, :destroy]
+  before_action :set_postulacion, only: [:show, :edit, :update, :destroy, :cambiar_estado]
 
   # GET /postulacions
   # GET /postulacions.json
@@ -66,14 +66,13 @@ class PostulacionsController < ApplicationController
   end
 
   def cambiar_estado
-    if(:num == 0)
-      if (:num == 0)
-        @postulacion.estado = "Aceptado"
-      elsif (:num == 1)
-        @postulacion.estado = "Rechazado"
+    byebug
+      if (params[:ok])
+        @postulacion.estado = 'Aceptado'
+      elsif (params[:ok])
+        @postulacion.estado = 'Rechazado'
       end
-    end
-    redirect_to ver_listado_gauchada_path
+    redirect_to :back
   end
 
   private
@@ -84,6 +83,6 @@ class PostulacionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def postulacion_params
-      params.require(:postulacion).permit(:descripcion, :fecha, :gauchada_id)
+      params.require(:postulacion).permit(:descripcion, :fecha, :estado, :gauchada_id)
     end
 end

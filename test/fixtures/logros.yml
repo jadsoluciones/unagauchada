@@ -2,16 +2,9 @@
 
 one:
   titulo: MyString
-<<<<<<< HEAD
+
   rango: 1
 
 two:
   titulo: MyString
   rango: 1
-=======
-  puntaje: 1
-
-two:
-  titulo: MyString
-  puntaje: 1
->>>>>>> augusto
