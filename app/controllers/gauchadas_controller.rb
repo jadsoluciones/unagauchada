@@ -69,6 +69,14 @@ class GauchadasController < ApplicationController
     end
   end
 
+  def ver_listado
+    if(@gauchada.id != 0)then
+      @postulados = Gauchada.find(@gauchada.id).postulacions.all
+    else
+      redirect_to :back
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gauchada

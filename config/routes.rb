@@ -4,10 +4,19 @@ Rails.application.routes.draw do
   resources :usuarios, only: [:show]
   resources :answers
   resources :questions
-  resources :gauchadas
+  resources :gauchadas do
+      member do
+        get :ver_listado
+      end
+    end
   resources :logros
   resources :compras
-  resources :postulacions
+  resources :postulacions do
+      member do
+        get :cambiar_estado
+      end
+    end
+
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

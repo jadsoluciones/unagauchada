@@ -16,6 +16,7 @@ class PostulacionsController < ApplicationController
 
   # GET /postulacions/new
   def new
+    @gauchada_id = params[:gauchada_id]
     @postulacion = Postulacion.new
   end
 
@@ -27,6 +28,7 @@ class PostulacionsController < ApplicationController
   # POST /postulacions.json
   def create
     @postulacion = Postulacion.new(postulacion_params)
+    @postulacion.usuario = current_usuario
 
     respond_to do |format|
       if @postulacion.save
@@ -63,6 +65,17 @@ class PostulacionsController < ApplicationController
     end
   end
 
+  def cambiar_estado
+    if(:num == 0)
+      if (:num == 0)
+        @postulacion.estado = "Aceptado"
+      elsif (:num == 1)
+        @postulacion.estado = "Rechazado"
+      end
+    end
+    redirect_to ver_listado_gauchada_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_postulacion
@@ -71,6 +84,6 @@ class PostulacionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def postulacion_params
-      params.require(:postulacion).permit(:descripcion, :fecha)
+      params.require(:postulacion).permit(:descripcion, :fecha, :gauchada_id)
     end
 end

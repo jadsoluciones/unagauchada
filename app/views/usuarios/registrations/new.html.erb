@@ -10,7 +10,17 @@
               </div>
 
               <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-              <%= devise_error_messages! %>
+              <% if @usuario.errors.any? %>
+                <div class="bg-danger">
+                  <h3> Hay <%= pluralize(@usuario.errors.count, "error","errores") %></h3>
+                  <p>No se ha podido registrar:</p>
+                  <ul>
+                  <% @usuario.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
               <!--Body-->
               <div class="row">
                   <div class="col-xs-6">
