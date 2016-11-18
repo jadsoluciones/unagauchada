@@ -2,15 +2,19 @@
 	<div class="row">
 		<div class="col-xs-10 offset-xs-1 col-sm-6 offset-sm-3">
 			<%= render :partial => '/layouts/error_show', :locals => {:modelo => @compra } %>
-			<div class="card">
-			    <h3 class="card-header primary-color white-text">Comprar puntos</h3>
+			<div class="jumbotron">
+			    <h1 class="h1-responsive">Comprar puntos</h1>
+			    <hr>
 			    <div class="card-block">
 			        <h4 class="card-title">El precio de cada punto es de $ARS <%= @precio %></h4>
 			        <p class="card-text">
 						<%= render 'form' %>
 			        </p>
-					<%= link_to 'Atrás', compras_path %>
 			    </div>
+				<hr>
+		        <div class="card-data text-xs-left pl-1 pb-1">    
+		            <%= link_to "Volver", :back %>
+		        </div>
 			</div>
 		</div>
 	</div>

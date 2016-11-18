@@ -1,7 +1,7 @@
 <%= form_for @gauchada do |f| %>
   <% if @gauchada.errors.any? %>
     <div class="bg-danger">
-      <h3> Hay <%= pluralize(@gauchada.errors.count, "error","errores") %></h3>
+      <h3> Hay <%= pluralipze(@gauchada.errors.count, "error","errores") %></h3>
       <p>La gauchada no puede ser guardada:</p>
       <ul>
       <% @gauchada.errors.full_messages.each do |message| %>
@@ -10,23 +10,39 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
   <div class="md-form">
-    <%= f.label :titulo %><br>
+    <%= f.label :titulo %>
     <%= f.text_field :titulo, required: true,class:'form-control' %>
   </div>
   <div class="md-form">
-    <%= f.label :descripcion %><br>
+    <%= f.label :descripcion %>
     <%= f.text_area :descripcion, required: true,class:'md-textarea'%>
   </div>
   <div class="md-form">
-    <%= f.label :imagen %><br>
-    <%= f.text_field :imagen,class:'form-control' %>
-  </div>
-  <div class="md-form">
-    <%= f.label :ciudad %><br>
+    <%= f.label :ciudad %>
     <%= f.text_field :ciudad, required: true,class:'form-control' %>
   </div>
-  <div class="md-form">
-    <%= f.button "Guardar", class:'btn btn-success',disabled: current_usuario.puntos<1 %>
+    <div class="col-xs-12">
+      <div class="md-form">
+        <div class="file-field">
+          <div class="btn btn-primary btn-sm">
+            <span>Elegir imagen</span>
+            <%=  f.file_field :image %>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Subir tu imagen">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="text-xs-center">
+    <% if current_usuario.puntos < 1 %>
+      <button type="submit" class="btn btn-warning" disabled="true">Guardar</button>
+    <% else %>
+      <button type="submit" class="btn btn-warning">Guardar</button>
+    <% end %>
   </div>         
 <% end %>

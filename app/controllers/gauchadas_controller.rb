@@ -2,13 +2,17 @@ class GauchadasController < ApplicationController
   before_action :authenticate_usuario!, only: [:new]
   load_and_authorize_resource param_method: :gauchada_params
   before_action :set_gauchada, only: [:show, :edit, :update, :destroy]
-  #default_scope -> {order :fecha}
+
 
 
   # GET /gauchadas
   # GET /gauchadas.json
   def index
-    @gauchadas = Gauchada.all
+
+    @gauchadas = Gauchada.resultados params
+
+    @paginacion = {:total => Gauchada.cantidad_paginas(params),:current => params[:pagina].to_i || 1}
+    #@gauchadas = Gauchada.all
   end
 
   # GET /gauchadas/1
@@ -33,6 +37,7 @@ class GauchadasController < ApplicationController
   def create
     @gauchada = Gauchada.new(gauchada_params)
     @gauchada.usuario = current_usuario
+    upload_image_to_cloudinary(params[:gauchada][:image])
 
     respond_to do |format|
       if @gauchada.save
@@ -44,10 +49,11 @@ class GauchadasController < ApplicationController
       end
     end
   end
-
+  
   # PATCH/PUT /gauchadas/1
   # PATCH/PUT /gauchadas/1.json
   def update
+    upload_image_to_cloudinary(params[:gauchada][:image])
     respond_to do |format|
       if @gauchada.update(gauchada_params)
         format.html { redirect_to @gauchada, notice: 'Gauchada actualizada.' }
@@ -85,6 +91,14 @@ class GauchadasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gauchada_params
-      params.require(:gauchada).permit(:titulo, :descripcion, :imagen, :ciudad)
+      params.require(:gauchada).permit(:titulo, :descripcion, :image_url, :ciudad)
     end
+
+    def upload_image_to_cloudinary(image)
+      return if image.nil?
+      hash = Cloudinary::Uploader.upload(image)
+      @gauchada.cloudinary_id = hash["public_id"]
+      @gauchada.image_url     = hash["secure_url"]
+    end
+    
 end

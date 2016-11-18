@@ -23,7 +23,7 @@
     <div class="row">
         <!--Image column-->
         <div class="col-sm-2 col-xs-12">
-            <img src="http://mdbootstrap.com/images/avatars/img%20(3).jpg">
+            <img src=<%=@question.usuario.image_url%>>
         </div>
         <!--/.Image column-->
 
@@ -37,7 +37,7 @@
         </div>
 
         <div class="text-xs-center">
-            <%= f.submit value: 'Preguntar' , class: 'btn btn-primary' %>
+            <button type="submit" class="btn btn-primary">Preguntar</button>
         </div>
         <!--/.Content column-->
 

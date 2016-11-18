@@ -5,7 +5,8 @@ class Gauchada < ActiveRecord::Base
 	validates :titulo, :descripcion, :ciudad, presence: true
 	default_scope -> {order ("created_at DESC")}
 
-
+<<<<<<< HEAD
+=======
 	RXP = 10;
 
 	def self.cantidad_paginas(options = {})
@@ -32,21 +33,21 @@ class Gauchada < ActiveRecord::Base
 		 	:ciudad => nil,
 		 	:frase => nil
 		 )
-		 puts options.inspect
+		 puts options.inspect	
 		 if !options[:frase] && !options[:ciudad] then ## no hay frase ni cuidad
-		   return Gauchada.all
+		   return Gauchada.all 
 		 elsif !options[:frase] && options[:ciudad] # no hay frase pero hay ciudad
 		   return Gauchada.where("ciudad = ?",options[:ciudad])
 		 elsif options[:frase] && !options[:ciudad] # hay frase pero no hay ciudad
 		   return Gauchada.where("
-		             (titulo  ILIKE ? OR
+		             (titulo  ILIKE ? OR 
 		             descripcion ILIKE  ? )",'%'+options[:frase].downcase+'%','%'+options[:frase].downcase+'%')
 		 else # hay frase y hay ciudad
 		   return Gauchada.where("
-		       (titulo ILIKE ? OR
+		       (titulo ILIKE ? OR 
 		       descripcion ILIKE ? ) AND
 		       ciudad = ?",'%'+options[:frase].downcase+'%','%'+options[:frase].downcase+'%',options[:ciudad])
-		 end
+		 end	
 	end
-
+>>>>>>> 3e8faba9a3a8262cfe9e9b9b16206a6167643ea1
 end

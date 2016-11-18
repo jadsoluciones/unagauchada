@@ -1,0 +1,31 @@
+  <nav>
+  <ul class="pagination">
+    <% if p[:current] > 1 %>
+    <li class="page-item">
+    <% else %>
+    <li class="page-item disabled">
+    <% end %>
+      <%= link_to root_path(params.permit(:ciudad,:frase).merge(:pagina=> p[:current]-1) ) ,class: 'page-link' do %>
+        <span aria-hidden="true">&laquo;</span>
+      <% end %>
+    </li>
+    <% (1..p[:total]).each do |i| %>
+      <% if p[:current] == (i) %>
+      <li class="page-item active">
+      <% else %>
+      <li class="page-item">
+      <% end %>
+        <%= link_to i.to_s,root_path(params.permit(:ciudad,:frase).merge :pagina=> i), class:'page-link' %>
+      </li>
+    <% end %>
+    <% if p[:current] < p[:total] %>
+    <li class="page-item">
+    <% else %>
+    <li class="page-item disabled">
+    <% end %>
+      <%= link_to root_path(params.permit(:ciudad,:frase).merge(:pagina=> p[:current]+1) ), class: 'page-link' do %>
+        <span aria-hidden="true">&raquo;</span>
+      <% end %>
+    </li>
+  </ul>
+</nav>
