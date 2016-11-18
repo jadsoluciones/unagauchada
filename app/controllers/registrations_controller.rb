@@ -18,4 +18,10 @@ class RegistrationsController < Devise::RegistrationsController
     true
   end
 
+  protected
+
+    def after_update_path_for(resource)
+      usuario_path(resource)
+    end
+
 end
