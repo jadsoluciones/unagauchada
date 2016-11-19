@@ -28,7 +28,7 @@
         <div class="file-field">
           <div class="btn btn-primary btn-sm">
             <span>Elegir imagen</span>
-            <%=  f.file_field :image %>
+            <%=  f.file_field :image, accept: img_exts %>
           </div>
           <div class="file-path-wrapper">
             <input class="file-path validate" type="text" placeholder="Subir tu imagen">
