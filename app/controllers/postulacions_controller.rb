@@ -66,12 +66,12 @@ class PostulacionsController < ApplicationController
   end
 
   def cambiar_estado
-    byebug
       if (params[:ok])
         @postulacion.estado = 'Aceptado'
       elsif (params[:ok])
         @postulacion.estado = 'Rechazado'
       end
+    @postulacion.save
     redirect_to :back
   end
 

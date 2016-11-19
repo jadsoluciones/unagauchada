@@ -26,12 +26,14 @@
                           <td class="col-xs-0 align-bottom">
                             <a href="/postulacions/cambiar_estado?id=<%=postulado.id%>?ok=true"
                               class='btn btn-success waves-effect waves-light'>Aceptar</a>
+                            </td>
+                          <td class="col-xs-0 align-bottom">
                             <a href="/postulacions/cambiar_estado?id=<%=postulado.id%>?ok=false"
                               class='btn btn-danger waves-effect waves-light'>Rechazar</a>
       										</td>
                       <% else %>
                         <td rowspan="2" colspan="2">
-                          Ustede ha <%postulado.estado%> a esta persona
+                          Ustede ha <%=postulado.estado%> a esta persona
                         </td>
                       <% end %>
                     <% end %>
