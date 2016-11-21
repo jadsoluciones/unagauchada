@@ -1,7 +1,7 @@
 class PostulacionsController < ApplicationController
   before_action :authenticate_usuario!, only: [:new]
   load_and_authorize_resource param_method: :postulacion_params
-  before_action :set_postulacion, only: [:show, :edit, :update, :destroy, :cambiar_estado]
+  before_action :set_postulacion, only: [:show, :edit, :update, :destroy, :cambiar_estado_aceptado, :cambiar_estado_rechazado]
 
   # GET /postulacions
   # GET /postulacions.json
@@ -65,12 +65,14 @@ class PostulacionsController < ApplicationController
     end
   end
 
-  def cambiar_estado
-      if (params[:ok])
-        @postulacion.estado = 'Aceptado'
-      elsif (params[:ok])
-        @postulacion.estado = 'Rechazado'
-      end
+  def cambiar_estado_aceptado
+    @postulacion.estado = 'Aceptado'
+    @postulacion.save
+    redirect_to :back
+  end
+
+  def cambiar_estado_rechazado
+    @postulacion.estado = 'Rechazado'
     @postulacion.save
     redirect_to :back
   end

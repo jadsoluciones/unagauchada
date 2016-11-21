@@ -1,19 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 offset-xs-1 col-sm-6 offset-sm-3">
+      <div class="card">
+          <div class="card-block">
 
-<p>
-  <strong>Descripcion:</strong>
-  <%= @postulacion.descripcion %>
-</p>
+              <!--Header-->
+              <div class="form-header unique-color ">
+                  <h3> Postulación </h3>
+              </div>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @postulacion.fecha %>
-</p>
+              <%= form_for(@postulacion) do |f| %>
+              <!--Body-->
+              <div class="row">
+                  <div class="col-xs-12">
+                      <div class="md-form">
+                          <i class="fa fa-user prefix"></i>
+                          <%= f.text_field :descripcion, disabled: true,class:'form-control' %>
+                          <%= f.label :descripcion, 'Descripción' %>
+                      </div>
+                  </div>
+              </div>
 
-<p>
-  <strong>Estado:</strong>
-  <%= @postulacion.estado %>
-</p>
+              <div class="row">
+                  <div class="col-xs-12">
+                      <div class="md-form">
+                          <i class="fa fa-calendar-o prefix"></i>
+                          <%= f.date_select :fecha, {:start_year => 1920,:end_year =>
+                          (Time.now.year - 18)},{ :disabled => true, :class => "browser-default"}  %>
+                          <%= f.label :fecha, 'Fecha en que puede realizar la gauchada' %>
+                      </div>
+                  </div>
+              </div>
+          </div>
 
-<%= link_to 'Edit', edit_postulacion_path(@postulacion) %> |
-<%= link_to 'Back', postulacions_path %>
+          <% end %>
+
+          <!--Footer-->
+          <div class="modal-footer">
+              <div class="options">
+                  <%= link_to "Volver", :root, class:'btn btn-primary' %>
+              </div>
+          </div>
+
+      </div>
+      <!--/Form with header-->
+
+    </div>
+  </div>
+</div>

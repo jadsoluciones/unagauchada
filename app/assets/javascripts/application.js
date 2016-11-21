@@ -23,6 +23,10 @@
 $(document).ready(function() {
 	$('.wrap-select').wrap('<div class="select_wrapper">');
 
+	$('#mostrar-postulaciones').on('click',function(){
+			$('#lista-postulaciones').toggle();
+		});
+
 	$('#close-notice').click(function(){
 		$('#notice').animate({
 			height: 0,
@@ -33,7 +37,7 @@ $(document).ready(function() {
 	});
 
 	// $('.file-path').change(function(){
-		
+
  //    	var allowed = ['','GIF','PNG','JPG','BMP'];
 
  //    	if(allowed.indexOf( $(this).val().split('.').pop().toUpperCase() ) < 0){

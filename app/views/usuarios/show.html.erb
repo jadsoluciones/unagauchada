@@ -17,6 +17,11 @@
               <%= link_to "Editar mi perfil", edit_usuario_registration_path, class:'btn btn-primary fa fa-magic' %>
           </p>
 
+          <p><a href="#" id="mostrar-postulaciones" class="btn btn-blue-grey">
+            Ver mis postulaciones</a></p>
+            <h1>
+
+          <div id="lista-postulaciones" style="display:none;">futura tabla</div></h1>
 
           <div class="row">
               <div class="col-xs-6">
@@ -58,7 +63,7 @@
                       <div class="select-wrapper">
                         <%= f.label :fecNac, 'Fecha de nacimiento' %>
                         <%= f.date_select :fecNac, {:start_year => 1920,:end_year =>
-                        (Time.now.year - 18)},{ :required => true, :class => "browser-default"}  %>
+                        (Time.now.year - 18)},{ :disabled => true, :class => "browser-default"}  %>
                       </div>
                   </div>
               </div>

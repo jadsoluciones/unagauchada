@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   get 'search/:frase' => 'home#search'
   get 'search/:frase/:ciudad' => 'home#search'
-  get 'postulacions/cambiar_estado' => 'postulacions#cambiar_estado'
+  get 'postulacions/cambiar_estado_aceptado' => 'postulacions#cambiar_estado_aceptado'
+  get 'postulacions/cambiar_estado_rechazado' => 'postulacions#cambiar_estado_rechazado'
 
   devise_for :usuarios, controllers: {
     registrations: 'registrations'

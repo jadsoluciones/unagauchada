@@ -53,3 +53,10 @@ puts "Creo un administrador"
 admin=Usuario.new(nombre:"Nancy", apellido:"Netramonti", domicilio:"15 y 47", fecNac: DateTime.new(1973,2,1), DNI:"30000000", email:"nn@unagaucha.com", password:'30000000', password_confirmation:'30000000')
 admin.rol = "Admin"
 admin.save
+
+puts "Creo postulaciones"
+Postulacion.find_or_create_by(descripcion:"Puedo cuidarlo la primer semana", fecha:DateTime.new(2017,1,1), estado:"En espera",gauchada_id: 4, usuario_id: 2)
+Postulacion.find_or_create_by(descripcion:"Yo puedo cuidarlo sin problemas", fecha:DateTime.new(2017,1,1), estado:"Aceptado",gauchada_id: 4, usuario_id: 3)
+Postulacion.find_or_create_by(descripcion:"Puedo la segunda quincena", fecha:DateTime.new(2017,1,15), estado:"Rechazado",gauchada_id: 4, usuario_id: 1)
+Postulacion.find_or_create_by(descripcion:"Yo te puedo dar una mano, no digo que quede mejor", fecha:DateTime.new(2017,1,1), estado:"En espera",gauchada_id: 5, usuario_id: 4)
+Postulacion.find_or_create_by(descripcion:"Me ofrezco a ayudarte a preparar las pinturas para que la pintes", fecha:DateTime.new(2017,1,1), estado:"En espera",gauchada_id: 5, usuario_id: 1)

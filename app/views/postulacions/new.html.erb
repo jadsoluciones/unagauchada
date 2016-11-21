@@ -13,7 +13,7 @@
               <% if @postulacion.errors.any? %>
                 <div class="bg-danger">
                   <h3> Hay <%= pluralize(@postulacion.errors.count, "error","errores") %></h3>
-                  <p>No se ha podido registrar:</p>
+                  <p>No se ha podido postular:</p>
                   <ul>
                   <% @postulacion.errors.full_messages.each do |message| %>
                     <li><%= message %></li>
@@ -33,7 +33,7 @@
               </div>
 
               <%= f.hidden_field :gauchada_id, value: @gauchada_id %>
-              
+
               <div class="row">
                   <div class="col-xs-12">
                       <div class="md-form">
