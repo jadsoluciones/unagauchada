@@ -8,7 +8,8 @@ class Ability
     if user.rol == "Admin"
       alias_action :create, :read, :update, :destroy, :to => :admPuede1
       alias_action :create, :read, :destroy, :ver_listado, :to  => :admPuede2
-      alias_action :create, :cambiar_estado_aceptado, :cambiar_estado_rechazado, :to =>:post
+      alias_action :create, :update, :destroy, :cambiar_estado_aceptado, :cambiar_estado_rechazado, :to =>:post
+
       can :admPuede1, Logro
       can :admPuede2, Answer
       can :admPuede2,  Question
@@ -32,7 +33,8 @@ class Ability
 
     else if user.rol == "UsReg"
       alias_action :read, :update, :destroy, :ver_listado, :to => :urPuede
-      alias_action :create, :cambiar_estado_aceptado, :cambiar_estado_rechazado, :to =>:post
+      alias_action :create, :update, :destroy, :cambiar_estado_aceptado, :cambiar_estado_rechazado, :to =>:post
+
       can :urPuede, Answer do |answer|
         answer.usuario == user
       end

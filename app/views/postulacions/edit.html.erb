@@ -1,6 +1,75 @@
-<h1>Editing Postulacion</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 offset-xs-1 col-sm-6 offset-sm-3">
+      <div class="card">
+          <div class="card-block">
 
-<%= render 'form' %>
+              <!--Header-->
+              <div class="form-header unique-color ">
+                  <h3><i class="fa fa-lock"></i> Editar postulacion </h3>
+              </div>
 
-<%= link_to 'Show', @postulacion %> |
-<%= link_to 'Back', postulacions_path %>
+              <%= form_for(@postulacion) do |f| %>
+              <% if @postulacion.errors.any? %>
+                <div class="bg-danger">
+                  <h3> Hay <%= pluralize(@postulacion.errors.count, "error","errores") %></h3>
+                  <p>No se ha podido postular:</p>
+                  <ul>
+                  <% @postulacion.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+              <!--Body-->
+              <div class="row">
+                  <div class="col-xs-12">
+                      <div class="md-form">
+                          <i class="fa fa-user prefix"></i>
+                          <%= f.text_field :descripcion, autofocus: true, required: true,class:'form-control' %>
+                          <%= f.label :descripcion, 'Descripción' %>
+                      </div>
+                  </div>
+              </div>
+
+              <%= f.hidden_field :gauchada_id, value: @gauchada_id %>
+
+              <div class="row">
+                  <div class="col-xs-12">
+                      <div class="md-form">
+                          <i class="fa fa-calendar-o prefix"></i>
+                          <%= f.date_select :fecha, {:start_year => Time.now.year,:end_year =>
+                          (Time.now.year + 2)},{ :required => true, :class => "form-control datepicker"}  %>
+                          <%= f.label :fecha %>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 text-muted font-italic">
+                   Debe indicar la fecha en que puede realizar la gauchada
+                </div>
+              </div>
+
+              <div class="text-xs-center">
+                <div class="actions">
+                  <%= f.submit "Editar", class:'btn btn-primary' %>
+                </div>
+              </div>
+
+          </div>
+
+          <% end %>
+
+          <!--Footer-->
+          <div class="modal-footer">
+              <div class="options">
+                  <%= link_to "Volver", :back, class:'btn btn-primary' %>
+              </div>
+          </div>
+
+      </div>
+      <!--/Form with header-->
+
+    </div>
+  </div>
+</div>

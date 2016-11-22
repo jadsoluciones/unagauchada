@@ -17,11 +17,12 @@
               <%= link_to "Editar mi perfil", edit_usuario_registration_path, class:'btn btn-primary fa fa-magic' %>
           </p>
 
-          <p><a href="#" id="mostrar-postulaciones" class="btn btn-blue-grey">
+          <p><a  id="mostrar-postulaciones" class="btn btn-blue-grey">
             Ver mis postulaciones</a></p>
+
             <h1>
 
-          <div id="lista-postulaciones" style="display:none;">futura tabla</div></h1>
+          <div id="lista-postulaciones" style="display:none;"><%=render 'listado'%></div></h1>
 
           <div class="row">
               <div class="col-xs-6">
