@@ -41,6 +41,9 @@ class GauchadasController < ApplicationController
 
     respond_to do |format|
       if @gauchada.save
+        usuario = Usuario.find(current_usuario.id)
+        usuario.puntos -= 1
+        usuario.save
         format.html { redirect_to @gauchada, notice: 'Gauchada creada.' }
         format.json { render :show, status: :created, location: @gauchada }
       else
