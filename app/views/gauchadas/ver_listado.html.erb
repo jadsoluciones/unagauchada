@@ -33,9 +33,11 @@
                         <% if postulado.estado == 'En espera'%>
                             <td class="col-xs-0 align-bottom">
                               <a href="/postulacions/cambiar_estado_aceptado?id=<%=postulado.id%>"
-                                class='btn btn-success waves-effect waves-light'>Aceptar</a>
+                                class='btn btn-success waves-effect waves-light'
+                                onClick="return confirm('¿Desea aceptar a esta persona?');">Aceptar</a>
                               <a href="/postulacions/cambiar_estado_rechazado?id=<%=postulado.id%>"
-                                class='btn btn-danger waves-effect waves-light'>Rechazar</a>
+                                class='btn btn-danger waves-effect waves-light'
+                                onClick="return confirm('¿Desea rechazar a esta persona?');">Rechazar</a>
         										</td>
                             <td>
                               Esperando su respuesta...
