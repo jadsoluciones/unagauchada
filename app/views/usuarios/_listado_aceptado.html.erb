@@ -1,0 +1,47 @@
+<div class="card">
+  <h4 class="card-header primary-color white-text">Mis postulaciones</h4>
+
+  <% postulaciones = Postulacion.where(usuario_id: current_usuario.id, estado: "Aceptado").all+
+                    Postulacion.where(usuario_id: current_usuario.id, estado: "Rechazado").all%>
+
+  <% if postulaciones.count > 0 %>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th >Título</th>
+            <th >Fecha</th>
+            <th>Decisión</th>
+            <th >Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+              <% postulaciones.each do |pos| %>
+              <% if pos.estado == 'Aceptado' %>
+                  <tr class="table-success">
+              <% else pos.estado == 'Rechazado' %>
+                  <tr class="table-danger">
+              <%end %>
+                  <td ><%= Gauchada.find(pos.gauchada_id).titulo %></td>
+                  <td ><%= pos.fecha.strftime "%d/%m/%Y" %></td>
+                  <td >Usted ha sido <%=pos.estado%></td>
+                  <% if pos.estado == 'Aceptado' && pos.fecha < Time.now%>
+                      <td >
+                        El creador se pondrá en contacto con usted
+                      </td>
+                  <%elsif pos.estado == 'Aceptado' && pos.fecha > Time.now %>
+                      <td >
+                        Usted ya realizó esta Gauchada
+                      </td>
+                  <%else%>
+                      <td >
+                        Postulece para ayudar en otras Gauchadas
+                      </td>
+                  <% end %>
+             <% end %>
+        </tbody>
+      </table>
+      <%else%>
+        <h5> Usted no se ha postulado en ninguna Gauchada </h5>
+      <% end %>
+    </div>

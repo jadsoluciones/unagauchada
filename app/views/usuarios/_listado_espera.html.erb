@@ -1,0 +1,35 @@
+
+      <div class="card">
+        <h4 class="card-header primary-color white-text">Mis postulaciones</h4>
+
+        <% postulaciones = Postulacion.where(usuario_id: current_usuario.id, estado: "En espera").all %>
+
+        <% if postulaciones.count > 0 %>
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th >Título</th>
+                  <th >Fecha</th>
+                  <th >Editar</th>
+                  <th>Ver Gauchada</th>
+                </tr>
+              </thead>
+              <tbody>
+                    <% postulaciones.each do |pos| %>
+                    <tr>
+                        <td ><%= Gauchada.find(pos.gauchada_id).titulo %></td>
+                        <td ><%= pos.fecha.strftime "%d/%m/%Y" %></td>
+                        <td  class="col-xs-0 align-bottom">
+                          <a href="/postulacions/<%=pos.id%>/edit"
+      											class='btn btn-blue-grey waves-effect waves-light'>Editar</a>
+        								</td>
+                        <% gauchada = Gauchada.find(pos.gauchada_id) %>
+                        <td><%= link_to 'Detalles', gauchada,class:'btn btn-orange' %></td>
+                    <% end %>
+              </tbody>
+            </table>
+            <%else%>
+              <h5> Usted no se ha postulado en ninguna Gauchada </h5>
+            <% end %>
+          </div>

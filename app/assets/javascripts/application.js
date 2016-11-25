@@ -23,8 +23,16 @@
 $(document).ready(function() {
 	$('.wrap-select').wrap('<div class="select_wrapper">');
 
-	$('#mostrar-postulaciones').on('click',function(){
-			$('#lista-postulaciones').toggle();
+	$('#mostrar-postulaciones-espera').on('click',function(){
+			$('#lista-postulaciones-espera').toggle();
+		});
+
+	$('#mostrar-postulaciones-aceptadas').on('click',function(){
+			$('#lista-postulaciones-aceptada').toggle();
+		});
+
+	$('#mostrar-gauchadas').on('click',function(){
+			$('#lista-gauchadas').toggle();
 		});
 
 	$('#close-notice').click(function(){

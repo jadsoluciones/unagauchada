@@ -17,12 +17,19 @@
               <%= link_to "Editar mi perfil", edit_usuario_registration_path, class:'btn btn-primary fa fa-magic' %>
           </p>
 
-          <p><a  id="mostrar-postulaciones" class="btn btn-blue-grey">
-            Ver mis postulaciones</a></p>
+          <a  id="mostrar-postulaciones-espera" class="btn btn-blue-grey">
+            Ver mis postulaciones</a>
+          <a  id="mostrar-postulaciones-aceptadas" class="btn btn-blue-grey">
+            Ver mis solucitudes</a>
+          <a  id="mostrar-gauchadas" class="btn btn-blue-grey">
+            Ver mis gauchadas</a>
 
-            <h1>
+            <p> </p>
+            <p> </p>
 
-          <div id="lista-postulaciones" style="display:none;"><%=render 'listado'%></div></h1>
+          <div id="lista-postulaciones-espera" style="display:none;"><%=render 'listado_espera'%></div>
+          <div id="lista-postulaciones-aceptada" style="display:none;"><%=render 'listado_aceptado'%></div>
+          <div id="lista-gauchadas" style="display:none;"><%=render 'listado_gauchadas'%></div>
 
           <div class="row">
               <div class="col-xs-6">
