@@ -44,9 +44,8 @@ class ComprasController < ApplicationController
     respond_to do |format|
       if valid_card? && @compra.save
 
-        usuario = Usuario.find(current_usuario.id)
-        usuario.puntos += puntos.to_i
-        usuario.save
+        current_usuario.puntos += puntos.to_i
+        current_usuario.save
 
         format.html { redirect_to @compra, notice: "Usted compró #{@compra.puntos_comprados} puntos por un total de $ARS #{@compra.monto}." }
         format.json { render :show, status: :created, location: @compra }
