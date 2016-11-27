@@ -3,7 +3,7 @@
     <div class="jumbotron">
 
         <h1 class="h1-responsive">
-          <img class="rounded-circle" src="<%= @usuario.imagen %>">
+          <%= image_tag @usuario.imagen, class:'rounded-circle' %>
           Mi Perfil
         </h1>
         <hr>
@@ -12,7 +12,6 @@
           <%= form_for(@usuario) do |f| %>
 
 
-          <hr class="my-2">
           <p class="lead">
               <%= link_to "Editar mi perfil", edit_usuario_registration_path, class:'btn btn-primary fa fa-magic' %>
           </p>
