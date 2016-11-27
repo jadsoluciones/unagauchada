@@ -8,8 +8,14 @@ class Usuario < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
+
+
   def logro
   	return Logro.where("min <=?",self.puntos).order(:min => :desc).first
+  end
+
+  def imagen
+    self.image_url || 'def-profile.png'
   end
 
 end
