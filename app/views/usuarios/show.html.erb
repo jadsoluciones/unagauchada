@@ -1,36 +1,34 @@
 <div class="container">
 
-    <div class="jumbotron">
+    <div class="jumbotron" id="mi-perfil">
 
         <h1 class="h1-responsive">
           <%= image_tag @usuario.imagen, class:'rounded-circle' %>
           Mi Perfil
+          <small>  
+          <%= link_to edit_usuario_registration_path, class:'btn-floating btn-small blue' do %>
+          <i class="fa fa-pencil"></i>
+          <% end %>
+          </small>
         </h1>
         <hr>
+              <a  data-div="#lista-postulaciones-espera" class="mostrar btn btn-blue-grey">
+                Ver mis postulaciones</a>
+              <a  data-div="#lista-postulaciones-aceptada" class="mostrar btn btn-blue-grey">
+                Ver mis solucitudes</a>
+              <a  data-div="#lista-gauchadas" class="mostrar btn btn-blue-grey">
+                Ver mis gauchadas</a>
+        
+        <hr>
         <div class="card-block">
+            <div id="lista-postulaciones-espera" class="listas" style="display:none;"><%=render 'listado_espera'%></div>
+            <div id="lista-postulaciones-aceptada" class="listas" style="display:none;"><%=render 'listado_aceptado'%></div>
+            <div id="lista-gauchadas" class="listas" style="display:none;"><%=render 'listado_gauchadas'%></div>
 
           <%= form_for(@usuario) do |f| %>
 
 
-          <p class="lead">
-              <%= link_to "Editar mi perfil", edit_usuario_registration_path, class:'btn btn-primary fa fa-magic' %>
-          </p>
-
-          <a  id="mostrar-postulaciones-espera" class="btn btn-blue-grey">
-            Ver mis postulaciones</a>
-          <a  id="mostrar-postulaciones-aceptadas" class="btn btn-blue-grey">
-            Ver mis solucitudes</a>
-          <a  id="mostrar-gauchadas" class="btn btn-blue-grey">
-            Ver mis gauchadas</a>
-
-            <p> </p>
-            <p> </p>
-
-          <div id="lista-postulaciones-espera" style="display:none;"><%=render 'listado_espera'%></div>
-          <div id="lista-postulaciones-aceptada" style="display:none;"><%=render 'listado_aceptado'%></div>
-          <div id="lista-gauchadas" style="display:none;"><%=render 'listado_gauchadas'%></div>
-
-          <div class="row">
+          <div class="row pt-1">
               <div class="col-xs-6">
                   <div class="md-form">
                       <i class="fa fa-user prefix"></i>

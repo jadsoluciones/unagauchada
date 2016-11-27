@@ -17,27 +17,6 @@
 
  */
 
-
-// body{
-// 	text-align: center;
-// 	font-family: 'Lato', sans-serif;
-// 	font-weight: 300;
-// 	background: #FAFAFA;
-// }
-
-// h1,h2,h3,h4,h5,h6{
-// 	font-family: 'Enriqueta', sans-serif;
-// 	font-weight: 400;
-// }
-
-// body div{
-// 	text-align: center;
-// }
-
-// body th{
-// 	text-align: center;
-// }
-
 .text-large{
 	font-size: 2rem !important;		
 }
@@ -60,11 +39,6 @@ select.custom-select{
 }
 
 
-// a, a:visited, a:hover, a:active {
-//   color: inherit;
-// }
-
-
 header{
 	height: 300px;
 	position: relative;
@@ -81,50 +55,10 @@ header{
 	}
 
 }
-// header .buscador{
-// 	border-bottom: 1px solid #E0E4CC;
-// }
-// header .buscador input{
-// 	border:none;
-// 	font-size: 50px;
-// 	font-weight: 300;
-// 	color: #fff;
-// 	background: none;
-// 	width: 100%;
-// 	font-style: italic;
-// }
-// // ########## MENU ##################
-// .navbar-collapse .nav li a{
-// 	transition: color 0.2s;
-// 	font-size: 20px;
-// }
-// .navbar-collapse .nav li a:hover{
-// 	color: #FA6900;
-// }
-// // ########## MENU ##################
 
 // ######### FORM ###################
 .form-group input{
 	font-weight: 400;
-}
-
-// ######### ERRORES ###################
-.form-horizontal .bg-danger{
-	padding:5px 15px;
-	margin-bottom:10px;
-	border-radius:7px;
-}
-
-.form-horizontal .bg-danger h3{
-	font-family: 'Lato', sans-serif;
-}
-
-.form-horizontal .bg-danger p{
-	font-size: 15px;
-}
-
-.form-group .field_with_errors label{
-	color: #ff4444;
 }
 // ######### FORM ###################
 .gauchada-link{
@@ -143,6 +77,19 @@ header{
 		label{
 			display: block;
 			position:relative;
+		}
+	}
+}
+
+#mi-perfil {
+	
+	.md-form {
+		.fa.prefix.active{
+			color:#ff6d00;
+		}
+		input:disabled{
+			border:0;
+			cursor: default;
 		}
 	}
 }

@@ -14,8 +14,8 @@
 //= require js/1-jquery-2.2.3.min.js
 //= require jquery_ujs
 //= require turbolinks
-//= require js/2-bootstrap.min.js
 //= require js/3-tether.min.js
+//= require js/2-bootstrap.min.js
 //= require js/4-mdb.pro.min.js
 
 //= require_tree .
@@ -23,17 +23,11 @@
 $(document).ready(function() {
 	$('.wrap-select').wrap('<div class="select_wrapper">');
 
-	$('#mostrar-postulaciones-espera').on('click',function(){
-			$('#lista-postulaciones-espera').toggle();
-		});
-
-	$('#mostrar-postulaciones-aceptadas').on('click',function(){
-			$('#lista-postulaciones-aceptada').toggle();
-		});
-
-	$('#mostrar-gauchadas').on('click',function(){
-			$('#lista-gauchadas').toggle();
-		});
+	$('.mostrar').on('click',function(){
+		var aux = $(this).attr('data-div');
+		$('.listas').not(aux).hide(100);
+		$(aux).toggle(300);
+	});	
 
 	$('#close-notice').click(function(){
 		$('#notice').animate({

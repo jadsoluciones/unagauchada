@@ -1,6 +1,5 @@
 
       <div class="card">
-        <h4 class="card-header primary-color white-text">Mis postulaciones</h4>
 
         <% postulaciones = Postulacion.where(usuario_id: current_usuario.id, estado: "En espera").all %>
 
@@ -30,6 +29,6 @@
               </tbody>
             </table>
             <%else%>
-              <h5> Usted no se ha postulado en ninguna Gauchada </h5>
+              <p class="lead py-1 pl-1"> Usted no se ha postulado en ninguna Gauchada </p>
             <% end %>
           </div>

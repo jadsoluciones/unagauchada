@@ -1,5 +1,4 @@
 <div class="card">
-  <h4 class="card-header primary-color white-text">Mis postulaciones</h4>
 
   <% gauchadas = Gauchada.where(usuario_id: current_usuario.id).all%>
 
@@ -14,12 +13,14 @@
         </thead>
         <tbody>
               <% gauchadas.each do |gau| %>
-                <td><%=gau.titulo%></td>
-                <td><%= link_to 'Detalles', gau,class:'btn btn-orange' %></td>
+                <tr>
+                  <td><%=gau.titulo%></td>
+                  <td><%= link_to 'Detalles', gau,class:'btn btn-orange' %></td>
+                </tr>
              <% end %>
         </tbody>
       </table>
       <%else%>
-        <h5> Usted no ha publicado ninguna Gauchada </h5>
+        <p class="lead py-1 pl-1"> Usted no ha publicado ninguna Gauchada </p>
       <% end %>
     </div>
