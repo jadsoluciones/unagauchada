@@ -3,7 +3,7 @@ class Gauchada < ActiveRecord::Base
 	has_many :questions
 	has_many :postulacions
 	validates :titulo, :descripcion, :ciudad, presence: true
-	default_scope -> {order ("created_at DESC")}
+	#default_scope -> {order ("created_at DESC")}
 
 
 	RXP = 10;
@@ -22,7 +22,7 @@ class Gauchada < ActiveRecord::Base
 		options.reverse_merge!(
 				:pagina => 1
 		)
-		return self.filter(options).limit(RXP).offset((options[:pagina].to_i-1)*RXP)
+		return self.filter(options).order("created_at DESC").limit(RXP).offset((options[:pagina].to_i-1)*RXP)
 	end
 
 	private
