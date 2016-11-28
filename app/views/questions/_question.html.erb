@@ -24,7 +24,9 @@
 
         <p class="comment-text">
             <%= question.contenido %>
-            <%= render question.answer %>
+            <% if question.answer!=nil %>
+                <%= render question.answer %>
+            <% end %>            
         </p>
     </div>
     <!--/.Content column-->
