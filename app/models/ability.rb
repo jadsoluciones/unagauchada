@@ -39,8 +39,10 @@ class Ability
       can :urPuede, Answer do |answer|
         answer.usuario == user
       end
-
-      can :urPuede, Question
+      can :create, Question
+      can :urPuede, Question do |question|
+        question.usuario == user
+      end
       can :create, Gauchada
 
       can :urPuede, Gauchada do |gauchada|
