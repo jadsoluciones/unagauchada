@@ -6,6 +6,13 @@
     </div>
     <!--/.Image column-->
 
+    <% if can? :destroy, question %>
+      <%= link_to question, class:'btn-floating btn red pull-right', data: { confirm: "¿Desea eliminar la Pregunta?" },
+      method: :delete do%>
+        <i class="fa fa-trash"></i>
+      <% end %>
+    <% end %>
+
     <!--Content column-->
     <div class="col-sm-10 col-xs-12">
         <a>
@@ -26,7 +33,7 @@
             <%= question.contenido %>
             <% if question.answer!=nil %>
                 <%= render question.answer %>
-            <% end %>            
+            <% end %>
         </p>
     </div>
     <!--/.Content column-->

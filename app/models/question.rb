@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-	belongs_to :gauchada, dependent: :destroy
-	belongs_to :usuario, dependent: :destroy
+	belongs_to :gauchada
+	belongs_to :usuario
 	has_one :answer
 end

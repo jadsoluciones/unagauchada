@@ -1,7 +1,7 @@
 class Usuario < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  has_many :gauchadas
+  has_many :gauchadas, dependent: :destroy
   has_many :postulacions
   validates :puntos, presence: true
   devise :database_authenticatable, :registerable,
