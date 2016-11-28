@@ -33,7 +33,8 @@
 				        	<%= link_to @gauchada.titulo, @gauchada %>
 				        	<p>
 						        <% if can? :destroy, @gauchada %>
-						        	<%= link_to @gauchada, class:'btn-floating btn red pull-right', method: :delete do %>
+						        	<%= link_to @gauchada, class:'btn-floating btn red pull-right', data: { confirm: "¿Desea eliminar la Gauchada?" },
+											method: :delete do %>
 					        			<i class="fa fa-trash"></i>
 						        	<% end %>
 								<% end %>
