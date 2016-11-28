@@ -4,4 +4,8 @@ module ApplicationHelper
 		allowed = allowed.concat allowed.map(&:downcase)
 		allowed.join ','
 	end
+
+	def ciudades
+		Gauchada.select(:ciudad).order(:ciudad).distinct.pluck(:ciudad)
+	end
 end

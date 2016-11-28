@@ -16,11 +16,15 @@
     		</div>
     		<div class="col-xs-4 align-bottom">
             	<div class="md-form">
-				    <select id="ciudad-buscar" class="form-control browser-default custom-select">
+				    <select id="ciudad-buscar" name="ciudad" class="form-control browser-default custom-select">
 	                    <option value="*" >Ciudad</option>
-	                    <option value="La Plata">La Plata</option>
-	                    <option value="Pehuajó">Pehuajó</option>
-	                    <option value="9 de Julio">9 de Julio</option>
+	                    <% ciudades.each do |c| %>
+	                    <% if c==params[:ciudad] %>
+	                    <option value="<%= c %>" selected="true"><%= c %></option>
+	                    <% else %>
+	                    <option value="<%= c %>"><%= c %></option>
+	                    <% end %>
+	                    <% end %>
 	                </select>
             	</div>
     		</div>
