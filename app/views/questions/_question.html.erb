@@ -33,7 +33,21 @@
             <%= question.contenido %>
             <% if question.answer!=nil %>
                 <%= render question.answer %>
+            <% elsif %>
+                <% if usuario_signed_in? && @gauchada.usuario == current_usuario %>
+                    <%= form_for @answer=Answer.new do |f| %>
+                            <%= f.hidden_field :question_id, value: question.id %>
+                      <div class="field">
+                        <%= f.label :contenido, 'Tu respuesta' %><br>
+                        <%= f.text_field :contenido %>
+                      </div>
+                      <div class="actions">
+                      <button type="submit" class="btn btn-primary">Responder</button></div>
+                <% end %>
             <% end %>
+            <% end %>
+
+
         </p>
     </div>
     <!--/.Content column-->

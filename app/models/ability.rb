@@ -38,6 +38,7 @@ class Ability
       :cambiar_estado_no_concretada, :to => :urPuede
       alias_action :create, :update, :destroy, :cambiar_estado_aceptado, :cambiar_estado_rechazado, :to =>:post
 
+      can :create, Answer
       can :urPuede, Answer do |answer|
         answer.usuario == user
       end

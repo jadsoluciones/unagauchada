@@ -90,56 +90,56 @@
 							<%= render @gauchada.questions %>
 						</div>
 						<!--/.Main wrapper-->
-						<% if usuario_signed_in? && @gauchada.usuario != current_usuario %>
-								<%= form_for @question=Question.new do |f| %>
-								<% @question.usuario = current_usuario %>
-								  <% if @question.errors.any? %>
-								    <div id="error_explanation">
-								      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
+						<% if usuario_signed_in? %>
+							<% if @gauchada.usuario != current_usuario %>
+									<%= form_for @question=Question.new do |f| %>
+									<%= f.hidden_field :gauchada_id, value: @gauchada.id %>
+									  <% if @question.errors.any? %>
+									    <div id="error_explanation">
+									      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
-								      <ul>
-								      <% @question.errors.full_messages.each do |message| %>
-								        <li><%= message %></li>
-								      <% end %>
-								      </ul>
-								    </div>
-								  <% end %>
-								 <%= f.hidden_field :gauchada_id, value: @gauchada.id %>
+									      <ul>
+									      <% @question.errors.full_messages.each do |message| %>
+									        <li><%= message %></li>
+									      <% end %>
+									      </ul>
+									    </div>
+									  <% end %>					 
 
-								 <div class="reply-form">
-								    <h1 class="section-heading">Hace una pregunta </h1>
-								    <p class="text-xs-center">
-								      <%= current_usuario.nombre %> <%=current_usuario.apellido %>
-								    </p>
+									 <div class="reply-form">
+									    <h1 class="section-heading">Hace una pregunta </h1>
+									    <p class="text-xs-center">
+									      <%= current_usuario.nombre %> <%=current_usuario.apellido %>
+									    </p>
 
-								    <!--Third row-->
-								    <div class="row">
-								        <!--Image column-->
-								        <div class="col-sm-2 col-xs-12">
-								            <%= image_tag current_usuario.imagen %>
-								        </div>
-								        <!--/.Image column-->
+									    <!--Third row-->
+									    <div class="row">
+									        <!--Image column-->
+									        <div class="col-sm-2 col-xs-12">
+									            <%= image_tag current_usuario.imagen %>
+									        </div>
+									        <!--/.Image column-->
 
-								        <!--Content column-->
-								        <div class="col-sm-10 col-xs-12">
-								            <div class="md-form">
-								                <%= f.text_area :contenido , class: 'md-textarea' %>
-								                <%= f.label :contenido, 'Tu pregunta' %>
-								            </div>
+									        <!--Content column-->
+									        <div class="col-sm-10 col-xs-12">
+									            <div class="md-form">
+									                <%= f.text_area :contenido , class: 'md-textarea' %>
+									                <%= f.label :contenido, 'Tu pregunta' %>
+									            </div>
 
-								        </div>
+									        </div>
 
-								        <div class="text-xs-center">
+									        <div class="text-xs-center">
 
-								            <button type="submit" class="btn btn-primary">Preguntar</button>
-								    </div>
-								        <!--/.Content column-->
+									            <button type="submit" class="btn btn-primary">Preguntar</button>
+									    </div>
+									        <!--/.Content column-->
 
-								    </div>
-								    <!--/.Third row-->
-								</div>
+									    </div>
+									    <!--/.Third row-->
+									</div>
+									<% end %>
 								<% end %>
-
 						<% else %>
 							<%= render :partial => '/layouts/no_autorizado', :locals => {:mensaje => 'preguntar' } %>
 						<% end %>
