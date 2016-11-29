@@ -1,10 +1,8 @@
-
 <div class="container">
   <div class="row">
     <div class="col-xs-10 offset-xs-1 col-sm-8 col-md-8 offset-sm-2 offset-md-2">
       <div class="card">
         <h3 class="card-header primary-color white-text">Finalizar</h3>
-
           <div class="card-block">
             <table class="table">
               <thead>
@@ -17,19 +15,17 @@
                 </tr>
               </thead>
               <tbody>
-                    <tr>
-                        <td><%= @postulante.usuario.nombre %></td>
-                        <td><%= @postulante.usuario.apellido %></td>
-                        <td><%= @postulante.descripcion %></td>
-                        <td><%= @postulante.fecha.strftime "%d/%m/%Y" %></td>
-                            <td class="col-xs-0 align-bottom">
-                              <a href="/postulacions/cambiar_estado_aceptado"
-                                class='btn btn-success waves-effect waves-light'
-                                onClick="return confirm('¿Desea aceptar a esta persona?');">Concreta</a>
-                              <a href="/postulacions/cambiar_estado_rechazado"
-                                class='btn btn-danger waves-effect waves-light'
-                                onClick="return confirm('¿Desea rechazar a esta persona?');">No concretada</a>
-        										</td>
+               <tr>
+                <td><%= @postulante.usuario.nombre %></td>
+                <td><%= @postulante.usuario.apellido %></td>
+                <td><%= @postulante.descripcion %></td>
+                <td><%= @postulante.fecha.strftime "%d/%m/%Y" %></td>
+                <td class="col-xs-0 align-bottom">
+                  <a href="/gauchadas/concretada?id=<%=@postulante.gauchada_id%>" class='btn btn-success waves-effect waves-light'
+                    onClick="return confirm('¿Confirma que esta persona concretó su Gauchada?');">Concreta</a>
+                  <a href="/gauchadas/no_concretada?id=<%=@postulante.gauchada_id%>" class='btn btn-danger waves-effect waves-light'
+                    onClick="return confirm('¿Confirma que esta persona no concretó su Gauchada?');">No concretada</a>
+        				</td>
               </tbody>
             </table>
           </div>

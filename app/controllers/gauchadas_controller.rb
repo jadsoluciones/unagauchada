@@ -1,7 +1,7 @@
 class GauchadasController < ApplicationController
   before_action :authenticate_usuario!, only: [:new]
   load_and_authorize_resource param_method: :gauchada_params
-  before_action :set_gauchada, only: [:show, :edit, :update, :destroy]
+  before_action :set_gauchada, only: [:show, :edit, :update, :destroy, :cambiar_estado_concretada, :cambiar_estado_no_concretada]
 
 
 
@@ -80,7 +80,7 @@ class GauchadasController < ApplicationController
 
   def ver_listado
     if(@gauchada.id != 0)then
-      @postulados = Gauchada.find(@gauchada.id).postulacions.all
+      @postulados = @gauchada.postulacions.all
     else
       redirect_to :back
     end
@@ -88,7 +88,7 @@ class GauchadasController < ApplicationController
 
   def terminar
     if(@gauchada.id != 0)then
-      @postulados = Gauchada.find(@gauchada.id).postulacions.all
+      @postulados = @gauchada.postulacions.all
       @postulados.each do |pos|
         if pos.estado == 'Aceptado'
           @postulante = pos
@@ -98,6 +98,27 @@ class GauchadasController < ApplicationController
       redirect_to :back
     end
   end
+
+  def cambiar_estado_concretada
+    @gauchada.estado = 'Concretada'
+    @postulados = @gauchada.postulacions.all
+    @postulados.each do |pos|
+      if pos.estado == 'Aceptado'
+        aux = Usuario.find(pos.usuario_id)
+        aux.puntos = aux.puntos+1
+        aux.save
+      end
+    end
+    @gauchada.save
+    redirect_to @gauchada
+  end
+
+  def cambiar_estado_no_concretada
+    @gauchada.estado = 'No concretada'
+    @gauchada.save
+    redirect_to @gauchada
+  end
+
 
 
   private

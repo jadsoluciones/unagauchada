@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'search/:frase/:ciudad' => 'home#search'
   get 'postulacions/cambiar_estado_aceptado' => 'postulacions#cambiar_estado_aceptado'
   get 'postulacions/cambiar_estado_rechazado' => 'postulacions#cambiar_estado_rechazado'
+  get 'gauchadas/concretada' => 'gauchadas#cambiar_estado_concretada'
+  get 'gauchadas/no_concretada' => 'gauchadas#cambiar_estado_no_concretada'
 
   devise_for :usuarios, controllers: {
     registrations: 'registrations'

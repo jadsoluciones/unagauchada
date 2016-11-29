@@ -57,24 +57,26 @@
 				        <p class="card-text text-xs-right font-italic text-muted">
 				       		<%= @gauchada.ciudad%>
 				       	</p>
-								<% if current_usuario %>
-									<% if (@gauchada.usuario != current_usuario) && (@gauchada.cant_postulantes == 0)%>
-										<p class="col-xs-0 align-bottom">
-												<a href="/postulacions/new?gauchada_id=<%=@gauchada.id%>"
-													class='btn btn-blue-grey waves-effect waves-light'>POSTULARSE</a>
-										</p>
-										<%end%>
-									<%if @gauchada.usuario == current_usuario%>
-										<% if @gauchada.cant_postulantes == 0 %>
+								<%if @gauchada.estado == 'En curso'%>
+									<% if current_usuario %>
+										<% if (@gauchada.usuario != current_usuario) && (@gauchada.cant_postulantes == 0)%>
 											<p class="col-xs-0 align-bottom">
-													<%= link_to "Lista de postulados", ver_listado_gauchada_path,
-													class:'btn btn-blue-grey waves-effect waves-light' %>
+													<a href="/postulacions/new?gauchada_id=<%=@gauchada.id%>"
+														class='btn btn-blue-grey waves-effect waves-light'>POSTULARSE</a>
 											</p>
-										<%else%>
-											<p class="col-xs-0 align-bottom">
-													<%= link_to "Terminar gauchada", terminar_gauchada_path,
-													class:'btn btn-blue-grey waves-effect waves-light' %>
-											</p>
+											<%end%>
+										<%if @gauchada.usuario == current_usuario%>
+											<% if @gauchada.cant_postulantes == 0 %>
+												<p class="col-xs-0 align-bottom">
+														<%= link_to "Lista de postulados", ver_listado_gauchada_path,
+														class:'btn btn-blue-grey waves-effect waves-light' %>
+												</p>
+											<%else%>
+												<p class="col-xs-0 align-bottom">
+														<%= link_to "Terminar gauchada", terminar_gauchada_path,
+														class:'btn btn-blue-grey waves-effect waves-light' %>
+												</p>
+											<%end%>
 										<%end%>
 									<%end%>
 								<%end%>
