@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :gauchadas do
       member do
         get :ver_listado
+        get :terminar
       end
     end
   resources :logros

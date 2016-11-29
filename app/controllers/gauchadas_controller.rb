@@ -52,7 +52,7 @@ class GauchadasController < ApplicationController
       end
     end
   end
-  
+
   # PATCH/PUT /gauchadas/1
   # PATCH/PUT /gauchadas/1.json
   def update
@@ -86,6 +86,20 @@ class GauchadasController < ApplicationController
     end
   end
 
+  def terminar
+    if(@gauchada.id != 0)then
+      @postulados = Gauchada.find(@gauchada.id).postulacions.all
+      @postulados.each do |pos|
+        if pos.estado == 'Aceptado'
+          @postulante = pos
+        end
+      end
+    else
+      redirect_to :back
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_gauchada
@@ -103,5 +117,5 @@ class GauchadasController < ApplicationController
       @gauchada.cloudinary_id = hash["public_id"]
       @gauchada.image_url     = hash["secure_url"]
     end
-    
+
 end
