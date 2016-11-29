@@ -1,0 +1,29 @@
+<% @errors.each do |error| %>
+	<p class="text-danger">
+		<%= error %>
+	</p>
+	<% end %>
+	<br>
+<%= form_tag({controller: "reportes", action: "ingresos"}, method: "get")  do %>
+	<div class="row">
+		<div class="col-xs-12 col-sm-6">
+	        <div class="md-form">
+	            <i class="fa fa-calendar prefix"></i>
+	            <input id="desde" placeholder="Seleccionar fecha" name="desde" type="text" class="form-control datepicker reporte" data-value="<%= params[:desde] %>" >
+	            <label for="desde">Desde</label>
+	        </div>
+		</div>	
+		<div class="col-xs-12 col-sm-6">
+			<div class="md-form">
+	            <i class="fa fa-calendar prefix"></i>
+	            <input id="hasta" placeholder="Seleccionar fecha" name="hasta" type="text"  class="form-control datepicker reporte" data-value="<%= params[:hasta] %>">
+	            <label for="hasta">Hasta</label>
+	        </div>
+		</div>	
+	</div>
+	<div class="row">
+        <div class="col-xs-12 text-xs-center">
+            <button type="submit" class="btn btn-orange">Ver</button>
+        </div>
+	</div>
+<% end %>

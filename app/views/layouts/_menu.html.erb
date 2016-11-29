@@ -15,13 +15,16 @@
                   <% end %>
                 </li>
                 <% if current_usuario %>
+                    <% if can? :update, Logro %>
                     <li class="nav-item">
-                        <% if can? :update, Logro %>
-                        <%= link_to logros_path,class:'nav-link' do %>
-                        Logros
+                        <%= link_to logros_path,class:'nav-link purple-text' do %>
+                            Logros
                         <% end %>
-                        <%end%>
                     </li>
+                    <li class="nav-item">
+                        <%= link_to 'Ingresos', {:controller => :reportes, :action => :ingresos}, {class:'nav-link purple-text'} %>
+                    </li>
+                    <% end %>
                     <li class="nav-item">
                           <%= link_to 'Mi Perfil', current_usuario, class:'nav-link' %>
                     </li>

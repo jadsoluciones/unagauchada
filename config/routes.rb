@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'reportes/ingresos'
+
+  get 'reportes/gauchadas'
+
   get 'search/:frase' => 'home#search'
   get 'search/:frase/:ciudad' => 'home#search'
   get 'postulacions/cambiar_estado_aceptado' => 'postulacions#cambiar_estado_aceptado'

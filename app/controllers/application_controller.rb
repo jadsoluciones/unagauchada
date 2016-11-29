@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
-alias_method :current_user, :current_usuario
+  alias_method :current_user, :current_usuario
 
   def current_ability
     @current_ability ||= Ability.new(current_usuario)
@@ -15,16 +15,24 @@ alias_method :current_user, :current_usuario
     redirect_to root_url, :alert => exception.message
   end
 
+  def parse_fecha fecha
+    begin
+      Date.parse(fecha).to_time(:utc)
+    rescue ArgumentError
+      false
+    end
+  end
+
     protected
 
-        def configure_permitted_parameters
-            devise_parameter_sanitizer.permit(:sign_up) do |usuario_params|
-              usuario_params.permit(:nombre, :apellido, :domicilio, :fecNac,
-              :DNI, :email, :password, :password_confirmation)
-            end
-            devise_parameter_sanitizer.permit(:account_update) do |usuario_params|
-              usuario_params.permit(:nombre, :apellido, :domicilio, :fecNac,
-              :DNI, :email, :password, :password_confirmation, :current_password)
-            end
-          end
+    def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_up) do |usuario_params|
+          usuario_params.permit(:nombre, :apellido, :domicilio, :fecNac,
+          :DNI, :email, :password, :password_confirmation)
+        end
+        devise_parameter_sanitizer.permit(:account_update) do |usuario_params|
+          usuario_params.permit(:nombre, :apellido, :domicilio, :fecNac,
+          :DNI, :email, :password, :password_confirmation, :current_password)
+        end
+    end
    end
