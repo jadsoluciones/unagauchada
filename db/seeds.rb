@@ -60,3 +60,16 @@ Postulacion.find_or_create_by(descripcion:"Yo puedo cuidarlo sin problemas", fec
 Postulacion.find_or_create_by(descripcion:"Puedo la segunda quincena", fecha:DateTime.new(2017,1,15), estado:"En espera",gauchada_id: 4, usuario_id: 1)
 Postulacion.find_or_create_by(descripcion:"Yo te puedo dar una mano, no digo que quede mejor", fecha:DateTime.new(2017,1,1), estado:"En espera",gauchada_id: 5, usuario_id: 4)
 Postulacion.find_or_create_by(descripcion:"Me ofrezco a ayudarte a preparar las pinturas para que la pintes", fecha:DateTime.new(2017,1,1), estado:"En espera",gauchada_id: 5, usuario_id: 1)
+
+
+puts "Creo registros de compras"
+
+
+Compra.find_or_create_by(monto:48,puntos_comprados:4,created_at:DateTime.new(2016, 11, 10, 22, 35, 0))
+Compra.find_or_create_by(monto:60,puntos_comprados:5,created_at:DateTime.new(2016, 11, 14, 22, 35, 0))
+Compra.find_or_create_by(monto:36,puntos_comprados:3,created_at:DateTime.new(2016, 11, 18, 22, 35, 0))
+Compra.find_or_create_by(monto:48,puntos_comprados:4,created_at:DateTime.new(2016, 11, 22, 22, 35, 0))
+Compra.find_or_create_by(monto:12,puntos_comprados:1,created_at:DateTime.new(2016, 11, 22, 22, 35, 0))
+Compra.find_or_create_by(monto:12,puntos_comprados:1,created_at:DateTime.new(2016, 11, 22, 22, 35, 0))
+Compra.find_or_create_by(monto:12,puntos_comprados:1,created_at:DateTime.new(2016, 11, 22, 22, 35, 0))
+Compra.find_or_create_by(monto:24,puntos_comprados:2,created_at:DateTime.new(2016, 11, 26, 22, 35, 0))

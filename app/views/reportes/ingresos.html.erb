@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="card">
+	    <div class="card-block">
+
+	        <!--Header-->
+	        <div class="text-xs-left">
+	            <h3>Ingresos</h3>
+	            <hr class="mt-2 mb-2">
+	        </div>
+
+	        <!--Body-->
+	        <p>Genera un reporte de los ingresos entre dos fechas seleccionadas.</p>
+	        <%= render 'form' %>
+
+	    </div>
+	</div>
+	<% if @labels && @values %>
+	<div class="row">
+		<div class="col-xs-12">
+			<canvas id="ingresos-chart" data-labels="<%= @labels.join(',') %>" data-values="<%= @values.join(',') %>"></canvas>
+		</div>
+	</div>
+	
+	<div class="row">
+		<hr>
+		<div class="col-xs-12">
+			<h3 class="mb-1">Vista detallada</h3>
+			<table class="table">
+				<thead>
+				  <tr>
+				    <th>Puntos comprados</th>
+				    <th>Monto</th>
+				    <th>Fecha y Hora</th>
+				  </tr>
+				</thead>
+
+				<tbody>
+				  <% @compras.each do |compra| %>
+				    <tr>
+				      <td><%= compra.puntos_comprados %></td>
+				      <td><%= compra.monto %></td>
+				      <td>
+				        <%= compra.created_at.to_formatted_s(:long) %>
+				      </td>
+				    </tr>
+				  <% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<% end %>
+</div>
