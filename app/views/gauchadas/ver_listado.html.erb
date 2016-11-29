@@ -5,6 +5,13 @@
         <h3 class="card-header primary-color white-text">Postulados</h3>
 
         <% if @postulados.count > 0 %>
+          <%if  Gauchada.find(@postulados.first.gauchada_id).cant_postulantes > 0 %>
+            <% @postulados.each do |postulado| %>
+              <%if postulado.estado == 'En espera' %>
+                <%postulado.estado = 'Rechazado' %>
+              <%end%>
+            <%end%>
+          <%end%>
           <div class="card-block">
             <table class="table">
               <thead>

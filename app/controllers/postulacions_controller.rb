@@ -67,6 +67,9 @@ class PostulacionsController < ApplicationController
 
   def cambiar_estado_aceptado
     @postulacion.estado = 'Aceptado'
+    aux = Gauchada.find(@postulacion.gauchada_id)
+    aux.cant_postulantes = 1
+    aux.save
     @postulacion.save
     redirect_to :back
   end
