@@ -7,7 +7,7 @@
 
               <!--Header-->
               <div class="form-header unique-color ">
-                  <h3><i class="fa fa-lock"></i> Entrar:</h3>
+                  <h3><i class="fa fa-lock"></i> Entrar</h3>
               </div>
 
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -31,7 +31,7 @@
                 </div>
               <% end %>
               <div class="text-xs-center">
-                  <%= f.submit "Entrar", class:'btn btn-primary' %>
+                <button type="submit" class="btn btn-primary">Entrar</button>
               </div>
 
           </div>

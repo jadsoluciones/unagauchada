@@ -21,7 +21,6 @@
 //= require_tree .
 
 $(document).ready(function() {
-	$('.wrap-select').wrap('<div class="select_wrapper">');
 
 	$('.mostrar').on('click',function(){
 		var aux = $(this).attr('data-div');
