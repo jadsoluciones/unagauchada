@@ -47,7 +47,7 @@ class ComprasController < ApplicationController
         current_usuario.puntos += puntos.to_i
         current_usuario.save
 
-        format.html { redirect_to @compra, notice: "Usted compró #{@compra.puntos_comprados} puntos por un total de $ARS #{@compra.monto}." }
+        format.html { redirect_to new_compra_path, notice: "Usted compró #{@compra.puntos_comprados} puntos por un total de $ARS #{@compra.monto}." }
         format.json { render :show, status: :created, location: @compra }
       else
         format.html { render :new }
