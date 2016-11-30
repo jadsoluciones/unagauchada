@@ -21,7 +21,7 @@
                         </div>
                     </div>
             </div>
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-6">
 
                     <div class="md-form">
                         <i class="fa fa-user prefix"></i>
@@ -29,8 +29,9 @@
                         <%= f.label :nombre %>
                     </div>
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-12 col-sm-6">
                     <div class="md-form">
+                        <i class="fa fa-user prefix hidden-sm-up"></i>
                         <%= f.text_field :apellido, required: true,class:'form-control' %>
                         <%= f.label :apellido %>
                     </div>
@@ -93,20 +94,25 @@
             Currently waiting confirmation for: <%= resource.unconfirmed_email %>
             <% end %>
             <div class="row">
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-md-4">
                     <div class="md-form">
                         <i class="fa fa-lock prefix"></i>
                         <%= f.password_field :current_password, autocomplete: "off", required: true ,class:'form-control' %>
                         <%= f.label :current_password, 'Contraseña actual' %>
                     </div>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-12 hidden-md-up">
+                    <p class="font-italic text-muted">
+                        Necesitamos su contraseña para permitir los cambios
+                    </p>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
                     <div class="md-form">
                         <%= f.password_field :password, autocomplete: "off",class:'form-control' %>
                         <%= f.label :password, 'Contraseña' %>
                     </div>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
                     <div class="md-form">
                         <%= f.password_field :password_confirmation, autocomplete: "off",class:'form-control' %>
                         <%= f.label :password_confirmation %>
@@ -114,17 +120,17 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-md-4 hidden-sm-down">
                     <p class="font-italic text-muted">
                         Necesitamos su contraseña para permitir los cambios
                     </p>
                 </div>
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-sm-6 col-md-4">
                     <p class="font-italic text-muted">
                         Dejar en blanco si no desea cambiarlo
                     </p>
                     <% if @minimum_password_length %>
-                    <p class="font-warning"><%= @minimum_password_length %> caracteres mínmos</p>
+                    <p class="text-warning"><%= @minimum_password_length %> caracteres mínmos</p>
                     <% end %>
                 </div>
             </div>
@@ -132,7 +138,7 @@
 
             <hr class="my-2">
             <p class="lead">
-                <%= f.submit "Actualizar", class: 'btn btn-primary' %>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
             </p>
 
             <% end %>

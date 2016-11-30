@@ -1,9 +1,9 @@
 <div class="container">
 	<!--Search form-->
 	<%= form_tag({controller: "gauchadas", action: "index"}, method: "get")	 do %>
-    <!-- <form class="form-inline"> -->
     	<div class="row">
-    		<div class="col-xs-6 align-bottom">
+    <!-- <form class="form-inline"> -->
+    		<div class="col-xs-12 col-sm-6 align-bottom">
 				<div class="md-form">
 				    <i class="fa fa-search prefix"></i>
 				    <% if params[:frase] && params[:frase]!='*' %>
@@ -14,7 +14,7 @@
 				    <label for="frase">Buscar</label>
 				</div>
     		</div>
-    		<div class="col-xs-4 align-bottom">
+    		<div class="col-xs-11 offset-xs-1 offset-sm-0 col-sm-4 align-bottom">
             	<div class="md-form">
 				    <select id="ciudad-buscar" name="ciudad" class="form-control browser-default custom-select">
 	                    <option value="*" >Ciudad</option>
@@ -28,12 +28,12 @@
 	                </select>
             	</div>
     		</div>
-    		<div class="col-xs-2 align-bottom">
+    		<div class="col-xs-12 text-xs-center col-sm-2 align-bottom">
     			<button type="submit" class="btn btn-orange">Filtrar</button>
 				<!-- <a id="boton-buscar" class="btn btn-orange">Filtrar</a> -->
     		</div>
-    	</div>
 
-    	<% end %>
+    	</div>
+    <% end %>
     <!-- </form> -->
 </div>

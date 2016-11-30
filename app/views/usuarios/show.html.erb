@@ -12,12 +12,20 @@
           </small>
         </h1>
         <hr>
-              <a  data-div="#lista-postulaciones-espera" class="mostrar btn btn-blue-grey">
-                Ver mis postulaciones</a>
-              <a  data-div="#lista-postulaciones-aceptada" class="mostrar btn btn-blue-grey">
-                Ver mis solucitudes</a>
-              <a  data-div="#lista-gauchadas" class="mostrar btn btn-blue-grey">
-                Ver mis gauchadas</a>
+            <div class="row">
+              <div class="col-xs-12 col-sm-4 text-xs-center pb-1">
+                <a  data-div="#lista-postulaciones-espera" class="mostrar btn btn-blue-grey">
+                  Ver mis postulaciones</a>
+              </div>
+              <div class="col-xs-12 col-sm-4 text-xs-center pb-1">
+                <a  data-div="#lista-postulaciones-aceptada" class="mostrar btn btn-blue-grey">
+                  Ver mis solucitudes</a>
+              </div>
+              <div class="col-xs-12 col-sm-4 text-xs-center pb-1">
+                <a  data-div="#lista-gauchadas" class="mostrar btn btn-blue-grey">
+                  Ver mis gauchadas</a>
+              </div>
+            </div>
         
         <hr>
         <div class="card-block">
@@ -29,15 +37,16 @@
 
 
           <div class="row pt-1">
-              <div class="col-xs-6">
+              <div class="col-xs-12 col-sm-6">
                   <div class="md-form">
                       <i class="fa fa-user prefix"></i>
                       <%= f.text_field :nombre, class:'form-control', disabled:true %>
                       <%= f.label :nombre %>
                   </div>
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-12 col-sm-6">
                   <div class="md-form">
+                      <i class="fa fa-user prefix hidden-sm-up"></i>
                       <%= f.text_field :apellido, class:'form-control', disabled:true %>
                       <%= f.label :apellido %>
                   </div>
@@ -45,14 +54,14 @@
           </div>
 
           <div class="row">
-              <div class="col-xs-6">
+              <div class="col-xs-12 col-sm-6">
                   <div class="md-form">
                       <i class="fa fa-home prefix"></i>
                       <%= f.text_field :domicilio,class:'form-control', disabled:true %>
                       <%= f.label :domicilio %>
                   </div>
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-12 col-sm-6">
                   <div class="md-form">
                       <i class="fa fa-heart prefix"></i>
                       <%= f.text_field :puntos,class:'form-control', disabled:true %>
@@ -62,18 +71,15 @@
           </div>
 
           <div class="row">
-              <div class="col-xs-6">
-                  <div class="md-form select-fecha">
+              <div class="col-xs-10 col-sm-6">
+                  <div class="md-form">
                       <i class="fa fa-calendar prefix active"></i>
-                      <div class="select-wrapper">
                         <%= f.label :fecNac, 'Fecha de nacimiento' %>
-                        <%= f.date_select :fecNac, {:start_year => 1920,:end_year =>
-                        (Time.now.year - 18)},{ :disabled => true, :class => "browser-default"}  %>
-                      </div>
+                        <%= f.text_field :fecNac, { :disabled => true, :class => "form-control", value: @usuario.fecNac.to_date.to_formatted_s(:long)}  %>
                   </div>
               </div>
               <%= form_for(@usuario.logro) do |j| %>
-              <div class="col-xs-6">
+              <div class="col-xs-12 col-sm-6">
                   <div class="md-form">
                       <i class="fa fa-certificate prefix"></i>
                       <%= j.text_field :titulo, class:'form-control datepicker',disabled:true  %>

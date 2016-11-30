@@ -15,16 +15,16 @@
 	    </div>
 	</div>
 	<% if @labels && @values %>
-	<div class="row">
-		<div class="col-xs-12">
-			<canvas id="line-chart" data-labels="<%= @labels.join(',') %>" data-values="<%= @values.join(',') %>" data-title="Ingresos"></canvas>
-		</div>
+	<div class="card">
+	    <div class="card-block">
+	        <h3 class="mb-1">Ingresos por fecha</h3>
+       	 	<canvas id="line-chart" data-labels="<%= @labels.join(',') %>" data-values="<%= @values.join(',') %>" data-title="Ingresos"></canvas>
+	    </div>
 	</div>
-	
-	<div class="row">
-		<hr>
-		<div class="col-xs-12">
+	<div class="card">
+	    <div class="card-block table-responsive">
 			<h3 class="mb-1">Vista detallada</h3>
+			<hr>
 			<table class="table">
 				<thead>
 				  <tr>
