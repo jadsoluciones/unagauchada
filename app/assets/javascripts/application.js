@@ -54,29 +54,75 @@ $(document).ready(function() {
 		close: 'Cancelar'
 	});
 	$(function () {
-	    var option = {
-	    responsive: true,
-	    };
-	   	
-		var data = {
-			labels: $('#ingresos-chart').attr('data-labels').split(','),
-		    datasets: [
-		        {
-		            label: "Ingresos",
-		            fillColor: "rgba(220,220,220,0.2)",
-		            strokeColor: "rgba(220,220,220,1)",
-		            pointColor: "rgba(220,220,220,1)",
-		            pointStrokeColor: "#fff",
-		            pointHighlightFill: "#fff",
-		            pointHighlightStroke: "rgba(220,220,220,1)",
-		            data: $('#ingresos-chart').attr('data-values').split(',')
-		        }
-		    ]
-		};
 
-	    // Get the context of the canvas element we want to select
-	    var ctx = document.getElementById("ingresos-chart").getContext('2d');
-	    var myLineChart = new Chart(ctx).Line(data, option); //'Line' defines type of the chart.
+		if($('#line-chart').length){
+
+			var data_line = {
+				labels: $('#line-chart').attr('data-labels').split(','),
+			    datasets: [
+			        {
+			            label: $('#line-chart').attr('data-title'),
+			            fillColor: "rgba(220,220,220,0.2)",
+			            strokeColor: "rgba(220,220,220,1)",
+			            pointColor: "rgba(220,220,220,1)",
+			            pointStrokeColor: "#fff",
+			            pointHighlightFill: "#fff",
+			            pointHighlightStroke: "rgba(220,220,220,1)",
+			            data: $('#line-chart').attr('data-values').split(',')
+			        }
+			    ]
+			};
+		    // Get the context of the canvas element we want to select
+		    var ctx = document.getElementById("line-chart").getContext('2d');
+		    var myLineChart = new Chart(ctx).Line(data_line,{responsive: true}); //'Line' defines type of the chart.
+		}
+		if($('#pie-chart').length){
+			var data_pie = [
+			    {
+			        value: $('#pie-chart').attr('data-no-concretada'),
+			        color:"#F7464A",
+			        highlight: "#FF5A5E",
+			        label: "No concretada"
+			    },
+			    {
+			        value: $('#pie-chart').attr('data-concretada'),
+			        color: "#46BFBD",
+			        highlight: "#5AD3D1",
+			        label: "Concretada"
+			    },
+			    {
+			        value: $('#pie-chart').attr('data-en-curso'),
+			        color: "#FDB45C",
+			        highlight: "#FFC870",
+			        label: "En Curso"
+			    }
+			];
+		    var ctx2 = document.getElementById("pie-chart").getContext('2d');
+			var myDoughnutChart = new Chart(ctx2).Doughnut(data_pie,{responsive: true});
+
+		}
+
+		if($('#radar-chart').length){
+			var data_radar = {
+			    labels: ["0", "1", "2", "3", "4", "5", "+5"],
+			    datasets: [
+			        {
+			            label: "Postulaciones por gauchada",
+			            fillColor: "rgba(220,220,220,0.2)",
+			            strokeColor: "rgba(220,220,220,1)",
+			            pointColor: "rgba(220,220,220,1)",
+			            pointStrokeColor: "#fff",
+			            pointHighlightFill: "#fff",
+			            pointHighlightStroke: "rgba(220,220,220,1)",
+			            data: $('#radar-chart').attr('data-postulantes').split(',')
+			        }
+			    ]
+			};
+			var ctx3 = document.getElementById("radar-chart").getContext('2d');
+			var myRadarChart = new Chart(ctx3).Radar(data_radar, {responsive: true});
+
+		}
+
 	});
 
 });

@@ -10,14 +10,14 @@
 
 	        <!--Body-->
 	        <p>Genera un reporte de los ingresos entre dos fechas seleccionadas.</p>
-	        <%= render 'form' %>
+	        <%= render partial: 'form', :locals=> {:accion => :ingresos} %>
 
 	    </div>
 	</div>
 	<% if @labels && @values %>
 	<div class="row">
 		<div class="col-xs-12">
-			<canvas id="ingresos-chart" data-labels="<%= @labels.join(',') %>" data-values="<%= @values.join(',') %>"></canvas>
+			<canvas id="line-chart" data-labels="<%= @labels.join(',') %>" data-values="<%= @values.join(',') %>" data-title="Ingresos"></canvas>
 		</div>
 	</div>
 	
