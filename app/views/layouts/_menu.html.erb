@@ -17,6 +17,14 @@
                   Inicio<span class="sr-only">(current)</span>
                   <% end %>
                 </li>
+                <li class="nav-item">
+                  <%= link_to 'FAQs', faq_path,class:'nav-link' %>
+                </li>
+                <% if !current_usuario || !can?(:update, Logro) %>
+                    <li class="nav-item">
+                        <%= link_to 'Crear Gauchada', new_gauchada_path,class:'nav-link' %>
+                    </li>
+                <% end %>
                 <% if current_usuario %>
                      <% if can? :update, Logro %>
                         <li class="nav-item">
@@ -33,9 +41,6 @@
                         <% else %>
                         <li class="nav-item">
                             <%= link_to 'Comprar puntos',new_compra_path,class:'nav-link' %>
-                        </li>
-                        <li class="nav-item">
-                            <%= link_to 'Crear Gauchada', new_gauchada_path,class:'nav-link' %>
                         </li>
                         <% end %>
                     
