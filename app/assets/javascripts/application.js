@@ -37,6 +37,10 @@ $(document).ready(function() {
 		});
 	});
 
+	$('.faq-pregunta').click(function(){
+		$(this).siblings('.faq-respuesta').slideToggle(300);
+	});
+
 
 	$('.datepicker.reporte').pickadate({
 		monthsFull: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],

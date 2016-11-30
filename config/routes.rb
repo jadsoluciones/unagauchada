@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'faq' => 'faqs#index'
+
   get 'reportes/ingresos'
 
   get 'reportes/gauchadas'
