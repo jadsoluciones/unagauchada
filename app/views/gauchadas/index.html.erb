@@ -56,6 +56,12 @@
 	<% end %>
 	<% end %>
 </div>
-	<% if @gauchadas.size == 0 %>
-		 No hay gauchadas 
-	<% end %>
+<% if @gauchadas.size == 0 %>
+	<div class="row">
+		<div class="container text-xs-center">
+			<p class="lead">
+				No hay gauchadas que cumplan con esa búsqueda
+			</p>
+		</div>
+	</div>	 
+<% end %>

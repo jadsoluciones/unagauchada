@@ -1,3 +1,4 @@
+  <% if p[:total] > 1 %>
   <nav>
   <ul class="pagination">
     <% if p[:current] > 1 %>
@@ -29,3 +30,6 @@
     </li>
   </ul>
 </nav>
+<% else %>
+<br class="mb-1">
+<% end %>
