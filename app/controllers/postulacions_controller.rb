@@ -88,6 +88,9 @@ class PostulacionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def postulacion_params
-      params.require(:postulacion).permit(:descripcion, :fecha, :estado, :gauchada_id)
+      tmp = params.require(:postulacion).permit(:descripcion, :fecha, :estado, :gauchada_id)
+      tmp[:fecha] = parse_fecha tmp[:fecha]
+      tmp
     end
+
 end
