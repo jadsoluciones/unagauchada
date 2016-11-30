@@ -15,17 +15,19 @@ Usuario.create(nombre:"Lucas", apellido:"Hourquebie", domicilio:"5 y 18", fecNac
 puts "Creo gauchadas"
 Gauchada.find_or_create_by(titulo: "Busco acompañante de viaje", descripcion: "Soy camionero y busco una persona que me acompañe en mi viaje hasta Rawson porque sufro problemas de sueño.
 Saldríamos el primer fin de semana de octubre y retornaríamos el fin de semana siguiente.
-* Condición fundamental: debe cebar buenos mates", ciudad: "Pehuajó", usuario_id: 1)
+* Condición fundamental: debe cebar buenos mates", ciudad: "Pehuajó", usuario_id: 1,created_at:DateTime.new(2016, 11, 10, 22, 35, 0))
 
 Gauchada.find_or_create_by(titulo: "Reencontrarme con Ramirez", descripcion: "Ramirez es un burrito que tenía de mascota en un campo en Tucumán. Quisiera reencontrarme con él pero no puedo moverme por un problema físico.
 Me gustaría que alguien lo traiga desde mi pueblo para poder saludarlo y luego volver a llevarlo.
-*la foto es del 2004, Ramirez puede haber cambiado un poco", image_url: "http://res.cloudinary.com/arambarrid/image/upload/v1477794187/vjuaqmwatadovugjnxx9.jpg", ciudad: "San Miguel de Tucumán", usuario_id: 2)
+*la foto es del 2004, Ramirez puede haber cambiado un poco", image_url: "http://res.cloudinary.com/arambarrid/image/upload/v1477794187/vjuaqmwatadovugjnxx9.jpg", ciudad: "San Miguel de Tucumán", usuario_id: 2,created_at:DateTime.new(2016, 11, 16, 22, 35, 0))
 
 Gauchada.find_or_create_by(titulo: "Busco testigo falso", descripcion: "El año pasado tuve un accidente automovilístico en el que choqué el frente de una casa. El dueño de esa casa me quiere llevar a juicio y estoy buscando evitarlo.
-Necesito de un/a abuelito/a que testifique a mi favor diciendo que choqué el frente de la casa por esquivarlo/a.", ciudad: "9 de Julio", usuario_id: 3)
+Necesito de un/a abuelito/a que testifique a mi favor diciendo que choqué el frente de la casa por esquivarlo/a.", ciudad: "9 de Julio", usuario_id: 3,created_at:DateTime.new(2016, 11, 20, 22, 35, 0))
 
-Gauchada.find_or_create_by(titulo:"Karl", descripcion: "Karl es mi perrito y necesita de alguien que lo cuide durante la primera quincena de enero que me voy de vacaciones. Es muy juguetón y muy buena compañía.", image_url: "http://res.cloudinary.com/arambarrid/image/upload/v1477798215/abzwfeantoafvvcznezm.jpg", ciudad: "Carlos Casares", usuario_id: 4)
-Gauchada.find_or_create_by(titulo: "Restaurar obra de arte", descripcion: "La imagen de la izquierda es la original y la de la derecha mi intento por restaurarla. ¿Alguien me haría la gauchada de acomodarla para que se parezca más a la original?", image_url: "http://res.cloudinary.com/arambarrid/image/upload/v1477798304/nj1e3vy89crrvvklwire.jpg", ciudad: "La Plata", usuario_id: 5)
+Gauchada.find_or_create_by(titulo:"Karl", descripcion: "Karl es mi perrito y necesita de alguien que lo cuide durante la primera quincena de enero que me voy de vacaciones. Es muy juguetón y muy buena compañía.", image_url: "http://res.cloudinary.com/arambarrid/image/upload/v1477798215/abzwfeantoafvvcznezm.jpg", ciudad: "Carlos Casares", usuario_id: 4,created_at:DateTime.new(2016, 11, 20, 22, 35, 0))
+Gauchada.find_or_create_by(titulo: "Restaurar obra de arte", descripcion: "La imagen de la izquierda es la original y la de la derecha mi intento por restaurarla. ¿Alguien me haría la gauchada de acomodarla para que se parezca más a la original?", image_url: "http://res.cloudinary.com/arambarrid/image/upload/v1477798304/nj1e3vy89crrvvklwire.jpg", ciudad: "La Plata", usuario_id: 5,created_at:DateTime.new(2016, 11, 26, 22, 35, 0))
+Gauchada.find_or_create_by(titulo: "Armen un partido", descripcion: "Necesito que armen un partido y ganen las elecciones", ciudad: "La Plata", usuario_id: 5,created_at:DateTime.new(2016, 11, 18, 22, 35, 0),estado:'Concretada')
+Gauchada.find_or_create_by(titulo: "Presenteme a Laurita Fernández", descripcion: "Necesito que me presenten a Laurita Fernández", ciudad: "La Plata", usuario_id: 5,created_at:DateTime.new(2016, 11, 18, 22, 35, 0),estado:'No Concretada')
 
 puts "Crea preguntas y respuestas"
 Question.find_or_create_by(contenido: "¿A qué hora sale?", gauchada_id: 1, usuario_id: 2)
@@ -58,9 +60,14 @@ puts "Creo postulaciones"
 Postulacion.find_or_create_by(descripcion:"Puedo cuidarlo la primer semana", fecha:DateTime.new(2017,1,1), estado:"En espera",gauchada_id: 4, usuario_id: 2)
 Postulacion.find_or_create_by(descripcion:"Yo puedo cuidarlo sin problemas", fecha:DateTime.new(2017,1,1), estado:"En espera",gauchada_id: 4, usuario_id: 3)
 Postulacion.find_or_create_by(descripcion:"Puedo la segunda quincena", fecha:DateTime.new(2017,1,15), estado:"En espera",gauchada_id: 4, usuario_id: 1)
+aux = Gauchada.find(4)
+aux.cant_postulantes = 3
+aux.save
 Postulacion.find_or_create_by(descripcion:"Yo te puedo dar una mano, no digo que quede mejor", fecha:DateTime.new(2017,1,1), estado:"En espera",gauchada_id: 5, usuario_id: 4)
 Postulacion.find_or_create_by(descripcion:"Me ofrezco a ayudarte a preparar las pinturas para que la pintes", fecha:DateTime.new(2017,1,1), estado:"En espera",gauchada_id: 5, usuario_id: 1)
-
+aux = Gauchada.find(5)
+aux.cant_postulantes = 2
+aux.save
 
 puts "Creo registros de compras"
 

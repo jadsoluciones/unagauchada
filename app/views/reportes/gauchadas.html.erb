@@ -1,2 +1,78 @@
-<h1>Reportes#gauchadas</h1>
-<p>Find me in app/views/reportes/gauchadas.html.erb</p>
+<div class="container">
+	<div class="card">
+	    <div class="card-block">
+
+	        <!--Header-->
+	        <div class="text-xs-left">
+	            <h3>Gauchadas</h3>
+	            <hr class="mt-2 mb-2">
+	        </div>
+
+	        <!--Body-->
+	        <p>Genera un reporte de las gauchadas entre dos fechas seleccionadas.</p>
+	        <%= render partial: 'form', :locals=> {:accion => :gauchadas} %>
+
+	    </div>
+	</div>
+	
+	<% if @labels && @values %>
+	<div class="card">
+	    <div class="card-block">
+	        <h3 class="mb-1">Cantidad de Gauchadas</h3>
+       	 	<canvas id="line-chart" data-labels="<%= @labels.join(',') %>" data-values="<%= @values.join(',') %>" data-title="Gauchadas"></canvas>
+	    </div>
+	</div>
+	<div class="card">
+	    <div class="card-block">
+	        <h3 class="mb-1">Estadísticas</h3>
+       	 	<div class="row">	
+	        	<div class="col-xs-12 col-sm-5">
+			        <h4>Estados</h4>
+			        <hr>
+					<canvas id="pie-chart"
+					 data-en-curso="<%= @estado[:en_curso] %>"
+					 data-concretada="<%= @estado[:concretada] %>"
+					 data-no-concretada="<%= @estado[:no_concretada] %>">
+					</canvas>
+	        	</div>
+	        	<div class="col-xs-12 col-sm-5 offset-sm-1">
+	        		<h4>Postulaciones por gauchada</h4>
+			        <hr>
+					<canvas id="radar-chart" data-postulantes="<%= @postulantes.join(',') %>"></canvas>
+	        	</div>	
+	        </div>
+	    </div>
+	</div>
+
+	<div class="card">
+	    <div class="card-block">
+	        <h3 class="mb-1">Vista detallada</h3>
+	    	<hr>
+			<table class="table">
+				<thead>
+				  <tr>
+				    <th>Gauchada</th>
+				    <th>Estado</th>
+				    <th>Ciudad</th>
+				    <th>Usuario</th>
+				    <th>Fecha y Hora</th>
+				  </tr>
+				</thead>
+
+				<tbody>
+				  <% @gauchadas.each do |gauchada| %>
+				    <tr>
+				      <td><%= gauchada.titulo %></td>
+				      <td><%= gauchada.estado %></td>
+				      <td><%= gauchada.ciudad %></td>
+				      <td><%= gauchada.usuario.email %></td>
+				      <td><%= gauchada.created_at.to_formatted_s(:long) %></td>
+				    </tr>
+				  <% end %>
+				</tbody>
+			</table>
+
+	    </div>
+	</div>
+	<% end %>
+</div>
