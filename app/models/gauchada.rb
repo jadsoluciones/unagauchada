@@ -28,11 +28,9 @@ class Gauchada < ActiveRecord::Base
 	private
 
 	def self.filter(options = {})
-		 options.reverse_merge!(
-		 	:ciudad => nil,
-		 	:frase => nil
-		 )
-		 puts options.inspect
+		 options[:ciudad] = options[:ciudad]=='*' ? nil : options[:ciudad]
+		 options[:frase] = options[:frase].blank? ? nil : options[:frase]
+
 		 if !options[:frase] && !options[:ciudad] then ## no hay frase ni cuidad
 		   return Gauchada.all
 		 elsif !options[:frase] && options[:ciudad] # no hay frase pero hay ciudad
