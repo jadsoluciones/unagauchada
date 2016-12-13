@@ -8,10 +8,10 @@
       <table class="table">
         <thead>
           <tr>
-            <th >Título</th>
-            <th >Fecha</th>
+            <th>Título</th>
+            <th>Fecha</th>
             <th>Decisión</th>
-            <th >Estado</th>
+            <th>Contacto</th>
           </tr>
         </thead>
         <tbody>
@@ -30,11 +30,11 @@
                       </td>
                   <%elsif pos.estado == 'Aceptado' && pos.fecha > Time.now %>
                       <td >
-                        Usted ya realizó esta Gauchada
+                        <%= Usuario.find(Gauchada.find(pos.gauchada_id).usuario_id).email %>
                       </td>
                   <%else%>
                       <td >
-                        Postulece para ayudar en otras Gauchadas
+                        No puede acceder a la información del usuario
                       </td>
                   <% end %>
              <% end %>
